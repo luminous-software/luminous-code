@@ -13,5 +13,29 @@ The changes to each version released to the Visual Studio Marketplace are listed
 ## v0.2.0 - 2017-02 (not released yet)
 
 - [x] Initial release
+  - Core
+    - [ ] ```Exception``` Extensions
+    - [ ] ```String``` Extensions
+    - [ ] ```String``` Concatenation
+  - Visual Studio
+    - [ ] ```CommandKeys``` class
+    - [ ] ```CommandStatuses``` enum
+    - [ ] ```CommandBase``` class
+      - [ ] ```StaticCommand``` class
+      - [ ] ```DynamicCommand``` class
+    - [ ] ```CommandResult``` class
+      - [ ] ```SuccessResult``` class
+      - [ ] ```CancelledResult``` class
+      - [ ] ```InformationResult``` class
+      - [ ] ```ProblemResult``` class
+    - [ ] ```ServiceProvider``` Extensions
+    - [ ] ```IWpfTextViewHost``` Extensions
+    - [ ] ```PackageBase``` class
+    - [ ] ```ProjectItems``` Extensions
+    - [ ] ```Project``` Extensions
+    - [ ] ```SelectedItems``` Extensions
+    - [ ] ```SolutionExplorerItemType``` enum
+    - [ ] ```SolutionItemKind``` class
+    - [ ] ```IVsHierarchyNodeInfo``` Class
 
 ---
