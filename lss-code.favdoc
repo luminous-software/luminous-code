@@ -7,12 +7,12 @@
       <favorites>
         <Favorite>
           <name>Read The Docs</name>
-          <absolutePath>https://readthedocs.org/projects/luminous-code/</absolutePath>
+          <absolutePath>https://readthedocs.org/projects/lss-code/</absolutePath>
           <viewKind>External Document</viewKind>
         </Favorite>
         <Favorite>
           <name>Code Climate</name>
-          <absolutePath>https://codeclimate.com/github/luminous-software/luminous-code</absolutePath>
+          <absolutePath>https://codeclimate.com/github/luminous-software/lss-code</absolutePath>
           <viewKind>External Document</viewKind>
         </Favorite>
       </favorites>
@@ -23,12 +23,12 @@
       <favorites>
         <Favorite>
           <name>Repo</name>
-          <absolutePath>https://github.com/luminous-software/luminous-code</absolutePath>
+          <absolutePath>https://github.com/luminous-software/lss-code</absolutePath>
           <viewKind>External Document</viewKind>
         </Favorite>
         <Favorite>
           <name>Documentation</name>
-          <absolutePath>https://luminous-software.github.io/luminous-code/</absolutePath>
+          <absolutePath>https://luminous-software.github.io/lss-code/</absolutePath>
           <viewKind>External Document</viewKind>
         </Favorite>
       </favorites>
@@ -39,12 +39,12 @@
       <favorites>
         <Favorite>
           <name>Dashboard</name>
-          <absolutePath>https://lumiinus.visualstudio.com/luminous-code</absolutePath>
+          <absolutePath>https://lumiinus.visualstudio.com/lss-code</absolutePath>
           <viewKind>External Document</viewKind>
         </Favorite>
         <Favorite>
           <name>Package Feed</name>
-          <absolutePath>https://lumiinus.pkgs.visualstudio.com/_packaging/luminous-code/nuget/v3/index.json</absolutePath>
+          <absolutePath>https://lumiinus.pkgs.visualstudio.com/_packaging/lss-code/nuget/v3/index.json</absolutePath>
           <viewKind>External Document</viewKind>
         </Favorite>
       </favorites>
