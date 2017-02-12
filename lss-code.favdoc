@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<Favorites xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <folders>
+    <Folder>
+      <name>Solution</name>
+      <folders />
+      <favorites>
+        <Favorite>
+          <name>Read The Docs</name>
+          <absolutePath>https://readthedocs.org/projects/luminous-code/</absolutePath>
+          <viewKind>External Document</viewKind>
+        </Favorite>
+        <Favorite>
+          <name>Code Climate</name>
+          <absolutePath>https://codeclimate.com/github/luminous-software/luminous-code</absolutePath>
+          <viewKind>External Document</viewKind>
+        </Favorite>
+      </favorites>
+    </Folder>
+    <Folder>
+      <name>GitHub</name>
+      <folders />
+      <favorites>
+        <Favorite>
+          <name>Repo</name>
+          <absolutePath>https://github.com/luminous-software/luminous-code</absolutePath>
+          <viewKind>External Document</viewKind>
+        </Favorite>
+        <Favorite>
+          <name>Documentation</name>
+          <absolutePath>https://luminous-software.github.io/luminous-code/</absolutePath>
+          <viewKind>External Document</viewKind>
+        </Favorite>
+      </favorites>
+    </Folder>
+    <Folder>
+      <name>VSTS</name>
+      <folders />
+      <favorites>
+        <Favorite>
+          <name>Dashboard</name>
+          <absolutePath>https://lumiinus.visualstudio.com/luminous-code</absolutePath>
+          <viewKind>External Document</viewKind>
+        </Favorite>
+        <Favorite>
+          <name>Package Feed</name>
+          <absolutePath>https://lumiinus.pkgs.visualstudio.com/_packaging/luminous-code/nuget/v3/index.json</absolutePath>
+          <viewKind>External Document</viewKind>
+        </Favorite>
+      </favorites>
+    </Folder>
+  </folders>
+  <favorites />
+</Favorites>

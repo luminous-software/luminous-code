@@ -1,0 +1,189 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Why Did I Write Luminous Code?\n\n\nLuminous Code\n is a collection of projects, namespaces, classes, methods, and extention methods,\nthat I wrote to keep the code that I need to write in my various projects as \nDRY\n as possible! \nIt's driven by my own needs as a developer,\nbut I'm more than happy to share it with anyone who might find it useful,\nand to accept suggestions or bug reports.\n\n\nI don't understand why anyone would want to write the same old low-level code to accomplish a particular task each\nand every time they need it?\nUnfortunately, the practice is a lot more common than you might think!\nWell I don't know about you, but I \nhate\n maintaining code like that.\n\n\nWhenever I find myself writing the same code again, I first extract it into a new class or a new method,\nas a lot of experienced developers will do.\nThen as soon as I can, I'll transfer the code to the appropriate \nLuminous Code\n namespace so that I can reuse it myself,\nand also release it for others to benefit from as well.\n\n\nAlso, if it's taken me some time to figure out how to do something \nnew\n, I add it into the framework too.\nThat way I'm not constantly reinventing the wheel, so to speak. I figure it out \nonce\n, not \nevery\n\ntime I need the same task done.\n\n\nDoes Your Code Convey Your Intent?\n\n\nIt isn't really all that easy to understand what multiple lines of low-level code are actually\ndesigned to accomplish when you come back to the code days, weeks, months, or even years later!\nWithout working your way through each line, you have no real idea what the \nintent\n of the code is.\n\n\nWhich lines of code would you rather be maintaining?\n\n\n(example goes here)\n\n\nThe \nintent\n of any code that you write should be \nclear\n and \nobvious\n to anyone who is using or maintaining\nyour code (even if it's you). \nOne of the main reasons that I wrote the \nLuminous Code\n was so I could use code that has \nclear and obvious intent\n.\n\n\nSummary\n\n\nLuminous Code helps you to:\n\n\n\n\nkeep your code as DRY as possible\n\n\nwrite code that is more easily maintained\n\n\nwrite code that has clear and obvious intent\n\n\n\n\nFuture Development\n\n\nIf you happen to find \nLuminous Code\n useful and would like to support future development,\nperhaps you could shout me a coke (as I don't actually drink coffee or beer, lol).\n\n\n\n\n\n\n\n\n\nContribute\n\n\nCheck out the \ncontribution guidelines\n\nif you want to contribute to this project. I'd \nlove\n to see others in the community adding\ncode that meets the project's goals.\n\n\nFor cloning and building this project yourself, make sure to install the\n\nExtensibility Tools 2015\n\nextension for Visual Studio which enables some features used by this project.\n\n\nLicense",
+            "title": "About Luminous Code"
+        },
+        {
+            "location": "/#why-did-i-write-luminous-code",
+            "text": "Luminous Code  is a collection of projects, namespaces, classes, methods, and extention methods,\nthat I wrote to keep the code that I need to write in my various projects as  DRY  as possible! \nIt's driven by my own needs as a developer,\nbut I'm more than happy to share it with anyone who might find it useful,\nand to accept suggestions or bug reports.  I don't understand why anyone would want to write the same old low-level code to accomplish a particular task each\nand every time they need it?\nUnfortunately, the practice is a lot more common than you might think!\nWell I don't know about you, but I  hate  maintaining code like that.  Whenever I find myself writing the same code again, I first extract it into a new class or a new method,\nas a lot of experienced developers will do.\nThen as soon as I can, I'll transfer the code to the appropriate  Luminous Code  namespace so that I can reuse it myself,\nand also release it for others to benefit from as well.  Also, if it's taken me some time to figure out how to do something  new , I add it into the framework too.\nThat way I'm not constantly reinventing the wheel, so to speak. I figure it out  once , not  every \ntime I need the same task done.",
+            "title": "Why Did I Write Luminous Code?"
+        },
+        {
+            "location": "/#does-your-code-convey-your-intent",
+            "text": "It isn't really all that easy to understand what multiple lines of low-level code are actually\ndesigned to accomplish when you come back to the code days, weeks, months, or even years later!\nWithout working your way through each line, you have no real idea what the  intent  of the code is.  Which lines of code would you rather be maintaining?  (example goes here)  The  intent  of any code that you write should be  clear  and  obvious  to anyone who is using or maintaining\nyour code (even if it's you). \nOne of the main reasons that I wrote the  Luminous Code  was so I could use code that has  clear and obvious intent .",
+            "title": "Does Your Code Convey Your Intent?"
+        },
+        {
+            "location": "/#summary",
+            "text": "Luminous Code helps you to:   keep your code as DRY as possible  write code that is more easily maintained  write code that has clear and obvious intent",
+            "title": "Summary"
+        },
+        {
+            "location": "/#future-development",
+            "text": "If you happen to find  Luminous Code  useful and would like to support future development,\nperhaps you could shout me a coke (as I don't actually drink coffee or beer, lol).",
+            "title": "Future Development"
+        },
+        {
+            "location": "/#contribute",
+            "text": "Check out the  contribution guidelines \nif you want to contribute to this project. I'd  love  to see others in the community adding\ncode that meets the project's goals.  For cloning and building this project yourself, make sure to install the Extensibility Tools 2015 \nextension for Visual Studio which enables some features used by this project.",
+            "title": "Contribute"
+        },
+        {
+            "location": "/#license",
+            "text": "",
+            "title": "License"
+        },
+        {
+            "location": "/getting-started/",
+            "text": "Install Via Visual Studio\n\n\nIn the \nExtensions and Updates\n dialog in Visual Studio, search for 'luminous',\nthen select and install the \nLuminous Code\n package that you need.\n\n\nInstall Via Visual Studio Marketplace\n\n\nIn the \nVisual Studio Marketplace\n website, search for 'luminous',\nthen select and install the \nLuminous Code\n package that you need.\n\n\nAdd Luminous Code to Your Project",
+            "title": "How to Get Started"
+        },
+        {
+            "location": "/getting-started/#install-via-visual-studio",
+            "text": "In the  Extensions and Updates  dialog in Visual Studio, search for 'luminous',\nthen select and install the  Luminous Code  package that you need.",
+            "title": "Install Via Visual Studio"
+        },
+        {
+            "location": "/getting-started/#install-via-visual-studio-marketplace",
+            "text": "In the  Visual Studio Marketplace  website, search for 'luminous',\nthen select and install the  Luminous Code  package that you need.",
+            "title": "Install Via Visual Studio Marketplace"
+        },
+        {
+            "location": "/getting-started/#add-luminous-code-to-your-project",
+            "text": "",
+            "title": "Add Luminous Code to Your Project"
+        },
+        {
+            "location": "/api/",
+            "text": "Core API\n\n\nLuminous.Code.Core\n is a plain C# class library project that contains the lower level classes, methods and extension methods that get used by more \nspecialised projects.\n\n\n\n\nNote the lack of \nCore\n in the namespace names. I decided that there was no benefit\nto including it in the namespaces because it sometimes made the namespaces sound a bit odd.\n\n\n\n\nString Extensions Namespace\n\n\nThe \nLuminous.Code.StringExtensions\n namespace is fairly self-explanatory.\nIt contains a set of extension methods that extend the \nstring\n namespace.\n\n\n\n\nVisual Studio API\n\n\nLuminous.Code.VisualStudio\n is a plain C# class library project that contains the lower level classes, methods and extension methods that pertain to creating\nVisual Studio extensions.\n\n\nIt has a project reference to the \nLuminous.Code.Core\n project, as it relies on some of the code in it.\n\n\nPackages Namespace\n\n\nThe \nLuminous.Code.VisualStudio.Packages\n namespace contains all of the plumbing code that\na Visual Studio package needs to interact with the Visual Studio IDE.\n\n\n'LuminousPackage' Class\n\n\nThe \nLuminous.Code.VisualStudio.Packages.LuminousPackage\n class is an abstract base class that you inherit your own\npackages from.  It abstracts away the \nMicrosoft.VisualStudio.Shell.Package\n and command interact with the Visual Studio IDE.\n\n\nCommands Namespace\n\n\nThe \nLuminous.Code.VisualStudio.Commands\n namespace contains all of the plumbing code that\na command needs to interact with the Visual Studio IDE (via the command's parent package).\n\n\n'LuminousCommand' Class\n\n\nThe \nLuminous.Code.VisualStudio.Commands.LuminousCommand\n class is an abstract class, which acts as the\ncommon base class for the \nStaticCommand\n class and the \nDynamicCommand\n class.\n\n\nIt contains all of the plumbing code that a command needs to interact easily with\nits parent package, which has the ability to communicate with the IDE.\n\n\n'StaticCommand' Class\n\n\nThe \nLuminous.Code.VisualStudio.Commands.StaticCommand\n class is useful for commands whose text doesn't need to change,\nand which are always visible and always enabled.\n\n\n'DynamicCommand' Class\n\n\nThe \nLuminous.Code.VisualStudio.Commands.DynamicCommand\n class can be used for commands whose \ntext\n may need to change, and/or which may\nneed to dynamically determine if the command needs to be \nvisible\n or \nenabled\n. \nThree sensibly-named overridable properties are provided to make this easy and flexible.\n\n\nBoth the command's \nVisible\n property and \nEnabled\n property are automatically calculated based on the values of\n\nCanExecute\n and \nIsActive\n.\n\n\n'CanExecute' Property\n\n\nIf \nCanExecute\n returns \nfalse\n, the command cannot be executed at all.\nThe command's \nVisible\n and \nEnabled\n properties will both be set to \nfalse\n.\n\n\nFor example, command classes that inherit from \nDynamicCommand\n can override this\nproperty to return, say, a package-wide value that can be set in \nTools\n | \nOptions\n,\nor use some other method of determining if the command's functionality should be turned\noff.\n\n\n'IsActive' Property\n\n\nIf \nIsActive\n returns \nfalse\n, the command's \nEnabled\n property is set to false.\nA common use for this property is to be able to check some complicated \ncontext\n  that\ncan't be set in the package's \nVSCT\n file.\n\n\nText Property\n\n\nThe \nText\n property, as its name suggests, sets the command's display text. Its initial value is \nnull\n,\nwhich instructs the famework to use the value set in the \nVSCT\n file.",
+            "title": "Luminous Code API"
+        },
+        {
+            "location": "/api/#core-api",
+            "text": "Luminous.Code.Core  is a plain C# class library project that contains the lower level classes, methods and extension methods that get used by more \nspecialised projects.   Note the lack of  Core  in the namespace names. I decided that there was no benefit\nto including it in the namespaces because it sometimes made the namespaces sound a bit odd.",
+            "title": "Core API"
+        },
+        {
+            "location": "/api/#string-extensions-namespace",
+            "text": "The  Luminous.Code.StringExtensions  namespace is fairly self-explanatory.\nIt contains a set of extension methods that extend the  string  namespace.",
+            "title": "String Extensions Namespace"
+        },
+        {
+            "location": "/api/#visual-studio-api",
+            "text": "Luminous.Code.VisualStudio  is a plain C# class library project that contains the lower level classes, methods and extension methods that pertain to creating\nVisual Studio extensions.  It has a project reference to the  Luminous.Code.Core  project, as it relies on some of the code in it.",
+            "title": "Visual Studio API"
+        },
+        {
+            "location": "/api/#packages-namespace",
+            "text": "The  Luminous.Code.VisualStudio.Packages  namespace contains all of the plumbing code that\na Visual Studio package needs to interact with the Visual Studio IDE.",
+            "title": "Packages Namespace"
+        },
+        {
+            "location": "/api/#luminouspackage-class",
+            "text": "The  Luminous.Code.VisualStudio.Packages.LuminousPackage  class is an abstract base class that you inherit your own\npackages from.  It abstracts away the  Microsoft.VisualStudio.Shell.Package  and command interact with the Visual Studio IDE.",
+            "title": "'LuminousPackage' Class"
+        },
+        {
+            "location": "/api/#commands-namespace",
+            "text": "The  Luminous.Code.VisualStudio.Commands  namespace contains all of the plumbing code that\na command needs to interact with the Visual Studio IDE (via the command's parent package).",
+            "title": "Commands Namespace"
+        },
+        {
+            "location": "/api/#luminouscommand-class",
+            "text": "The  Luminous.Code.VisualStudio.Commands.LuminousCommand  class is an abstract class, which acts as the\ncommon base class for the  StaticCommand  class and the  DynamicCommand  class.  It contains all of the plumbing code that a command needs to interact easily with\nits parent package, which has the ability to communicate with the IDE.",
+            "title": "'LuminousCommand' Class"
+        },
+        {
+            "location": "/api/#staticcommand-class",
+            "text": "The  Luminous.Code.VisualStudio.Commands.StaticCommand  class is useful for commands whose text doesn't need to change,\nand which are always visible and always enabled.",
+            "title": "'StaticCommand' Class"
+        },
+        {
+            "location": "/api/#dynamiccommand-class",
+            "text": "The  Luminous.Code.VisualStudio.Commands.DynamicCommand  class can be used for commands whose  text  may need to change, and/or which may\nneed to dynamically determine if the command needs to be  visible  or  enabled . \nThree sensibly-named overridable properties are provided to make this easy and flexible.  Both the command's  Visible  property and  Enabled  property are automatically calculated based on the values of CanExecute  and  IsActive .",
+            "title": "'DynamicCommand' Class"
+        },
+        {
+            "location": "/api/#canexecute-property",
+            "text": "If  CanExecute  returns  false , the command cannot be executed at all.\nThe command's  Visible  and  Enabled  properties will both be set to  false .  For example, command classes that inherit from  DynamicCommand  can override this\nproperty to return, say, a package-wide value that can be set in  Tools  |  Options ,\nor use some other method of determining if the command's functionality should be turned\noff.",
+            "title": "'CanExecute' Property"
+        },
+        {
+            "location": "/api/#isactive-property",
+            "text": "If  IsActive  returns  false , the command's  Enabled  property is set to false.\nA common use for this property is to be able to check some complicated  context   that\ncan't be set in the package's  VSCT  file.",
+            "title": "'IsActive' Property"
+        },
+        {
+            "location": "/api/#text-property",
+            "text": "The  Text  property, as its name suggests, sets the command's display text. Its initial value is  null ,\nwhich instructs the famework to use the value set in the  VSCT  file.",
+            "title": "Text Property"
+        },
+        {
+            "location": "/changelog/",
+            "text": "Build Status\n\n\n\n\n\n\n\n\nDevelopment\n\n\nProduction\n\n\nVersion\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReleases\n\n\nThe changes to each version released to the Visual Studio Marketplace are listed below.\n\n\nv0.1.0 - 2017-01 (not released yet)\n\n\n\n\n[x] Initial release\n\n\n[x] Added string methods, tests and extension methods",
+            "title": "Change Log"
+        },
+        {
+            "location": "/changelog/#build-status",
+            "text": "Development  Production  Version",
+            "title": "Build Status"
+        },
+        {
+            "location": "/changelog/#releases",
+            "text": "The changes to each version released to the Visual Studio Marketplace are listed below.",
+            "title": "Releases"
+        },
+        {
+            "location": "/changelog/#v010-2017-01-not-released-yet",
+            "text": "[x] Initial release  [x] Added string methods, tests and extension methods",
+            "title": "v0.1.0 - 2017-01 (not released yet)"
+        },
+        {
+            "location": "/roadmap/",
+            "text": "Items \nwithout\n a checkmark are \nplanned features\n.\nItems \nwith\n a checkmark are \nbeta features\n or \nbug fixes\n that are ready for testing.\n\n\nOnce they've been tested, they'll be included in the \nnext public release\n.\n\n\n\n\n\n\n\n[ ] (none yet)",
+            "title": "What's Coming"
+        },
+        {
+            "location": "/contributing/",
+            "text": "Contributing\n\n\nLooking to contribute something? \nHere's how you can help.\n\n\nPlease take a moment to review this document in order to make the contribution\nprocess easy and effective for everyone involved.\n\n\nFollowing these guidelines helps to communicate that you respect the time of\nthe developers managing and developing this open source project. In return,\nthey should reciprocate that respect in addressing your issue or assessing\npatches and features.\n\n\nUsing the issue tracker\n\n\nThe issue tracker is the preferred channel for\n\nbug reports\n,\n\nfeatures requests\n and\n\nsubmitting pull requests\n,\nbut please respect the following restrictions:\n\n\n\n\n\n\nPlease \ndo not\n use the issue tracker for personal support requests.  Stack\n  Overflow is a better place to get help.\n\n\n\n\n\n\nPlease \ndo not\n derail or troll issues. Keep the discussion on topic and\n  respect the opinions of others.\n\n\n\n\n\n\nPlease \ndo not\n open issues or pull requests which \nbelongs to\n third party\n  components.\n\n\n\n\n\n\nBug reports\n\n\nA bug is a \ndemonstrable problem\n that is caused by the code in the repository.\nGood bug reports are extremely helpful, so thanks!\n\n\nGuidelines for bug reports:\n\n\n\n\n\n\nUse the GitHub issue search\n \u2014 check if the issue has already been\n   reported.\n\n\n\n\n\n\nCheck if the issue has been fixed\n \u2014 try to reproduce it using the\n   latest \nmaster\n or development branch in the repository.\n\n\n\n\n\n\nIsolate the problem\n \u2014 ideally create an\n   \nSSCCE\n and a live example.\n   Uploading the project on cloud storage (OneDrive, DropBox, et el.)\n   or creating a sample GitHub repository is also helpful.\n\n\n\n\n\n\nA good bug report shouldn't leave others needing to chase you up for more\ninformation. Please try to be as detailed as possible in your report. What is\nyour environment? What steps will reproduce the issue? What browser(s) and OS\nexperience the problem? Do other browsers show the bug differently? What\nwould you expect to be the outcome? All these details will help people to fix\nany potential bugs.\n\n\nExample:\n\n\n\n\nShort and descriptive example bug report title\n\n\nA summary of the issue and the Visual Studio, browser, OS environments\nin which it occurs. If suitable, include the steps required to reproduce the bug.\n\n\n\n\nThis is the first step\n\n\nThis is the second step\n\n\nFurther steps, etc.\n\n\n\n\n<url>\n - a link to the project/file uploaded on cloud storage or other publicly accessible medium.\n\n\nAny other information you want to share that is relevant to the issue being\nreported. This might include the lines of code that you have identified as\ncausing the bug, and potential solutions (and your opinions on their\nmerits).\n\n\n\n\nFeature requests\n\n\nFeature requests are welcome. But take a moment to find out whether your idea\nfits with the scope and aims of the project. It's up to \nyou\n to make a strong\ncase to convince the project's developers of the merits of this feature. Please\nprovide as much detail and context as possible.\n\n\nPull requests\n\n\nGood pull requests, patches, improvements and new features are a fantastic\nhelp. They should remain focused in scope and avoid containing unrelated\ncommits.\n\n\nPlease ask first\n before embarking on any significant pull request (e.g.\nimplementing features, refactoring code, porting to a different language),\notherwise you risk spending a lot of time working on something that the\nproject's developers might not want to merge into the project.\n\n\nPlease adhere to the \ncoding guidelines\n used throughout the\nproject (indentation, accurate comments, etc.) and any other requirements\n(such as test coverage).\n\n\nAdhering to the following process is the best way to get your work\nincluded in the project:\n\n\n\n\nFork\n the project, clone your fork,\n   and configure the remotes:\n\n\n\n\nbash\n   # Clone your fork of the repo into the current directory\n   git clone https://github.com/<your-username>/<this-repro-name>.git\n   # Navigate to the newly cloned directory\n   cd <folder-name>\n   # Assign the original repo to a remote called \"upstream\"\n   git remote add upstream https://github.com/madskristensen/<this-repro-name>.git\n\n\n\n\nIf you cloned a while ago, get the latest changes from upstream:\n\n\n\n\nbash\n   git checkout master\n   git pull upstream master\n\n\n\n\nCreate a new topic branch (off the main project development branch) to\n   contain your feature, change, or fix:\n\n\n\n\nbash\n   git checkout -b <topic-branch-name>\n\n\n\n\n\n\nCommit your changes in logical chunks. Please adhere to these \ngit commit\n   message guidelines\n\n   or your code is unlikely be merged into the main project. Use Git's\n   \ninteractive rebase\n\n   feature to tidy up your commits before making them public. Also, prepend name of the feature\n   to the commit message. For instance: \"SCSS: Fixes compiler results for IFileListener.\\nFixes \n#123\n\"\n\n\n\n\n\n\nLocally merge (or rebase) the upstream development branch into your topic branch:\n\n\n\n\n\n\nbash\n   git pull [--rebase] upstream master\n\n\n\n\nPush your topic branch up to your fork:\n\n\n\n\nbash\n   git push origin <topic-branch-name>\n\n\n\n\nOpen a Pull Request\n\n    with a clear title and description against the \nmaster\n branch.\n\n\n\n\nCode guidelines\n\n\n\n\nAlways use proper indentation.\n\n\nIn Visual Studio under \nTools > Options > Text Editor > C# > Advanced\n, make sure\n  \nPlace 'System' directives first when sorting usings\n option is enabled (checked).\n\n\nBefore committing, organize usings for each updated C# source file. Either you can\n  right-click editor and select \nOrganize Usings > Remove and sort\n OR use extension\n  like \nBatchFormat\n.\n\n\nBefore committing, run Code Analysis in \nDebug\n configuration and follow the guidelines\n  to fix CA issues. Code Analysis commits can be made separately.",
+            "title": "How to Contribute"
+        },
+        {
+            "location": "/contributing/#contributing",
+            "text": "Looking to contribute something?  Here's how you can help.  Please take a moment to review this document in order to make the contribution\nprocess easy and effective for everyone involved.  Following these guidelines helps to communicate that you respect the time of\nthe developers managing and developing this open source project. In return,\nthey should reciprocate that respect in addressing your issue or assessing\npatches and features.",
+            "title": "Contributing"
+        },
+        {
+            "location": "/contributing/#using-the-issue-tracker",
+            "text": "The issue tracker is the preferred channel for bug reports , features requests  and submitting pull requests ,\nbut please respect the following restrictions:    Please  do not  use the issue tracker for personal support requests.  Stack\n  Overflow is a better place to get help.    Please  do not  derail or troll issues. Keep the discussion on topic and\n  respect the opinions of others.    Please  do not  open issues or pull requests which  belongs to  third party\n  components.",
+            "title": "Using the issue tracker"
+        },
+        {
+            "location": "/contributing/#bug-reports",
+            "text": "A bug is a  demonstrable problem  that is caused by the code in the repository.\nGood bug reports are extremely helpful, so thanks!  Guidelines for bug reports:    Use the GitHub issue search  \u2014 check if the issue has already been\n   reported.    Check if the issue has been fixed  \u2014 try to reproduce it using the\n   latest  master  or development branch in the repository.    Isolate the problem  \u2014 ideally create an\n    SSCCE  and a live example.\n   Uploading the project on cloud storage (OneDrive, DropBox, et el.)\n   or creating a sample GitHub repository is also helpful.    A good bug report shouldn't leave others needing to chase you up for more\ninformation. Please try to be as detailed as possible in your report. What is\nyour environment? What steps will reproduce the issue? What browser(s) and OS\nexperience the problem? Do other browsers show the bug differently? What\nwould you expect to be the outcome? All these details will help people to fix\nany potential bugs.  Example:   Short and descriptive example bug report title  A summary of the issue and the Visual Studio, browser, OS environments\nin which it occurs. If suitable, include the steps required to reproduce the bug.   This is the first step  This is the second step  Further steps, etc.   <url>  - a link to the project/file uploaded on cloud storage or other publicly accessible medium.  Any other information you want to share that is relevant to the issue being\nreported. This might include the lines of code that you have identified as\ncausing the bug, and potential solutions (and your opinions on their\nmerits).",
+            "title": "Bug reports"
+        },
+        {
+            "location": "/contributing/#feature-requests",
+            "text": "Feature requests are welcome. But take a moment to find out whether your idea\nfits with the scope and aims of the project. It's up to  you  to make a strong\ncase to convince the project's developers of the merits of this feature. Please\nprovide as much detail and context as possible.",
+            "title": "Feature requests"
+        },
+        {
+            "location": "/contributing/#pull-requests",
+            "text": "Good pull requests, patches, improvements and new features are a fantastic\nhelp. They should remain focused in scope and avoid containing unrelated\ncommits.  Please ask first  before embarking on any significant pull request (e.g.\nimplementing features, refactoring code, porting to a different language),\notherwise you risk spending a lot of time working on something that the\nproject's developers might not want to merge into the project.  Please adhere to the  coding guidelines  used throughout the\nproject (indentation, accurate comments, etc.) and any other requirements\n(such as test coverage).  Adhering to the following process is the best way to get your work\nincluded in the project:   Fork  the project, clone your fork,\n   and configure the remotes:   bash\n   # Clone your fork of the repo into the current directory\n   git clone https://github.com/<your-username>/<this-repro-name>.git\n   # Navigate to the newly cloned directory\n   cd <folder-name>\n   # Assign the original repo to a remote called \"upstream\"\n   git remote add upstream https://github.com/madskristensen/<this-repro-name>.git   If you cloned a while ago, get the latest changes from upstream:   bash\n   git checkout master\n   git pull upstream master   Create a new topic branch (off the main project development branch) to\n   contain your feature, change, or fix:   bash\n   git checkout -b <topic-branch-name>    Commit your changes in logical chunks. Please adhere to these  git commit\n   message guidelines \n   or your code is unlikely be merged into the main project. Use Git's\n    interactive rebase \n   feature to tidy up your commits before making them public. Also, prepend name of the feature\n   to the commit message. For instance: \"SCSS: Fixes compiler results for IFileListener.\\nFixes  #123 \"    Locally merge (or rebase) the upstream development branch into your topic branch:    bash\n   git pull [--rebase] upstream master   Push your topic branch up to your fork:   bash\n   git push origin <topic-branch-name>   Open a Pull Request \n    with a clear title and description against the  master  branch.",
+            "title": "Pull requests"
+        },
+        {
+            "location": "/contributing/#code-guidelines",
+            "text": "Always use proper indentation.  In Visual Studio under  Tools > Options > Text Editor > C# > Advanced , make sure\n   Place 'System' directives first when sorting usings  option is enabled (checked).  Before committing, organize usings for each updated C# source file. Either you can\n  right-click editor and select  Organize Usings > Remove and sort  OR use extension\n  like  BatchFormat .  Before committing, run Code Analysis in  Debug  configuration and follow the guidelines\n  to fix CA issues. Code Analysis commits can be made separately.",
+            "title": "Code guidelines"
+        },
+        {
+            "location": "/license/",
+            "text": "MIT License\n\n\nCopyright (c) 2017 Luminous Software Solutions\n\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.",
+            "title": "License"
+        }
+    ]
+}

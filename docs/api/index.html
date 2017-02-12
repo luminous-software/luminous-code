@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>Luminous Code API - Luminous Code</title>
+      
+      
+      
+        <link rel="canonical" href="https://luminous-software.github.io/luminous-code/api/">
+      
+      
+        <meta name="author" content="Yann Duran">
+      
+    
+    <meta property="og:url" content="https://luminous-software.github.io/luminous-code/api/">
+    <meta property="og:title" content="Luminous Code">
+    <meta property="og:image" content="https://luminous-software.github.io/luminous-code/api//../images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="Luminous Code">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+      <link rel="apple-touch-icon" href="../images/logo.png">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../assets/fonts/icon.eot?52m981');
+      	src: url('../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../assets/stylesheets/application-a422ff04cc.css">
+    
+      <link rel="stylesheet" href="../assets/stylesheets/palettes-05ab2406df.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class="palette-primary-deep-purple palette-accent-purple">
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+          </span>
+        
+        Luminous Code API
+      </div>
+    </div>
+    
+      
+      <div class="button button-twitter" role="button" aria-label="Twitter">
+        <a href="https://twitter.com/lumiinus" title="@lumiinus on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
+      </div>
+    
+    
+      
+      <div class="button button-github" role="button" aria-label="GitHub">
+        <a href="https://github.com/luminous-code" title="@luminous-code on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+      </div>
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/luminous-software/luminous-code" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>
+          Luminous Code
+          <span class="version">
+            v0.2.0
+          </span>
+        </strong>
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="About Luminous Code" href="..">
+      About Luminous Code
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="How to Get Started" href="../getting-started/">
+      How to Get Started
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="current" title="Luminous Code API" href="./">
+      Luminous Code API
+    </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Core API" href="#core-api">
+                Core API
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Visual Studio API" href="#visual-studio-api">
+                Visual Studio API
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="Change Log" href="../changelog/">
+      Change Log
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="What's Coming" href="../roadmap/">
+      What's Coming
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="How to Contribute" href="../contributing/">
+      How to Contribute
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="" title="License" href="../license/">
+      License
+    </a>
+    
+  </li>
+
+          
+        </ul>
+        
+          <hr>
+          <span class="section">The author</span>
+          <ul>
+            
+              
+              <li>
+                <a href="https://twitter.com/lumiinus" target="_blank" title="@lumiinus on Twitter">
+                  @lumiinus on Twitter
+                </a>
+              </li>
+            
+            
+              
+              <li>
+                <a href="https://github.com/luminous-code" target="_blank" title="@luminous-code on GitHub">
+                  @luminous-code on GitHub
+                </a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+            <h1>Luminous Code API</h1>
+          
+          <h2 id="core-api">Core API</h2>
+<p><code>Luminous.Code.Core</code> is a plain C# class library project that contains the lower level classes, methods and extension methods that get used by more 
+specialised projects.</p>
+<blockquote>
+<p>Note the lack of <code>Core</code> in the namespace names. I decided that there was no benefit
+to including it in the namespaces because it sometimes made the namespaces sound a bit odd.</p>
+</blockquote>
+<h3 id="string-extensions-namespace">String Extensions Namespace</h3>
+<p>The <code>Luminous.Code.StringExtensions</code> namespace is fairly self-explanatory.
+It contains a set of extension methods that extend the <code>string</code> namespace.</p>
+<hr />
+<h2 id="visual-studio-api">Visual Studio API</h2>
+<p><code>Luminous.Code.VisualStudio</code> is a plain C# class library project that contains the lower level classes, methods and extension methods that pertain to creating
+Visual Studio extensions.</p>
+<p>It has a project reference to the <code>Luminous.Code.Core</code> project, as it relies on some of the code in it.</p>
+<h3 id="packages-namespace">Packages Namespace</h3>
+<p>The <code>Luminous.Code.VisualStudio.Packages</code> namespace contains all of the plumbing code that
+a Visual Studio package needs to interact with the Visual Studio IDE.</p>
+<h3 id="luminouspackage-class">'LuminousPackage' Class</h3>
+<p>The <code>Luminous.Code.VisualStudio.Packages.LuminousPackage</code> class is an abstract base class that you inherit your own
+packages from.  It abstracts away the <code>Microsoft.VisualStudio.Shell.Package</code> and command interact with the Visual Studio IDE.</p>
+<h3 id="commands-namespace">Commands Namespace</h3>
+<p>The <code>Luminous.Code.VisualStudio.Commands</code> namespace contains all of the plumbing code that
+a command needs to interact with the Visual Studio IDE (via the command's parent package).</p>
+<h3 id="luminouscommand-class">'LuminousCommand' Class</h3>
+<p>The <code>Luminous.Code.VisualStudio.Commands.LuminousCommand</code> class is an abstract class, which acts as the
+common base class for the <code>StaticCommand</code> class and the <code>DynamicCommand</code> class.</p>
+<p>It contains all of the plumbing code that a command needs to interact easily with
+its parent package, which has the ability to communicate with the IDE.</p>
+<h3 id="staticcommand-class">'StaticCommand' Class</h3>
+<p>The <code>Luminous.Code.VisualStudio.Commands.StaticCommand</code> class is useful for commands whose text doesn't need to change,
+and which are always visible and always enabled.</p>
+<h3 id="dynamiccommand-class">'DynamicCommand' Class</h3>
+<p>The <code>Luminous.Code.VisualStudio.Commands.DynamicCommand</code> class can be used for commands whose <em>text</em> may need to change, and/or which may
+need to dynamically determine if the command needs to be <em>visible</em> or <em>enabled</em>. 
+Three sensibly-named overridable properties are provided to make this easy and flexible.</p>
+<p>Both the command's <code>Visible</code> property and <code>Enabled</code> property are automatically calculated based on the values of
+<code>CanExecute</code> and <code>IsActive</code>.</p>
+<h4 id="canexecute-property">'CanExecute' Property</h4>
+<p>If <code>CanExecute</code> returns <code>false</code>, the command cannot be executed at all.
+The command's <code>Visible</code> and <code>Enabled</code> properties will both be set to <code>false</code>.</p>
+<p>For example, command classes that inherit from <code>DynamicCommand</code> can override this
+property to return, say, a package-wide value that can be set in <em>Tools</em> | <em>Options</em>,
+or use some other method of determining if the command's functionality should be turned
+off.</p>
+<h4 id="isactive-property">'IsActive' Property</h4>
+<p>If <code>IsActive</code> returns <code>false</code>, the command's <code>Enabled</code> property is set to false.
+A common use for this property is to be able to check some complicated <em>context</em>  that
+can't be set in the package's <em>VSCT</em> file.</p>
+<h4 id="text-property">Text Property</h4>
+<p>The <code>Text</code> property, as its name suggests, sets the command's display text. Its initial value is <code>null</code>,
+which instructs the famework to use the value set in the <em>VSCT</em> file.</p>
+<hr />
+          <aside class="copyright" role="note">
+            
+              Copyright (c) 2017 Luminous Software Solutions &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../getting-started/" title="How to Get Started">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                How to Get Started
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../changelog/" title="Change Log">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Change Log
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '..';
+      var repo_id  = '';
+    </script>
+    <script src="../assets/javascripts/application-997097ee0c.js"></script>
+    
+    
+  </body>
+</html>

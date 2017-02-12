@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<package >
+  <!--
+  Any nuget reference will be included in the nuget package as a dependency without having to add it in here
+  -->
+
+  <metadata minClientVersion="2.8">
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <description>$description$</description>
+    <summary>$description$</summary>
+    <releaseNotes></releaseNotes>
+
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <copyright>$copyright$</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+
+    <projectUrl>https://readthedocs.org/projects/luminous-code/</projectUrl>
+    <iconUrl>http://yannduran.com/assets/images/LightHouse-48.jpg</iconUrl>
+
+    <tags>luminous,code,core,yannduran,yann</tags>
+    <language>$language$</language>
+  </metadata>
+</package>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>2c8445eb-1011-4f3a-88c0-26bc5c01d78d</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>YD.Framework.Info</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CompanyInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SolutionInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VersionInfo.cs" />
+  </ItemGroup>
+</Project>

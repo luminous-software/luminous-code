@@ -1,0 +1,53 @@
+# Project information
+site_name: 'Luminous Code'
+site_description: ''
+site_author: 'Yann Duran'
+site_url: 'https://luminous-software.github.io/luminous-code'
+site_favicon: 'images/favicon.ico'
+
+# site:
+#   name: 'Luminous Software'
+#   description: 'Some description'
+#   author: 'Yann Duran'
+#   url: 'https://luminous-software.github.io/luminous-code'
+
+repo_name: 'luminous-code'
+repo_url: 'https://github.com/luminous-software/luminous-code'
+
+# Copyright
+copyright: 'Copyright (c) 2017 Luminous Software Solutions'
+
+# Documentation and theme
+docs_dir: 'mkdocs'
+site_dir: 'docs'
+theme: 'material'
+
+# TOC
+pages:
+  - About Luminous Code: 'index.md'
+  - How to Get Started: 'getting-started.md'
+  - Luminous Code API: 'api.md'
+  - Change Log: 'changelog.md'
+  - What's Coming: 'roadmap.md'
+  - How to Contribute: 'contributing.md'
+  - License: 'license.md'
+
+# Options
+extra:
+  version: 'v0.2.0'
+  logo: 'images/logo.png'
+
+  palette:
+    primary: 'deep purple'
+    accent: 'purple'
+
+  author:
+    github: 'luminous-code'
+    twitter: 'lumiinus'
+
+# Extensions
+markdown_extensions:
+  - codehilite(css_class=code)
+  - admonition
+#  - toc:
+#      permalink: '#'

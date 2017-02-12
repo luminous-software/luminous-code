@@ -1,0 +1,19 @@
+{
+  "commands": {
+    "build": {
+      "fileName": "cmd.exe",
+      "workingDirectory": "\\",
+      "arguments": "/c cmd\\build.cmd"
+    },
+    "serve": {
+      "fileName": "cmd.exe",
+      "workingDirectory": "\\",
+      "arguments": "/c cmd\\serve.cmd"
+    },
+    "badges": {
+      "fileName": "badger",
+      "workingDirectory": "\\",
+      "arguments": "badge"
+    }
+  }
+}
