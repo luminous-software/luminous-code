@@ -1,4 +1,4 @@
-[![Gitter](https://badges.gitter.im/luminous-software/luminous-code.svg)](https://gitter.im/luminous-software/luminous-code?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter][gitter]](https://gitter.im/luminous-software/luminous-code?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Twitter](https://img.shields.io/twitter/url/https/lumiinus.visualstudio.com/luminous-code/.svg?style=social)](https://twitter.com/intent/tweet??button_hashtag=LuminousCode&text=I+just+discovered+an+awesome+new+code+framework:&url=https%3A%2F%2Fluminous-software.solutions&hashtags=LuminousCode&via=lumiinus)
 
 <!--
@@ -40,7 +40,7 @@ Also, if it's taken me some time to figure out how to do something **new**, I ad
 That way I'm not constantly reinventing the wheel, so to speak. I figure it out **once**, not **every**
 time I need the same task done.
 
-## Does Your Code Convey Your Intent?
+## Clear and Obvious Intent
 
 It isn't really all that easy to understand what multiple lines of low-level code are actually
 designed to accomplish when you come back to the code days, weeks, months, or even years later!
@@ -95,6 +95,7 @@ extension for Visual Studio which enables some features used by this project.
 ---
 [Single Resposibility Principle]: https://en.wikipedia.org/wiki/Single_responsibility_principle
 
+[gitter]: https://badges.gitter.im/luminous-software/luminous-code.svg
 [Build Status]: https://lumiinus.visualstudio.com/_apis/public/build/definitions/f216dc0e-1381-47f0-a1c5-fd85f180cded/7/badge
 [donate-button]: https://www.paypalobjects.com/en_AU/i/btn/btn_donate_LG.gif
 [donate-button-large]: https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif
