@@ -47,43 +47,28 @@ Luminous Code helps you to:
 If you happen to find *Luminous Code* useful and would like to support future development,
 maybe you could shout me a coke (as I don't actually drink coffee or beer, lol).
 
-[![Donate](https://www.paypalobjects.com/en_AU/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/yannduran/5)
+[![Donate][donate-button-au]][paypal-me]
 
-<!--
-[![Donate](https://www.paypalobjects.com/en_AU/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZEFP9H57CGERS)
-[![donate-button-au]](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZEFP9H57CGERS)
-[![paypal-donate]](https://www.paypal.me/yannduran/5)
--->
 ---
 
-### Contribute
+## Contribute
 
-Check out the [contribution guidelines](/.github/contributing.md)
+Check out the [contribution guidelines][contribute]
 if you want to contribute to this project. I'd **love** to see others in the community adding
 code as long as it meets the project's goals.
 
 For cloning and building this project yourself, make sure to install the
-[Extensibility Tools 2015]
+[Extensibility Tools 2015][extensibility-tools]
 extension for Visual Studio which enables some features used by this project.
 
 ## License
-<!--
-[MIT](license.md)
--->
+
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://yannduran.mit-license.org)
 
 ---
-[Single Resposibility Principle]: https://en.wikipedia.org/wiki/Single_responsibility_principle
 
 [gitter]: https://badges.gitter.im/luminous-software/luminous-code.svg
-[Build Status]: https://lumiinus.visualstudio.com/_apis/public/build/definitions/f216dc0e-1381-47f0-a1c5-fd85f180cded/7/badge
-[donate-button]: https://www.paypalobjects.com/en_AU/i/btn/btn_donate_LG.gif
-[donate-button-large]: https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif
-[paypal-me]: https://www.paypal.me/yannduran/5
 [donate-button-au]: https://www.paypalobjects.com/en_AU/i/btn/btn_donateCC_LG.gif
-[paypal-donate]: http://www.paypal.com/en_GB/i/btn/x-click-butcc-donate.gif
-[badge]: https://lumiinus.visualstudio.com/_apis/public/build/definitions/f216dc0e-1381-47f0-a1c5-fd85f180cded/7/badge
-[lumiinus]: https://lumiinus.visualstudio.com/luminous-code/_build/?definitionId=7&_a=completed
-[gitter]: https://badges.gitter.im/luminous-software/luminous-code.svg
-[Extensibility Tools 2015]: https://visualstudiogallery.msdn.microsoft.com/ab39a092-1343-46e2-b0f1-6a3f91155aa6
-
+[paypal-me]: https://www.paypal.me/yannduran/5
+[contribute]: https://github.com/luminous-software/luminous-code/blob/master/.github/CONTRIBUTING.md
+[extensibility-tools]: https://visualstudiogallery.msdn.microsoft.com/ab39a092-1343-46e2-b0f1-6a3f91155aa6

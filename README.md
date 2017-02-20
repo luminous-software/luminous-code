@@ -1,23 +1,6 @@
 [![Gitter](https://badges.gitter.im/luminous-software/luminous-code.svg)](https://gitter.im/luminous-software/luminous-code?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Twitter](https://img.shields.io/twitter/url/https/lumiinus.visualstudio.com/luminous-code/.svg?style=social)](https://twitter.com/intent/tweet??button_hashtag=LuminousCode&text=I+just+discovered+an+awesome+new+code+framework:&url=https%3A%2F%2Fluminous-software.solutions&hashtags=LuminousCode&via=lumiinus)
 
-<!--
-<a href="https://twitter.com/intent/tweet?button_hashtag=LuminousCode" class="twitter-hashtag-button" data-show-count="false">Tweet #LuminousCode</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-[![Status](https://lumiinus.visualstudio.com/_apis/public/build/definitions/f216dc0e-1381-47f0-a1c5-fd85f180cded/7/badge)](https://lumiinus.visualstudio.com/luminous-code/_build/?definitionId=7&_a=completed)
-[![gitter]](https://gitter.im/luminous-software/luminous-code?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![badge]](https://lumiinus.visualstudio.com/luminous-code/_build/?definitionId=7&_a=completed)
-[![GitHub issues](https://img.shields.io/github/issues/luminous-software/luminous-code.svg)](https://github.com/luminous-software/luminous-code/issues)
-[![GitHub forks](https://img.shields.io/github/forks/luminous-software/luminous-code.svg)](https://github.com/luminous-software/luminous-code/network)
-[![GitHub stars](https://img.shields.io/github/stars/luminous-software/luminous-code.svg)](https://github.com/luminous-software/luminous-code/stargazers)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/luminous-software/luminous-code/master/LICENSE)
-[![Gitter](https://img.shields.io/gitter/room/luminous-code/luminous-code.svg)](https://gitter.im/luminous-software/luminous-code)
-[![Code Climate](https://codeclimate.com/github/luminous-software/luminous-code/badges/gpa.svg)](https://codeclimate.com/github/luminous-software/luminous-code)
-[![Issue Count](https://codeclimate.com/github/luminous-software/luminous-code/badges/issue_count.svg)](https://codeclimate.com/github/luminous-software/luminous-code)
-[![Join the chat at [gitter]](https://badges.gitter.im/luminous-software/luminous-code.svg)](https://gitter.im/luminous-software/luminous-code?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Dependency Status](http://img.shields.io/gemnasium/yannduran/luminous-software.github.io.jekyl.svg?style=flat-square)](https://gemnasium.com/yannduran/luminous-software.github.io.jekyl)
-[![Code Climate](http://img.shields.io/codeclimate/github/yannduran/luminous-software.github.io.jekyl.svg?style=flat-square)](https://codeclimate.com/github/yannduran/luminous-software.github.io.jekyl)
--->
-
 ## Why Did I Write Luminous Code?
 
 *Luminous Code* is a collection of projects, namespaces, classes, methods, and extention methods,
@@ -76,9 +59,9 @@ perhaps you could shout me a coke (as I don't actually drink coffee or beer, lol
 -->
 ---
 
-### Contribute
+## Contribute
 
-Check out the [contribution guidelines](contributing.md)
+Check out the [contribution guidelines][contribute]
 if you want to contribute to this project. I'd **love** to see others in the community adding
 code that meets the project's goals.
 
@@ -105,4 +88,4 @@ extension for Visual Studio which enables some features used by this project.
 [lumiinus]: https://lumiinus.visualstudio.com/luminous-code/_build/?definitionId=7&_a=completed
 [gitter]: https://badges.gitter.im/luminous-software/luminous-code.svg
 [Extensibility Tools 2015]: https://visualstudiogallery.msdn.microsoft.com/ab39a092-1343-46e2-b0f1-6a3f91155aa6
-
+[contribute]: https://github.com/luminous-software/luminous-code/blob/master/.github/CONTRIBUTING.md
