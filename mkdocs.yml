@@ -1,8 +1,8 @@
 site_name: 'Luminous Code'
 site_description: ''
 site_author: 'Yann Duran'
-site_url: 'https://luminous-software.github.io/luminous-code'
-site_favicon: 'images/favicon.ico'
+site_url: 'https://luminous-software.solutions/luminous-code'
+site_favicon: 'img/favicon.ico'
 
 repo_name: 'luminous-code'
 repo_url: 'https://github.com/luminous-software/luminous-code'
@@ -23,8 +23,8 @@ pages:
   - License: 'license.md'
 
 extra:
-  version: 'v0.2.0.1'
-  logo: 'images/logo.png'
+  version: 'v0.2.0.2'
+  logo: 'img/logo.png'
 
   palette:
     primary: 'deep purple'
