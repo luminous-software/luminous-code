@@ -1,0 +1,24 @@
+{
+  "name": "luminous-code",
+  "version": "0.2.0",
+  "repository": "github.com/luminous-software/luminous-code",
+  "license": "MIT",
+
+  "deployToGit": {
+    "repository": "git@github.com:luminous-software/luminous-code.git",
+    "branch": "master",
+    "folder": "site",
+    "script": "gulp build",
+    "commit": "Automatic commit text",
+    "user": {
+      "email": "yd@live.com.au",
+      "name": "Yann Duran"
+    }
+  },
+
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-all-tasks": "^1.1.4",
+    "gulp-gh-pages": "^0.5.4"
+  }
+}

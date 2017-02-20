@@ -10,7 +10,7 @@
 
 The changes to each version released to the Visual Studio Marketplace are listed below.
 
-## v0.2.0 - 2017-02 (not released yet)
+## v0.2.0.1 - 2017-02 (not released yet)
 
 - [x] Initial release
   - Core
