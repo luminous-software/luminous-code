@@ -62,13 +62,13 @@ gulp.task('serve', function (cb) {
     })
 });
 
-gulp.task('deploy', ['build'], function () { // removes custom domain
-    return gulp.src(config.folder + '/**/*')
-        .pipe(ghPages({
-            remoteUrl: config.repo,
-            remote: config.remote,
-            branch: config.branch
-        }));
-});
+//gulp.task('deploy', ['build'], function () { // removes custom domain
+//    return gulp.src('/**/*')
+//        .pipe(ghPages({
+//            remoteUrl: config.repo,
+//            remote: config.remote,
+//            branch: config.branch
+//        }));
+//});
 
 gulp.task('default', ['build', 'deploy']);
