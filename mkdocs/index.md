@@ -47,28 +47,29 @@ Luminous Code helps you to:
 If you happen to find *Luminous Code* useful and would like to support future development,
 maybe you could shout me a coke (as I don't actually drink coffee or beer, lol).
 
-[![Donate][donate-button-au]][paypal-me]
+[![Donate][donate-img-au]][paypal-me]
 
 ---
 
 ## Contribute
 
-Check out the [contribution guidelines][contribute]
+Check out the [contribution guidelines][contribute-url]
 if you want to contribute to this project. I'd **love** to see others in the community adding
 code as long as it meets the project's goals.
 
 For cloning and building this project yourself, make sure to install the
-[Extensibility Tools 2015][extensibility-tools]
+[Extensibility Tools 2015][extensibility-tools-url]
 extension for Visual Studio which enables some features used by this project.
 
 ## License
 
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://yannduran.mit-license.org)
+[![License][license-img]][license-url]
 
 ---
 
-[gitter]: https://badges.gitter.im/luminous-software/luminous-code.svg
-[donate-button-au]: https://www.paypalobjects.com/en_AU/i/btn/btn_donateCC_LG.gif
+[donate-img-au]: https://www.paypalobjects.com/en_AU/i/btn/btn_donateCC_LG.gif
 [paypal-me]: https://www.paypal.me/yannduran/5
-[contribute]: https://github.com/luminous-software/luminous-code/blob/master/.github/CONTRIBUTING.md
-[extensibility-tools]: https://visualstudiogallery.msdn.microsoft.com/ab39a092-1343-46e2-b0f1-6a3f91155aa6
+[contribute-url]: https://github.com/luminous-software/luminous-code/blob/master/.github/CONTRIBUTING.md
+[extensibility-tools-url]: https://visualstudiogallery.msdn.microsoft.com/ab39a092-1343-46e2-b0f1-6a3f91155aa6
+[license-img]: https://img.shields.io/:license-mit-blue.svg?style=flat-square
+[license-url]: https://yannduran.mit-license.org
