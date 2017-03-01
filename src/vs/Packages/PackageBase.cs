@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Windows;
+using System.IO;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.TextManager.Interop;
@@ -251,6 +252,8 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
+                if (!File.Exists(args)) return new ProblemResult(problem);
+
                 Dte?.ExecuteCommand(command, args);
 
                 return new SuccessResult(message: success);
@@ -627,20 +630,18 @@ namespace Luminous.Code.VisualStudio.Packages
         protected IWpfTextViewHost GetCurrentViewHost()
         {
             const int mustHaveFocus = 1;
-            IVsTextView textView = null;
 
             var textManager = GetService<SVsTextManager, IVsTextManager>();
             if (textManager == null) return null;
 
-            textManager.GetActiveView(mustHaveFocus, null, out textView);
+            textManager.GetActiveView(mustHaveFocus, null, out IVsTextView textView);
 
             var userData = textView as IVsUserData;
             if (userData == null) return null;
 
-            object holder;
             var guidViewHost = guidIWpfTextViewHost;
 
-            userData.GetData(ref guidViewHost, out holder);
+            userData.GetData(ref guidViewHost, out object holder);
 
             return (IWpfTextViewHost)holder;
         }
