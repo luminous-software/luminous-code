@@ -5,19 +5,7 @@ VisualStudioVersion = 15.0.26206.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{00058F45-5598-40B3-BB3D-84CA49650378}"
 	ProjectSection(SolutionItems) = preProject
-		.gitignore = .gitignore
-		mkdocs\api.md = mkdocs\api.md
-		mkdocs\changelog.md = mkdocs\changelog.md
-		commands.json = commands.json
-		.github\CONTRIBUTING.md = .github\CONTRIBUTING.md
-		mkdocs\getting-started.md = mkdocs\getting-started.md
-		gulpfile.js = gulpfile.js
-		mkdocs\index.md = mkdocs\index.md
 		lss-code.favdoc = lss-code.favdoc
-		mkdocs.yml = mkdocs.yml
-		package.json = package.json
-		README.md = README.md
-		mkdocs\roadmap.md = mkdocs\roadmap.md
 		src\info\VersionInfo.cs = src\info\VersionInfo.cs
 	EndProjectSection
 EndProject
