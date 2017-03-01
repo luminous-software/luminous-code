@@ -24,7 +24,7 @@ pages:
   - License: 'license.md'
 
 extra:
-  version: 'v0.2.0.2'
+  version: 'v0.2.0.3'
   logo: 'img/logo.png'
 
   palette:

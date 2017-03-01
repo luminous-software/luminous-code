@@ -1,16 +1,8 @@
-## Statuses
-
-| Development | Production | Version |
-|:-----------:|:----------:|:-------:|
-| ![Development][development] | ![Production][production] | ![GitHub tag][github] |
-
----
-
 ## Releases
 
 The versions listed below have been released to Nuget.org.
 
-## v0.2.0.2 - 2017-02 (not released yet)
+## v0.2.0.3 - 2017-02 (not released yet)
 
 - Initial release
   - Core
