@@ -5,21 +5,29 @@ VisualStudioVersion = 15.0.26206.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{00058F45-5598-40B3-BB3D-84CA49650378}"
 	ProjectSection(SolutionItems) = preProject
-		.gitignore = .gitignore
-		.travis.yml = .travis.yml
-		mkdocs\api.md = mkdocs\api.md
-		mkdocs\changelog.md = mkdocs\changelog.md
-		commands.json = commands.json
-		.github\CONTRIBUTING.md = .github\CONTRIBUTING.md
-		mkdocs\getting-started.md = mkdocs\getting-started.md
-		gulpfile.js = gulpfile.js
-		mkdocs\index.md = mkdocs\index.md
 		lss-code.favdoc = lss-code.favdoc
-		mkdocs.yml = mkdocs.yml
-		package.json = package.json
-		README.md = README.md
-		mkdocs\roadmap.md = mkdocs\roadmap.md
 		src\info\VersionInfo.cs = src\info\VersionInfo.cs
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "lss-code", ".", "{70E914C5-A2E6-430C-918A-192B31A5809E}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_27272"
+		Debug.AspNetCompiler.PhysicalPath = "..\lss-code\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_27272\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_27272"
+		Release.AspNetCompiler.PhysicalPath = "..\lss-code\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_27272\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "27272"
+		SlnRelativePath = "..\lss-code\"
 	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Luminous.Code.Info", "src\info\Luminous.Code.Info.shproj", "{2C8445EB-1011-4F3A-88C0-26BC5C01D78D}"
@@ -38,7 +46,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luminous.Code.Core.Tests", 
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\info\Luminous.Code.Info.projitems*{10e97ca5-13c8-4525-a972-c18677070838}*SharedItemsImports = 4
 		src\info\Luminous.Code.Info.projitems*{2c8445eb-1011-4f3a-88c0-26bc5c01d78d}*SharedItemsImports = 13
 		src\info\Luminous.Code.Info.projitems*{997e3f68-01ce-44ce-a9d5-87eb01665b46}*SharedItemsImports = 4
 	EndGlobalSection
@@ -47,6 +54,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70E914C5-A2E6-430C-918A-192B31A5809E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70E914C5-A2E6-430C-918A-192B31A5809E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70E914C5-A2E6-430C-918A-192B31A5809E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{70E914C5-A2E6-430C-918A-192B31A5809E}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{10E97CA5-13C8-4525-A972-C18677070838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{10E97CA5-13C8-4525-A972-C18677070838}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10E97CA5-13C8-4525-A972-C18677070838}.Release|Any CPU.ActiveCfg = Release|Any CPU

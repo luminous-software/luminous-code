@@ -5,16 +5,6 @@
       <name>Solution</name>
       <folders />
       <favorites>
-        <Favorite>
-          <name>Read The Docs</name>
-          <absolutePath>https://readthedocs.org/projects/lss-code/</absolutePath>
-          <viewKind>External Document</viewKind>
-        </Favorite>
-        <Favorite>
-          <name>Code Climate</name>
-          <absolutePath>https://codeclimate.com/github/luminous-software/lss-code</absolutePath>
-          <viewKind>External Document</viewKind>
-        </Favorite>
       </favorites>
     </Folder>
     <Folder>
@@ -23,12 +13,12 @@
       <favorites>
         <Favorite>
           <name>Repo</name>
-          <absolutePath>https://github.com/luminous-software/lss-code</absolutePath>
+          <absolutePath>https://github.com/luminous-software/luminous-code</absolutePath>
           <viewKind>External Document</viewKind>
         </Favorite>
         <Favorite>
           <name>Documentation</name>
-          <absolutePath>https://luminous-software.github.io/lss-code/</absolutePath>
+          <absolutePath>https://luminous-software.solutions/luminous-code/</absolutePath>
           <viewKind>External Document</viewKind>
         </Favorite>
       </favorites>
