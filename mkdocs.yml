@@ -9,7 +9,7 @@ repo_url: 'https://github.com/luminous-software/luminous-code'
 
 copyright: 'Copyright (c) 2017 Luminous Software Solutions'
 
-docs_dir: 'mkdocs'
+docs_dir: 'source'
 site_dir: 'docs'
 theme_dir: 'theme'
 theme: 'material'
@@ -32,7 +32,7 @@ extra:
     accent: 'purple'
 
   author:
-    github: 'luminous-code'
+    github: 'luminous-software'
     twitter: 'lumiinus'
 
 extra_css:
