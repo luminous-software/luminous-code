@@ -11,6 +11,7 @@ copyright: 'Copyright (c) 2017 Luminous Software Solutions'
 
 docs_dir: 'mkdocs'
 site_dir: 'docs'
+theme_dir: 'theme'
 theme: 'material'
 
 pages:

@@ -14,9 +14,7 @@ namespace Luminous.Code.VisualStudio.Extensions.IWpfTextViewHostExtensions
         // return the ITextDocument for the IWpfTextViewHost that represents the currently selected editor pane
         public static ITextDocument GetTextDocumentForView(this IWpfTextViewHost viewHost)
         {
-            ITextDocument document = null;
-
-            viewHost.TextView.TextDataModel.DocumentBuffer.Properties.TryGetProperty(typeof(ITextDocument), out document);
+            viewHost.TextView.TextDataModel.DocumentBuffer.Properties.TryGetProperty(typeof(ITextDocument), out ITextDocument document);
 
             return document;
         }

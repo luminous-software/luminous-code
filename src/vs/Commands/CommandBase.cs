@@ -24,10 +24,7 @@ namespace Luminous.Code.VisualStudio.Commands
 
         protected CommandBase(PackageBase package, int id)
         {
-            if (package == null)
-                throw new ArgumentNullException(nameof(package));
-
-            Package = package;
+            Package = package ?? throw new ArgumentNullException(nameof(package));
             Id = id;
         }
 
@@ -50,11 +47,9 @@ namespace Luminous.Code.VisualStudio.Commands
         private bool ContextIsActive(string context)
         {
             var contextGuid = new Guid(context);
-            uint contextCookie;
-            int active;
 
-            SelectionService.GetCmdUIContextCookie(ref contextGuid, out contextCookie);
-            SelectionService.IsCmdUIContextActive(contextCookie, out active);
+            SelectionService.GetCmdUIContextCookie(ref contextGuid, out uint contextCookie);
+            SelectionService.IsCmdUIContextActive(contextCookie, out int active);
 
             return (active == 1);
         }
