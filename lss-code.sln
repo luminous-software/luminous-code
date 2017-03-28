@@ -25,6 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luminous.Code.Core.Tests", 
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\info\Luminous.Code.Info.projitems*{10e97ca5-13c8-4525-a972-c18677070838}*SharedItemsImports = 4
 		src\info\Luminous.Code.Info.projitems*{2c8445eb-1011-4f3a-88c0-26bc5c01d78d}*SharedItemsImports = 13
 		src\info\Luminous.Code.Info.projitems*{997e3f68-01ce-44ce-a9d5-87eb01665b46}*SharedItemsImports = 4
 	EndGlobalSection
