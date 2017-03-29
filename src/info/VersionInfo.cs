@@ -12,7 +12,7 @@ namespace Luminous.Code
         private const string Major = "0";
         private const string Minor = "2";
         private const string Revision = "0";
-        private const string Build = "3";
+        private const string Build = "4";
 
         private const string RevisionVersion = Major + "." + Minor + "." + Revision;
         private const string BuildVersion = RevisionVersion + "." + Build;
