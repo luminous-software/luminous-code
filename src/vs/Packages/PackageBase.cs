@@ -252,7 +252,7 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                if (!File.Exists(args)) return new ProblemResult(problem);
+                //if (!File.Exists(args)) return new ProblemResult(problem);
 
                 Dte?.ExecuteCommand(command, args);
 
@@ -266,14 +266,7 @@ namespace Luminous.Code.VisualStudio.Packages
 
         public CommandResult SaveAllFiles(string success = null, string problem = null)
         {
-            try
-            {
-                return ExecuteCommand("File.SaveAll", success: success, problem: problem);
-            }
-            catch (Exception ex)
-            {
-                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
-            }
+            return ExecuteCommand(SaveAll, success: success, problem: problem);
         }
 
         public CommandResult RestartVisualStudio(bool confirm = true, bool saveFiles = true, bool elevated = false)
@@ -359,7 +352,7 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                return ExecuteCommand("Tools.ExtensionsAndUpdates");
+                return ExecuteCommand(ExtensionsAndUpdates);
             }
             catch (Exception ex)
             {
@@ -414,7 +407,7 @@ namespace Luminous.Code.VisualStudio.Packages
                 if (!ProjectIsSelected)
                     return new ProblemResult(problem ?? $"Selection is not a project");
 
-                return ExecuteCommand("Project.UnloadProject", problem: problem);
+                return ExecuteCommand(UnloadProject, problem: problem);
             }
             catch (Exception ex)
             {
@@ -433,7 +426,7 @@ namespace Luminous.Code.VisualStudio.Packages
                 if (!ProjectIsSelected)
                     return new ProblemResult(problem ?? $"Selection is not a project");
 
-                var result = ExecuteCommand("Project.UnloadProject", problem: problem);
+                var result = ExecuteCommand(UnloadProject, problem: problem);
                 if (!result.Succeeded)
                     return result;
 
@@ -454,7 +447,7 @@ namespace Luminous.Code.VisualStudio.Packages
                     if (!ProjectIsSelected)
                         return new ProblemResult(problem ?? $"Selection is not a project");
 
-                    return ExecuteCommand("Project.DeleteProject", success: success, problem: problem);
+                    return ExecuteCommand(DeleteProject, success: success, problem: problem);
                 }
                 catch (Exception ex)
                 {
