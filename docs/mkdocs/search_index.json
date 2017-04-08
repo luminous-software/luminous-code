@@ -122,7 +122,7 @@
         },
         {
             "location": "/changelog/",
-            "text": "Releases\n\n\nThe versions listed below have been released to Nuget.org.\n\n\nv0.3.0 - 2017-04\n\n\n\n\nInitial release\n\n\nCore\n\n\nException\n Extensions\n\n\nString\n Extensions\n\n\nString\n Concatenation\n\n\n\n\n\n\nVisual Studio\n\n\nCommandKeys\n class\n\n\nCommandStatuses\n enum\n\n\nCommandBase\n class\n\n\nStaticCommand\n class\n\n\nDynamicCommand\n class\n\n\nCommandResult\n class\n\n\nSuccessResult\n class\n\n\nCancelledResult\n class\n\n\nInformationResult\n class\n\n\nProblemResult\n class\n\n\nServiceProvider\n Extensions\n\n\nIWpfTextViewHost\n Extensions\n\n\nPackageBase\n class\n\n\nProjectItems\n Extensions\n\n\nProject\n Extensions\n\n\nSelectedItems\n Extensions\n\n\nSolutionExplorerItemType\n enum\n\n\nSolutionItemKind\n class\n\n\nIVsHierarchyNodeInfo\n Class",
+            "text": "Releases\n\n\nThe versions listed below have been released to Nuget.org.\n\n\nv1.0.1 - 2017-04-09\n\n\n\n\nInitial public release\n\n\nCore\n\n\nException\n Extensions\n\n\nString\n Extensions\n\n\nString\n Concatenation\n\n\n\n\n\n\nVisual Studio\n\n\nCommandKeys\n class\n\n\nCommandStatuses\n enum\n\n\nCommandBase\n class\n\n\nStaticCommand\n class\n\n\nDynamicCommand\n class\n\n\nCommandResult\n class\n\n\nSuccessResult\n class\n\n\nCancelledResult\n class\n\n\nInformationResult\n class\n\n\nProblemResult\n class\n\n\nServiceProvider\n Extensions\n\n\nIWpfTextViewHost\n Extensions\n\n\nPackageBase\n class\n\n\nProjectItems\n Extensions\n\n\nProject\n Extensions\n\n\nSelectedItems\n Extensions\n\n\nSolutionExplorerItemType\n enum\n\n\nSolutionItemKind\n class\n\n\nIVsHierarchyNodeInfo\n Class",
             "title": "Change Log"
         },
         {
@@ -131,9 +131,9 @@
             "title": "Releases"
         },
         {
-            "location": "/changelog/#v030-2017-04",
-            "text": "Initial release  Core  Exception  Extensions  String  Extensions  String  Concatenation    Visual Studio  CommandKeys  class  CommandStatuses  enum  CommandBase  class  StaticCommand  class  DynamicCommand  class  CommandResult  class  SuccessResult  class  CancelledResult  class  InformationResult  class  ProblemResult  class  ServiceProvider  Extensions  IWpfTextViewHost  Extensions  PackageBase  class  ProjectItems  Extensions  Project  Extensions  SelectedItems  Extensions  SolutionExplorerItemType  enum  SolutionItemKind  class  IVsHierarchyNodeInfo  Class",
-            "title": "v0.3.0 - 2017-04"
+            "location": "/changelog/#v101-2017-04-09",
+            "text": "Initial public release  Core  Exception  Extensions  String  Extensions  String  Concatenation    Visual Studio  CommandKeys  class  CommandStatuses  enum  CommandBase  class  StaticCommand  class  DynamicCommand  class  CommandResult  class  SuccessResult  class  CancelledResult  class  InformationResult  class  ProblemResult  class  ServiceProvider  Extensions  IWpfTextViewHost  Extensions  PackageBase  class  ProjectItems  Extensions  Project  Extensions  SelectedItems  Extensions  SolutionExplorerItemType  enum  SolutionItemKind  class  IVsHierarchyNodeInfo  Class",
+            "title": "v1.0.1 - 2017-04-09"
         },
         {
             "location": "/roadmap/",
