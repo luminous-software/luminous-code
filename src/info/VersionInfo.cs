@@ -9,8 +9,8 @@ namespace Luminous.Code
 {
     internal static class VersionNumber
     {
-        private const string Major = "0";
-        private const string Minor = "3";
+        private const string Major = "1";
+        private const string Minor = "0";
         private const string Revision = "0";
         private const string Build = "0";
 
