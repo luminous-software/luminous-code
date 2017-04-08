@@ -23,7 +23,7 @@ var config = {
 
 var script = {
     build: 'mkdocs build',
-    serve: 'mkdocs serve --dev-addr=127.0.0.1:8002',
+    serve: 'mkdocs serve --dev-addr=127.0.0.1:8003',
     //deploy: 'mkdocs gh_pages',
 
     changes: 'git log -n 1 HEAD --pretty=format:"  * %s"',
