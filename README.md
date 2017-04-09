@@ -52,11 +52,6 @@ perhaps you could shout me a coke (as I don't actually drink coffee or beer, lol
 
 [![Donate](https://www.paypalobjects.com/en_AU/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/yannduran/5)
 
-<!--
-[![Donate](https://www.paypalobjects.com/en_AU/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZEFP9H57CGERS)
-[![donate-button-au]](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZEFP9H57CGERS)
-[![paypal-donate]](https://www.paypal.me/yannduran/5)
--->
 ---
 
 ## Contribute
