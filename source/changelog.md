@@ -2,7 +2,7 @@
 
 The versions listed below have been released to Nuget.org.
 
-## v1.0.0.1 - 2017-04-09
+## v1.0.1 - 2017-04-09
 
 - Initial public release
   - Core
