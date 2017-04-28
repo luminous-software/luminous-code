@@ -404,9 +404,6 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                if (!ProjectIsSelected)
-                    return new ProblemResult(problem ?? $"Selection is not a project");
-
                 return ExecuteCommand(UnloadProject, problem: problem);
             }
             catch (Exception ex)
@@ -419,14 +416,10 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                var dte = PackageBase.GetDte();
-                var selectedItems = dte?.SelectedItems;
-                var name = selectedItems.GetSelectedProject().FullName;
+                var selectedItems = Dte?.SelectedItems;
+                var name = selectedItems.Item(1).Project.FullName;
 
-                if (!ProjectIsSelected)
-                    return new ProblemResult(problem ?? $"Selection is not a project");
-
-                var result = ExecuteCommand(UnloadProject, problem: problem);
+                var result = UnloadSelectedProject(problem: problem);
                 if (!result.Succeeded)
                     return result;
 
@@ -444,8 +437,9 @@ namespace Luminous.Code.VisualStudio.Packages
             {
                 try
                 {
-                    if (!ProjectIsSelected)
-                        return new ProblemResult(problem ?? $"Selection is not a project");
+                    //TODO: get confirmation
+                    //if (!ProjectIsSelected)
+                    //    return new ProblemResult(problem ?? $"Selection is not a project");
 
                     return ExecuteCommand(DeleteProject, success: success, problem: problem);
                 }
@@ -511,7 +505,7 @@ namespace Luminous.Code.VisualStudio.Packages
             {
                 var window = FindToolWindow(typeof(T), 0, true);
 
-                if ((null == window) || (null == window.Frame))
+                if ((window == null) || (window.Frame == null))
                 {
                     return new ProblemResult("Unable to create window");
                 }
