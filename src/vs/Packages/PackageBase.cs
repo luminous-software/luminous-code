@@ -425,8 +425,8 @@ namespace Luminous.Code.VisualStudio.Packages
                 var name = GetSelectedItem()?.Project.FullName;
 
                 var result = UnloadSelectedProject(problem: problem);
-                if (!result.Succeeded)
-                    return result;
+                if (!result.Succeeded) return result;
+
 
                 return OpenCodeFile(name, problem);
             }
