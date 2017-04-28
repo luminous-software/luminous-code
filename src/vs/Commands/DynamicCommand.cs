@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using Microsoft.VisualStudio.Shell;
-
 using ShellInterop = Microsoft.VisualStudio.Shell.Interop;
+
 using static Microsoft.VisualStudio.Shell.Interop.UIContextGuids80;
 
 namespace Luminous.Code.VisualStudio.Commands
@@ -176,6 +176,8 @@ namespace Luminous.Code.VisualStudio.Commands
 
         protected bool NotDragging
             => !Dragging;
+
+        //---C
 
         //***
     }

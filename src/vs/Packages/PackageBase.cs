@@ -252,7 +252,7 @@ namespace Luminous.Code.VisualStudio.Packages
         protected SelectedItem GetSelectedItem()
             => Dte?.SelectedItems.Item(1);
 
-        protected int GetSelectedItemCount()
+        public int GetSelectedItemCount()
             => (Dte?.SelectedItems.Count).ToInt();
 
         //---
