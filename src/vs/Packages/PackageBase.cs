@@ -248,12 +248,15 @@ namespace Luminous.Code.VisualStudio.Packages
 
         //---
 
+        protected SelectedItem GetSelectedItem()
+            => Dte?.SelectedItems.Item(1);
+
+        //---
+
         public CommandResult ExecuteCommand(string command, string args = "", string success = null, string problem = null)
         {
             try
             {
-                //if (!File.Exists(args)) return new ProblemResult(problem);
-
                 Dte?.ExecuteCommand(command, args);
 
                 return new SuccessResult(message: success);
@@ -340,7 +343,10 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                return ExecuteCommand(ViewWebBrowser, name, problem: problem ?? "Unable to open '{name}'");
+                if (!File.Exists(name))
+                    return new ProblemResult("Unable to open '{name}'");
+
+                return ExecuteCommand(ViewWebBrowser, name, problem: problem);
             }
             catch (Exception ex)
             {
@@ -416,8 +422,7 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                var selectedItems = Dte?.SelectedItems;
-                var name = selectedItems.Item(1).Project.FullName;
+                var name = GetSelectedItem()?.Project.FullName;
 
                 var result = UnloadSelectedProject(problem: problem);
                 if (!result.Succeeded)
