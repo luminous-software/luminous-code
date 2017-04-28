@@ -22,6 +22,7 @@ using static EnvDTE.Constants;
 namespace Luminous.Code.VisualStudio.Packages
 {
     using Commands;
+    using Extensions.IntegerExtensions;
     using Exceptions.ExceptionExtensions;
     using Extensions.IWpfTextViewHostExtensions;
     using SelectedItemsExtensions;
@@ -250,6 +251,9 @@ namespace Luminous.Code.VisualStudio.Packages
 
         protected SelectedItem GetSelectedItem()
             => Dte?.SelectedItems.Item(1);
+
+        protected int GetSelectedItemCount()
+            => (Dte?.SelectedItems.Count).ToInt();
 
         //---
 

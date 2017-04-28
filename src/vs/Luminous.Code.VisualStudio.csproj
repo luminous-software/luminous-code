@@ -158,6 +158,7 @@
     <Compile Include="Commands\ProblemResult.cs" />
     <Compile Include="Commands\StaticCommand.cs" />
     <Compile Include="Commands\SuccessResult.cs" />
+    <Compile Include="Extensions\IntegerExtensions.cs" />
     <Compile Include="Extensions\IWpfTextViewHostExtensions.cs" />
     <Compile Include="Extensions\ServiceProviderExtensions.cs" />
     <Compile Include="Packages\PackageBase.cs" />
