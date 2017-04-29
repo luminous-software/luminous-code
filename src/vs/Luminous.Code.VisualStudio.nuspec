@@ -22,9 +22,5 @@
 
     <tags>luminous,code,visual studio,yannduran,yann</tags>
     <language>$language$</language>
-
-    <dependencies>
-      <dependency id="Luminous.Code.Core"/>
-    </dependencies>
   </metadata>
 </package>
