@@ -27,7 +27,6 @@ namespace Luminous.Code.VisualStudio.Packages
     using Extensions.IWpfTextViewHostExtensions;
     using SelectedItemsExtensions;
     using Solutions;
-
     using static Strings.Concatenation;
     using static Commands.CommandKeys;
 
@@ -183,10 +182,13 @@ namespace Luminous.Code.VisualStudio.Packages
 
         protected bool IsVisualStudio2010
             => VsVersion.Equals("10.0", StringComparison.Ordinal);
+
         protected bool IsVisualStudio2012
             => VsVersion.Equals("11.0", StringComparison.Ordinal);
+
         protected bool IsVisualStudio2013
             => VsVersion.Equals("12.0", StringComparison.Ordinal);
+
         protected bool IsVisualStudio2015
             => VsVersion.Equals("14.0", StringComparison.Ordinal);
 
@@ -310,10 +312,12 @@ namespace Luminous.Code.VisualStudio.Packages
         public CommandResult ReplaceSelectedText(Func<string> newText, string prefix = "", string suffix = "", string success = null, string problem = null)
         {
             var viewHost = GetCurrentViewHost();
-            if (viewHost == null) return new ProblemResult(problem ?? "Unable to get current view host");
+            if (viewHost == null)
+                return new ProblemResult(problem ?? "Unable to get current view host");
 
             var selection = viewHost.GetSelection();
-            if (selection == null) return new ProblemResult(problem ?? "Unable to get current selection");
+            if (selection == null)
+                return new ProblemResult(problem ?? "Unable to get current selection");
 
             var textView = selection.TextView;
 
@@ -395,7 +399,8 @@ namespace Luminous.Code.VisualStudio.Packages
                 {
                     result = CloseSolution(problem);
 
-                    if (!result.Succeeded) return result;
+                    if (!result.Succeeded)
+                        return result;
 
                     return OpenCodeFile(fullName, problem);
                 }
@@ -429,8 +434,8 @@ namespace Luminous.Code.VisualStudio.Packages
                 var name = GetSelectedItem()?.Project.FullName;
 
                 var result = UnloadSelectedProject(problem: problem);
-                if (!result.Succeeded) return result;
-
+                if (!result.Succeeded)
+                    return result;
 
                 return OpenCodeFile(name, problem);
             }
@@ -628,12 +633,14 @@ namespace Luminous.Code.VisualStudio.Packages
             const int mustHaveFocus = 1;
 
             var textManager = GetService<SVsTextManager, IVsTextManager>();
-            if (textManager == null) return null;
+            if (textManager == null)
+                return null;
 
             textManager.GetActiveView(mustHaveFocus, null, out IVsTextView textView);
 
             var userData = textView as IVsUserData;
-            if (userData == null) return null;
+            if (userData == null)
+                return null;
 
             var guidViewHost = guidIWpfTextViewHost;
 
@@ -713,7 +720,6 @@ namespace Luminous.Code.VisualStudio.Packages
         //        return new ProblemResult(problem ?? ex.ExtendedMessage());
         //    }
         //}
-
 
         //***
     }
