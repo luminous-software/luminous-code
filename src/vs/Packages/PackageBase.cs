@@ -22,11 +22,11 @@ using static EnvDTE.Constants;
 namespace Luminous.Code.VisualStudio.Packages
 {
     using Commands;
+    using Extensions.IntegerExtensions;
     using Exceptions.ExceptionExtensions;
     using Extensions.IWpfTextViewHostExtensions;
     using SelectedItemsExtensions;
     using Solutions;
-
     using static Strings.Concatenation;
     using static Commands.CommandKeys;
 
@@ -182,10 +182,13 @@ namespace Luminous.Code.VisualStudio.Packages
 
         protected bool IsVisualStudio2010
             => VsVersion.Equals("10.0", StringComparison.Ordinal);
+
         protected bool IsVisualStudio2012
             => VsVersion.Equals("11.0", StringComparison.Ordinal);
+
         protected bool IsVisualStudio2013
             => VsVersion.Equals("12.0", StringComparison.Ordinal);
+
         protected bool IsVisualStudio2015
             => VsVersion.Equals("14.0", StringComparison.Ordinal);
 
@@ -248,12 +251,18 @@ namespace Luminous.Code.VisualStudio.Packages
 
         //---
 
+        protected SelectedItem GetSelectedItem()
+            => Dte?.SelectedItems.Item(1);
+
+        public int GetSelectedItemCount()
+            => (Dte?.SelectedItems.Count).ToInt();
+
+        //---
+
         public CommandResult ExecuteCommand(string command, string args = "", string success = null, string problem = null)
         {
             try
             {
-                //if (!File.Exists(args)) return new ProblemResult(problem);
-
                 Dte?.ExecuteCommand(command, args);
 
                 return new SuccessResult(message: success);
@@ -303,10 +312,12 @@ namespace Luminous.Code.VisualStudio.Packages
         public CommandResult ReplaceSelectedText(Func<string> newText, string prefix = "", string suffix = "", string success = null, string problem = null)
         {
             var viewHost = GetCurrentViewHost();
-            if (viewHost == null) return new ProblemResult(problem ?? "Unable to get current view host");
+            if (viewHost == null)
+                return new ProblemResult(problem ?? "Unable to get current view host");
 
             var selection = viewHost.GetSelection();
-            if (selection == null) return new ProblemResult(problem ?? "Unable to get current selection");
+            if (selection == null)
+                return new ProblemResult(problem ?? "Unable to get current selection");
 
             var textView = selection.TextView;
 
@@ -340,7 +351,10 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                return ExecuteCommand(ViewWebBrowser, name, problem: problem ?? "Unable to open '{name}'");
+                if (!File.Exists(name))
+                    return new ProblemResult("Unable to open '{name}'");
+
+                return ExecuteCommand(ViewWebBrowser, name, problem: problem);
             }
             catch (Exception ex)
             {
@@ -385,7 +399,8 @@ namespace Luminous.Code.VisualStudio.Packages
                 {
                     result = CloseSolution(problem);
 
-                    if (!result.Succeeded) return result;
+                    if (!result.Succeeded)
+                        return result;
 
                     return OpenCodeFile(fullName, problem);
                 }
@@ -404,9 +419,6 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                if (!ProjectIsSelected)
-                    return new ProblemResult(problem ?? $"Selection is not a project");
-
                 return ExecuteCommand(UnloadProject, problem: problem);
             }
             catch (Exception ex)
@@ -419,14 +431,9 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                var dte = PackageBase.GetDte();
-                var selectedItems = dte?.SelectedItems;
-                var name = selectedItems.GetSelectedProject().FullName;
+                var name = GetSelectedItem()?.Project.FullName;
 
-                if (!ProjectIsSelected)
-                    return new ProblemResult(problem ?? $"Selection is not a project");
-
-                var result = ExecuteCommand(UnloadProject, problem: problem);
+                var result = UnloadSelectedProject(problem: problem);
                 if (!result.Succeeded)
                     return result;
 
@@ -444,8 +451,9 @@ namespace Luminous.Code.VisualStudio.Packages
             {
                 try
                 {
-                    if (!ProjectIsSelected)
-                        return new ProblemResult(problem ?? $"Selection is not a project");
+                    //TODO: get confirmation
+                    //if (!ProjectIsSelected)
+                    //    return new ProblemResult(problem ?? $"Selection is not a project");
 
                     return ExecuteCommand(DeleteProject, success: success, problem: problem);
                 }
@@ -511,7 +519,7 @@ namespace Luminous.Code.VisualStudio.Packages
             {
                 var window = FindToolWindow(typeof(T), 0, true);
 
-                if ((null == window) || (null == window.Frame))
+                if ((window == null) || (window.Frame == null))
                 {
                     return new ProblemResult("Unable to create window");
                 }
@@ -625,12 +633,14 @@ namespace Luminous.Code.VisualStudio.Packages
             const int mustHaveFocus = 1;
 
             var textManager = GetService<SVsTextManager, IVsTextManager>();
-            if (textManager == null) return null;
+            if (textManager == null)
+                return null;
 
             textManager.GetActiveView(mustHaveFocus, null, out IVsTextView textView);
 
             var userData = textView as IVsUserData;
-            if (userData == null) return null;
+            if (userData == null)
+                return null;
 
             var guidViewHost = guidIWpfTextViewHost;
 
@@ -710,7 +720,6 @@ namespace Luminous.Code.VisualStudio.Packages
         //        return new ProblemResult(problem ?? ex.ExtendedMessage());
         //    }
         //}
-
 
         //***
     }

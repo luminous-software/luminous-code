@@ -41,6 +41,9 @@
       <HintPath>..\..\packages\EnvDTE80.8.0.1\lib\net10\EnvDTE80.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Luminous.Code.Core">
+      <HintPath>..\..\packages\Luminous.Code.Core.1.0.2.5\lib\net462\Luminous.Code.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.ComponentModelHost, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.CoreUtility, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.VisualStudio.CoreUtility.15.0.26201\lib\net45\Microsoft.VisualStudio.CoreUtility.dll</HintPath>
@@ -158,6 +161,7 @@
     <Compile Include="Commands\ProblemResult.cs" />
     <Compile Include="Commands\StaticCommand.cs" />
     <Compile Include="Commands\SuccessResult.cs" />
+    <Compile Include="Extensions\IntegerExtensions.cs" />
     <Compile Include="Extensions\IWpfTextViewHostExtensions.cs" />
     <Compile Include="Extensions\ServiceProviderExtensions.cs" />
     <Compile Include="Packages\PackageBase.cs" />
@@ -175,12 +179,6 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\core\Luminous.Code.Core.csproj">
-      <Project>{10e97ca5-13c8-4525-a972-c18677070838}</Project>
-      <Name>Luminous.Code.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="..\info\Luminous.Code.Info.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,4 @@
-﻿using System;
-using EnvDTE;
+﻿using EnvDTE;
 
 namespace Luminous.Code.VisualStudio.Projects.ProjectExtensions
 {

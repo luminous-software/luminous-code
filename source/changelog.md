@@ -2,6 +2,10 @@
 
 The versions listed below have been released to Nuget.org.
 
+## v1.0.2.6 - 2017-11-24
+
+- minor changes
+
 ## v1.0.1 - 2017-04-09
 
 - Initial public release

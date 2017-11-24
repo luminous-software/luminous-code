@@ -15,7 +15,7 @@ namespace Luminous.Code.VisualStudio.Commands
         public const string RebuildSolution = "Build.RebuildSolution";
         public const string SaveAll = "File.SaveAll";
         public const string ToolsOptions = "Tools.Options";
-        public const string UnloadProject = "Project.Unload";
+        public const string UnloadProject = "Project.UnloadProject";
         public const string ViewWebBrowser = "View.WebBrowser";
 
         public const string CustomOptionsGuid_string = "1D9ECCF3-5D2F-4112-9B25-264596873DC9";

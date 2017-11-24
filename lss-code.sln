@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{00058F45-5598-40B3-BB3D-84CA49650378}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		source\license.md = source\license.md
 		lss-code.favdoc = lss-code.favdoc
 		source\roadmap.md = source\roadmap.md
+		src\info\VersionInfo.cs = src\info\VersionInfo.cs
 	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Luminous.Code.Info", "src\info\Luminous.Code.Info.shproj", "{2C8445EB-1011-4F3A-88C0-26BC5C01D78D}"

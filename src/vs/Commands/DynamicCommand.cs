@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using Microsoft.VisualStudio.Shell;
-
 using ShellInterop = Microsoft.VisualStudio.Shell.Interop;
+
 using static Microsoft.VisualStudio.Shell.Interop.UIContextGuids80;
 
 namespace Luminous.Code.VisualStudio.Commands
@@ -163,11 +163,21 @@ namespace Luminous.Code.VisualStudio.Commands
 
         //---C
 
+        protected bool InCodeWindow
+            => ContextIsActive(CodeWindow);
+
+        protected bool NotInCodeWindow
+            => !InCodeWindow;
+
+        //---C
+
         protected bool Dragging
             => ContextIsActive(Microsoft.VisualStudio.Shell.Interop.UIContextGuids80.Dragging);
 
         protected bool NotDragging
             => !Dragging;
+
+        //---C
 
         //***
     }
