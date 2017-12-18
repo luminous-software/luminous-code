@@ -11,7 +11,7 @@ copyright: 'Copyright (c) 2017 Luminous Software Solutions'
 
 docs_dir: 'docs-source'
 site_dir: 'docs'
-theme_dir: 'theme'
+theme_dir: 'docs-theme-overrides'
 theme: 'material'
 
 pages:
@@ -36,10 +36,10 @@ extra:
     twitter: 'lumiinus'
 
 extra_css:
-  ['css/extra.css']
+  ['assets/stylesheets/extra.css']
 
 extra_javascript:
-  ['js/extra.js']
+  ['assets/javascripts/extra.js']
 
 markdown_extensions:
   - codehilite(css_class=code)
