@@ -24,9 +24,11 @@ theme:
 pages:
   - About Luminous Code: 'index.md'
   - How to Get Started: 'getting-started.md'
-  - Luminous Code API: 'api.md'
+  - Luminous Code's API: 'api.md'
   - Change Log: 'changelog.md'
   - What's Coming: 'roadmap.md'
+  - How to Contribute: 'contributing.md'
+  - License: 'license.md'
 
 extra:
   links:
