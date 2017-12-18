@@ -24,6 +24,14 @@ It has a project reference to the `Luminous.Code.Core` project, as it relies on 
 The `Luminous.Code.VisualStudio.Packages` namespace contains all of the plumbing code that
 a Visual Studio package needs to interact with the Visual Studio IDE.
 
+#### ShowToolWindow\<T>
+
+The `ShowToolWindow<T>` method is for situations that only allow a single tool window.
+
+#### ShowNewToolWindow\<T>
+
+The `ShowNewToolWindow<T>` method is for situations that allow multiple tool windows.
+
 ### 'LuminousPackage' Class
 
 The `Luminous.Code.VisualStudio.Packages.LuminousPackage` class is an abstract base class that you inherit your own

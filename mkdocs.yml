@@ -9,7 +9,7 @@ repo_url: 'https://github.com/luminous-software/luminous-code'
 
 copyright: 'Copyright (c) 2017 Luminous Software Solutions'
 
-docs_dir: 'source'
+docs_dir: 'docs-source'
 site_dir: 'docs'
 theme_dir: 'theme'
 theme: 'material'
