@@ -560,7 +560,7 @@ namespace Luminous.Code.VisualStudio.Packages
 
                     return new SuccessResult();
                 }
-                return new ProblemResult($"Maximum of {maxWindows} new windows have already been created");
+                return new ProblemResult($"Maximum of {maxWindows} new windows already created");
             }
             catch (Exception ex)
             {
