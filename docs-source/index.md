@@ -8,7 +8,7 @@ I don't know about you, but I **hate** maintaining code like that.
     Always code as if the guy who ends up maintaining your code will be a violent psychopath
     who knows where you live.
 
-In essence, code not only for yourself, but also for the person who will have to maintain your code.
+In essence, code not only for yourself, but also for future developers who will have to maintain your code.
 
 ## What Is Luminous Code
 
@@ -51,23 +51,13 @@ The *intent* of any code that you write should be **clear** and **obvious** to a
 your code (even if it's you). 
 One of the main reasons that I wrote the *Luminous Code* was so I could use code that has **clear and obvious intent**.
 
-## Future Development
+## Donations Appreciated
 
 If you happen to find *Luminous Code* useful and would like to support future development,
 maybe you could shout me a coke (as I don't actually drink coffee or beer, lol).
-    
+
 [![Donate][donate-img-au]][paypal-me]
-
----
-
-## License
-
-[![License][license-img]][license-url]
-
----
 
 [donate-img-au]: https://www.paypalobjects.com/en_AU/i/btn/btn_donateCC_LG.gif
 [paypal-me]: https://www.paypal.me/yannduran/5
 [contribute-url]: https://github.com/luminous-software/luminous-code/blob/master/.github/CONTRIBUTING.md
-[license-img]: https://img.shields.io/:license-mit-blue.svg?style=flat-square
-[license-url]: https://luminous-software.mit-license.org

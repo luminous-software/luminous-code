@@ -1,4 +1,6 @@
-MIT License
+## License
+
+[![License][license-img]][license-url]
 
 Copyright (c) 2017 Luminous Software Solutions
 
@@ -21,3 +23,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ---
+
+[license-img]: https://img.shields.io/:license-mit-blue.svg?style=flat-square
+[license-url]: https://luminous-software.mit-license.org
