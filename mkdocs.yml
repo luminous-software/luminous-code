@@ -43,3 +43,5 @@ extra_javascript:
 markdown_extensions:
   - codehilite(css_class=code)
   - admonition
+  - toc:
+      permalink: true
