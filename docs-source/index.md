@@ -41,11 +41,11 @@ Without working your way through each line, you have no real idea what the *inte
 
 !!! question "Which lines of code would you rather be maintaining?"
 
-    `(this code)`
+    `(this code - example 1)`
 
     or
 
-    `(this code)`
+    `(this code - example 2)`
 
 The *intent* of any code that you write should be **clear** and **obvious** to anyone who is using or maintaining
 your code (even if it's you). 
