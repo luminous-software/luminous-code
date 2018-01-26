@@ -1,18 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{00058F45-5598-40B3-BB3D-84CA49650378}"
 	ProjectSection(SolutionItems) = preProject
-		source\api.md = source\api.md
-		source\changelog.md = source\changelog.md
-		source\contributing.md = source\contributing.md
-		source\getting-started.md = source\getting-started.md
-		source\index.md = source\index.md
-		source\license.md = source\license.md
+		.gitignore = .gitignore
+		docs-source\api.md = docs-source\api.md
+		docs-source\changelog.md = docs-source\changelog.md
+		docs-source\contributing.md = docs-source\contributing.md
+		docs-source\getting-started.md = docs-source\getting-started.md
+		gulpfile.js = gulpfile.js
+		docs-source\index.md = docs-source\index.md
+		docs-source\license.md = docs-source\license.md
 		lss-code.favdoc = lss-code.favdoc
-		source\roadmap.md = source\roadmap.md
+		mkdocs.yml = mkdocs.yml
+		package.json = package.json
+		docs-source\roadmap.md = docs-source\roadmap.md
 		src\info\VersionInfo.cs = src\info\VersionInfo.cs
 	EndProjectSection
 EndProject
@@ -62,5 +66,8 @@ Global
 		{10E97CA5-13C8-4525-A972-C18677070838} = {696E5A71-26BB-4CFA-A785-E60FFA471E52}
 		{997E3F68-01CE-44CE-A9D5-87EB01665B46} = {696E5A71-26BB-4CFA-A785-E60FFA471E52}
 		{7F6AC9DB-3B92-44CF-BFF1-DEA3133B33A1} = {122203D8-D476-4A03-ACC1-1B3B73366CDD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4AFD881-8D6C-4E5C-8F3D-9E4A64A3EA6E}
 	EndGlobalSection
 EndGlobal

@@ -8,5 +8,3 @@ then select and install the *Luminous Code* package that you need.
 In the *Visual Studio Marketplace* website, search for 'luminous',
 then select and install the *Luminous Code* package that you need.
 
-### Add Luminous Code to Your Project
-

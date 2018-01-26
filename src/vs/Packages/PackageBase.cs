@@ -519,7 +519,7 @@ namespace Luminous.Code.VisualStudio.Packages
             {
                 var window = FindToolWindow(typeof(T), 0, true);
 
-                if ((window == null) || (window.Frame == null))
+                if (window?.Frame == null)
                 {
                     return new ProblemResult("Unable to create window");
                 }
@@ -528,6 +528,39 @@ namespace Luminous.Code.VisualStudio.Packages
                 ErrorHandler.ThrowOnFailure(windowFrame.Show());
 
                 return new SuccessResult();
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(problem ?? ex.ExtendedMessage());
+            }
+        }
+
+        public CommandResult ShowNewToolWindow<T>(int maxWindows = 1, string problem = null)
+            where T : ToolWindowPane
+        {
+            try
+            {
+                for (int id = 0; id < maxWindows; id++)
+                {
+                    // does the window already exist?
+                    var window = FindToolWindow(typeof(T), id, create: false);
+                    if (window != null)
+                        continue;
+
+                    // create a new window using the first non-existing id
+                    window = FindToolWindow(typeof(T), id, create: true);
+                    if (window?.Frame == null)
+                    {
+                        return new ProblemResult("Unable to create a new window");
+                    }
+
+                    var windowFrame = (IVsWindowFrame)window.Frame;
+
+                    ErrorHandler.ThrowOnFailure(windowFrame.Show());
+
+                    return new SuccessResult();
+                }
+                return new ProblemResult($"Maximum of {maxWindows} new windows already created");
             }
             catch (Exception ex)
             {
