@@ -2,6 +2,10 @@
 
 The versions listed below have been released to Nuget.org.
 
+## v1.0.3 - 2018-01-26
+
+- Add `ShowNewToolWindow<T>` to `PackageBase`
+
 ## v1.0.3 - 2017-11-24
 
 - minor changes
@@ -34,8 +38,3 @@ The versions listed below have been released to Nuget.org.
     - ```SolutionItemKind``` class
     - ```IVsHierarchyNodeInfo``` Class
 
----
-
-[development]: https://img.shields.io/vso/build/lumiinus/f216dc0e-1381-47f0-a1c5-fd85f180cded/8.svg
-[production]: https://img.shields.io/appveyor/ci/luminous-software/luminous-code.svg
-[github]: https://img.shields.io/github/tag/luminous-software/luminous-code.svg

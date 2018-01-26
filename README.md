@@ -1,5 +1,6 @@
-[![Gitter](https://badges.gitter.im/luminous-software/luminous-code.svg)](https://gitter.im/luminous-software/luminous-code?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+<!--[![Gitter](https://badges.gitter.im/luminous-software/luminous-code.svg)](https://gitter.im/luminous-software/luminous-code?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Twitter](https://img.shields.io/twitter/url/https/lumiinus.visualstudio.com/luminous-code/.svg?style=social)](https://twitter.com/intent/tweet??button_hashtag=LuminousCode&text=I+just+discovered+an+awesome+new+code+framework:&url=https%3A%2F%2Fluminous-software.solutions&hashtags=LuminousCode&via=lumiinus)
+-->
 
 ## Why Did I Write Luminous Code?
 
