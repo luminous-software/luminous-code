@@ -7,7 +7,7 @@ using Luminous.Code;
 
 namespace Luminous.Code
 {
-    static class Company
+    internal static class Company
     {
         public const string Name = "Luminous Software Solutions";
         public const string Copyright = "© 2017 " + Name;
