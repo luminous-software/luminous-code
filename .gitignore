@@ -243,3 +243,6 @@ ModelManifest.xml
 
 # Tabs Studio
 **/*.tss
+
+# CodeNav
+/CodeNav.json
