@@ -7,13 +7,11 @@ namespace Core.Tests
 
     public class StringExtensions_Tests
     {
-        #region int
-
         [Fact(DisplayName = nameof(NumericString_ReturnsInt))]
         public void NumericString_ReturnsInt()
         {
             const string value = "5";
-            var expected = 5;
+            const int expected = 5;
 
             var actual = value.To<int>();
 
@@ -24,7 +22,7 @@ namespace Core.Tests
         public void TextString_ReturnsZero()
         {
             const string value = "five";
-            var expected = 0;
+            const int expected = 0;
 
             var actual = value.To<int>();
 
@@ -35,7 +33,7 @@ namespace Core.Tests
         public void EmptyString_ReturnsZero()
         {
             const string value = "";
-            var expected = 0;
+            const int expected = 0;
 
             var actual = value.To<int>();
 
@@ -46,22 +44,18 @@ namespace Core.Tests
         public void NullString_ReturnsZero()
         {
             const string value = null;
-            var expected = 0;
+            const int expected = 0;
 
             var actual = value.To<int>();
 
             actual.Should().Be(expected);
         }
 
-        #endregion
-
-        #region bool
-
         [Fact(DisplayName = nameof(ConvertLowerCaseTrueToTrue))]
         public void ConvertLowerCaseTrueToTrue()
         {
             const string value = "true";
-            var expected = true;
+            const bool expected = true;
 
             var actual = value.To<bool>();
 
@@ -72,7 +66,7 @@ namespace Core.Tests
         public void ConvertLowerCaseFalseToFalse()
         {
             const string value = "false";
-            var expected = false;
+            const bool expected = false;
 
             var actual = value.To<bool>();
 
@@ -83,7 +77,7 @@ namespace Core.Tests
         public void ConvertUpperCaseTrueStringToTrue()
         {
             const string value = "True";
-            var expected = true;
+            const bool expected = true;
 
             var actual = value.To<bool>();
 
@@ -94,7 +88,7 @@ namespace Core.Tests
         public void ConvertUpperCaseFalseStringToFalse()
         {
             const string value = "False";
-            var expected = false;
+            const bool expected = false;
 
             var actual = value.To<bool>();
 
@@ -105,7 +99,7 @@ namespace Core.Tests
         public void ConvertEmptyStringToFalse()
         {
             const string value = "";
-            var expected = false;
+            const bool expected = false;
 
             var actual = value.To<bool>();
 
@@ -116,13 +110,11 @@ namespace Core.Tests
         public void ConvertNullStringToFalse()
         {
             const string value = null;
-            var expected = false;
+            const bool expected = false;
 
             var actual = value.To<bool>();
 
             actual.Should().Be(expected);
         }
-
-        #endregion
     }
 }

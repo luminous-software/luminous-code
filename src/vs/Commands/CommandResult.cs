@@ -5,17 +5,12 @@ namespace Luminous.Code.VisualStudio.Commands
 
     public abstract class CommandResult
     {
-        //***
-
         public string Message { get; set; }
 
         public CommandStatuses Status { get; set; }
 
         public bool Succeeded
              => (Status == CommandStatuses.Success);
-
-        //===M
-        //===M
 
         public CommandResult ShowSuccess(string title = "Success")
         {
@@ -56,7 +51,5 @@ namespace Luminous.Code.VisualStudio.Commands
 
             return this;
         }
-
-        //***
     }
 }

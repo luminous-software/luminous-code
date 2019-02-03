@@ -8,10 +8,6 @@ namespace Core.Tests.Strings
 
     public class JoinStrings_Tests
     {
-        //***
-        //===M
-        //===M
-
         [Fact(DisplayName = nameof(ValidFirstValidSecondValidSeparatorReturnsFirstSeparatorSecond))]
         public void ValidFirstValidSecondValidSeparatorReturnsFirstSeparatorSecond()
         {
@@ -51,15 +47,13 @@ namespace Core.Tests.Strings
             Assert.Equal(expected, actual);
         }
 
-        //---
-
         [Fact(DisplayName = nameof(NullFirstValidSecondValidSeparatorReturnsSecond))]
         public void NullFirstValidSecondValidSeparatorReturnsSecond()
         {
             const string first = null;
             const string second = "2";
             const string separator = "-";
-            var expected = $"{second}";
+            const string expected = second;
 
             var actual = JoinStrings(first, second, separator);
 
@@ -72,7 +66,7 @@ namespace Core.Tests.Strings
             const string first = null;
             const string second = "2";
             const string separator = null;
-            var expected = $"{second}";
+            const string expected = second;
 
             var actual = JoinStrings(first, second, separator);
 
@@ -85,14 +79,12 @@ namespace Core.Tests.Strings
             const string first = null;
             const string second = "2";
             const string separator = "";
-            var expected = $"{second}";
+            const string expected = second;
 
             var actual = JoinStrings(first, second, separator);
 
             Assert.Equal(expected, actual);
         }
-
-        //---
 
         [Fact(DisplayName = nameof(ValidFirstNullSecondValidSeparatorReturnsFirst))]
         public void ValidFirstNullSecondValidSeparatorReturnsFirst()
@@ -100,7 +92,7 @@ namespace Core.Tests.Strings
             const string first = "1";
             const string second = null;
             const string separator = "-";
-            var expected = $"{first}";
+            const string expected = first;
 
             var actual = JoinStrings(first, second, separator);
 
@@ -113,7 +105,7 @@ namespace Core.Tests.Strings
             const string first = "1";
             const string second = null;
             const string separator = null;
-            var expected = $"{first}";
+            const string expected = first;
 
             var actual = JoinStrings(first, second, separator);
 
@@ -126,14 +118,12 @@ namespace Core.Tests.Strings
             const string first = "1";
             const string second = null;
             const string separator = null;
-            var expected = $"{first}";
+            const string expected = first;
 
             var actual = JoinStrings(first, second, separator);
 
             Assert.Equal(expected, actual);
         }
-
-        //---
 
         [Fact(DisplayName = nameof(NullFirstNullSecondValidSeparatorReturnsEmptyString))]
         public void NullFirstNullSecondValidSeparatorReturnsEmptyString()
@@ -173,9 +163,5 @@ namespace Core.Tests.Strings
 
             Assert.Equal(expected, actual);
         }
-
-        //---
-
-        //***
     }
 }

@@ -9,8 +9,6 @@ namespace Luminous.Code.VisualStudio.Commands
     {
         private static IVsMonitorSelection _selectionService;
 
-        //***
-
         protected static PackageBase Package { get; private set; }
 
         protected static int Id { get; private set; }
@@ -20,40 +18,32 @@ namespace Luminous.Code.VisualStudio.Commands
         protected static IVsMonitorSelection SelectionService
             => _selectionService ?? (_selectionService = Package?.SelectionService);
 
-        //===M
-
         protected CommandBase(PackageBase package, int id)
         {
             Package = package ?? throw new ArgumentNullException(nameof(package));
             Id = id;
         }
 
-        //===M
-
-        public bool ContextIsActive(params string[] contexts)
+        public static bool ContextIsActive(params string[] contexts)
         {
             var result = false;
 
             foreach (var context in contexts)
             {
-                result = (result || ContextIsActive(context));
+                result = (result || CommandBase.ContextIsActive(context));
             }
 
             return result;
         }
 
-        //---
-
-        private bool ContextIsActive(string context)
+        private static bool ContextIsActive(string context)
         {
             var contextGuid = new Guid(context);
 
-            SelectionService.GetCmdUIContextCookie(ref contextGuid, out uint contextCookie);
-            SelectionService.IsCmdUIContextActive(contextCookie, out int active);
+            SelectionService.GetCmdUIContextCookie(ref contextGuid, out var contextCookie);
+            SelectionService.IsCmdUIContextActive(contextCookie, out var active);
 
             return (active == 1);
         }
-
-        //***
     }
 }

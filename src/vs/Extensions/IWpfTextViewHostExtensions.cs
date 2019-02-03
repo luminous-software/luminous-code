@@ -5,12 +5,6 @@ namespace Luminous.Code.VisualStudio.Extensions.IWpfTextViewHostExtensions
 {
     public static class IWpfTextViewHostExtensions
     {
-        //***
-
-        //===M
-
-        //===M
-
         // return the ITextDocument for the IWpfTextViewHost that represents the currently selected editor pane
         public static ITextDocument GetTextDocumentForView(this IWpfTextViewHost viewHost)
         {
@@ -21,7 +15,5 @@ namespace Luminous.Code.VisualStudio.Extensions.IWpfTextViewHostExtensions
 
         public static ITextSelection GetSelection(this IWpfTextViewHost viewHost)
             => viewHost.TextView.Selection;
-
-        //***
     }
 }

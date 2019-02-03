@@ -161,6 +161,7 @@
     <Compile Include="Extensions\IntegerExtensions.cs" />
     <Compile Include="Extensions\IWpfTextViewHostExtensions.cs" />
     <Compile Include="Extensions\ServiceProviderExtensions.cs" />
+    <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Packages\PackageBase.cs" />
     <Compile Include="ProjectItems\ProjectItemExtensions.cs" />
     <Compile Include="Projects\ProjectExtensions.cs" />
