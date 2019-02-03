@@ -1,4 +1,3 @@
-/// <binding />
 'use strict';
 
 const gulp = require('gulp');
@@ -21,15 +20,15 @@ var config = {
     },
     address: '127.0.0.1',
     port: '8003'
-}
+};
 
 const script = {
     build: 'mkdocs build',
     serve: 'mkdocs serve --dev-addr=' + config.address + ':' + config.port,
 
     changes: 'git log -n 1 HEAD --pretty=format:"  * %s"',
-    log: 'git log HEAD --pretty=format:"  * %s"',
-}
+    log: 'git log HEAD --pretty=format:"  * %s"'
+};
 
 gulp.task('log', function (cb) {
     exec(script.log, function (err, stdout, stderr) {
@@ -56,7 +55,7 @@ gulp.task('build', function (cb) {
 });
 
 gulp.task('serve', function (cb) {
-    const address = config.address + ':' + config.port
+    const address = config.address + ':' + config.port;
 
     gulp_util.log(address);
 
