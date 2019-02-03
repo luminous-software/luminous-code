@@ -1,5 +1,7 @@
 ﻿using EnvDTE;
 
+using static EnvDTE.Constants;
+
 namespace Luminous.Code.VisualStudio.ProjectItems.ProjectItemExtensions
 {
     using Solutions;
@@ -8,24 +10,44 @@ namespace Luminous.Code.VisualStudio.ProjectItems.ProjectItemExtensions
     {
         public static SolutionExplorerItemType GetSolutionExplorerItemType(this ProjectItem projectItem)
         {
-            var lower = projectItem.Kind.ToLower();
-            var str = lower;
-            if (lower != null)
+            var itemKind = projectItem.Kind.ToLower();
+
+            switch (itemKind)
             {
-                if (str == "{6bb5f8ef-4483-11d3-8bcf-00c04f8ec28c}")
-                {
+                case vsProjectItemKindPhysicalFolder:
                     return SolutionExplorerItemType.Folder;
-                }
-                if (str == "{6bb5f8ee-4483-11d3-8bcf-00c04f8ec28c}")
-                {
+
+                case vsProjectItemKindPhysicalFile:
                     return SolutionExplorerItemType.File;
-                }
-                if (str == "{66a26722-8fb5-11d2-aa7e-00c04f688dde}")
-                {
+
+                case vsProjectItemKindSolutionItems:
                     return SolutionExplorerItemType.SolutionFolder;
-                }
+
+                default:
+                    return SolutionExplorerItemType.Unknown;
             }
-            return SolutionExplorerItemType.Unknown;
+
+            //var lower = projectItem.Kind.ToLower();
+            //var str = lower;
+            //if (lower != null)
+            //{
+            //    //    internal const string VsProjectItemKindPhysicalFolder = "{6BB5F8EF-4483-11D3-8BCF-00C04F8EC28C}";
+            //    if (str == "{6bb5f8ef-4483-11d3-8bcf-00c04f8ec28c}")
+            //    {
+            //        return SolutionExplorerItemType.Folder;
+            //    }
+            //    //    internal const string VsProjectItemKindPhysicalFile = "{6BB5F8EE-4483-11D3-8BCF-00C04F8EC28C}";
+            //    if (str == "{6bb5f8ee-4483-11d3-8bcf-00c04f8ec28c}")
+            //    {
+            //        return SolutionExplorerItemType.File;
+            //    }
+            //    //    internal const string VsProjectItemKindSolutionItem = "{66A26722-8FB5-11D2-AA7E-00C04F688DDE}";
+            //    if (str == "{66a26722-8fb5-11d2-aa7e-00c04f688dde}")
+            //    {
+            //        return SolutionExplorerItemType.SolutionFolder;
+            //    }
+            //}
+            //return SolutionExplorerItemType.Unknown;
         }
     }
 }
@@ -47,15 +69,15 @@ namespace Luminous.Code.VisualStudio.ProjectItems.ProjectItemExtensions
 //    internal const string WindowsStoreProjectTypeGuid = "{BC8A1FFA-BEE3-4634-8014-F334798102B3}";
 //    internal const string SynergexProjectTypeGuid = "{BBD0F5D1-1CC4-42fd-BA4C-A96779C64378}";
 //    internal const string NomadForVisualStudioProjectTypeGuid = "{4B160523-D178-4405-B438-79FB67C8D499}";
+//}
 
-//    // Copied from EnvDTE.Constants since that type can't be embedded
+//    // EnvDTE.Constants
+//
 //    internal const string VsProjectItemKindPhysicalFile = "{6BB5F8EE-4483-11D3-8BCF-00C04F8EC28C}";
 //    internal const string VsProjectItemKindPhysicalFolder = "{6BB5F8EF-4483-11D3-8BCF-00C04F8EC28C}";
 //    internal const string VsProjectItemKindSolutionFolder = "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}";
 //    internal const string VsProjectItemKindSolutionItem = "{66A26722-8FB5-11D2-AA7E-00C04F688DDE}";
 //    internal const string VsWindowKindSolutionExplorer = "{3AE79031-E1BC-11D0-8F78-00A0C9110057}";
-
-//    Actually copied from EnvDTE.Constants
 
 //    A project item in the miscellaneous files folder of the solution.
 //    public const string vsProjectItemKindMisc = "{66A2671F-8FB5-11D2-AA7E-00C04F688DDE}";
@@ -84,4 +106,3 @@ namespace Luminous.Code.VisualStudio.ProjectItems.ProjectItemExtensions
 
 //    All unloaded projects have this Kind value
 //    internal const string UnloadedProjectTypeGuid = "{67294A52-A4F0-11D2-AA88-00C04F688DDE}";
-//}

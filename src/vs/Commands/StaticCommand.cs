@@ -8,14 +8,8 @@ namespace Luminous.Code.VisualStudio.Commands
 
     public abstract class StaticCommand : CommandBase
     {
-        //=====================================================================
-
-        //=====================================================================
-
         protected StaticCommand(PackageBase package, int id) : base(package, id)
         { }
-
-        //=====================================================================
 
         protected static void Instantiate(StaticCommand instance)
         {
@@ -27,23 +21,17 @@ namespace Luminous.Code.VisualStudio.Commands
             Package?.CommandService?.AddCommand(command);
         }
 
-        //---
-
         protected virtual void OnExecute(OleMenuCommand command)
         {
         }
 
-        //---
-
         private void ExecuteHandler(object sender, EventArgs e)
 
         {
-            var command = sender as OleMenuCommand;
-            if (command == null) return;
+            if (!(sender is OleMenuCommand command))
+                return;
 
             OnExecute(command);
         }
-
-        //=====================================================================
     }
 }

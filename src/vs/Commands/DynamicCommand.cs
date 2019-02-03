@@ -11,14 +11,8 @@ namespace Luminous.Code.VisualStudio.Commands
 
     public abstract class DynamicCommand : CommandBase
     {
-        //***
-
-        //===M
-
         protected DynamicCommand(PackageBase package, int id) : base(package, id)
         { }
-
-        //===M
 
         protected static void Instantiate(DynamicCommand instance)
         {
@@ -30,8 +24,6 @@ namespace Luminous.Code.VisualStudio.Commands
             Package?.CommandService?.AddCommand(command);
         }
 
-        //---
-
         protected virtual bool CanExecute
             => true;
 
@@ -41,15 +33,11 @@ namespace Luminous.Code.VisualStudio.Commands
         protected virtual string Text
             => null;
 
-        //---
-
         protected virtual bool IsVisible
             => CanExecute;
 
         protected virtual bool IsEnabled
             => (CanExecute && IsActive);
-
-        //---
 
         protected virtual void OnExecute(OleMenuCommand command)
         { }
@@ -68,117 +56,88 @@ namespace Luminous.Code.VisualStudio.Commands
             command.Text = text ?? command.Text;
         }
 
-        //protected int SelectedCount()
-        //    => Package?.Ide?.SelectedItems.Count ?? 0;
-
-        //---
-
         private void ExecuteHandler(object sender, EventArgs e)
         {
-            var command = sender as OleMenuCommand;
-            if (command == null) return;
+            if (!(sender is OleMenuCommand command))
+                return;
 
             OnExecute(command);
         }
 
         private void ChangeHandler(object sender, EventArgs e)
         {
-            var command = sender as OleMenuCommand;
-            if (command == null) return;
+            if (!(sender is OleMenuCommand command))
+                return;
 
             OnChange(command);
         }
 
         private void QueryStatusHandler(object sender, EventArgs e)
         {
-            var command = sender as OleMenuCommand;
-            if (command == null) return;
+            if (!(sender is OleMenuCommand command))
+                return;
 
             OnQueryStatus(command);
         }
 
-        //---
-
-        protected bool HasSolution
+        protected static bool HasSolution
             => ContextIsActive(SolutionExists);
 
-        protected bool HasNoSolution
+        protected static bool HasNoSolution
             => ContextIsActive(NoSolution);
 
-        //---C
-
-        protected bool SolutionIsBuilding
+        protected static bool SolutionIsBuilding
             => ContextIsActive(SolutionBuilding);
 
-        protected bool SolutionIsNotBuilding
+        protected static bool SolutionIsNotBuilding
             => !SolutionIsBuilding;
 
-        //---C
-
-        protected bool SolutionIsEmpty
+        protected static bool SolutionIsEmpty
             => ContextIsActive(EmptySolution);
 
-        protected bool SolutionIsNotEmpty
+        protected static bool SolutionIsNotEmpty
             => !SolutionIsEmpty;
 
-        protected bool SolutionHasProjects
+        protected static bool SolutionHasProjects
             => ContextIsActive(SolutionHasSingleProject, SolutionHasMultipleProjects);
 
-        //---C
-
-        protected bool SolutionOrProjectIsUpgrading
+        protected static bool SolutionOrProjectIsUpgrading
             => ContextIsActive(SolutionOrProjectUpgrading);
 
-        protected bool SolutionOrProjectIsNotUpgrading
+        protected static bool SolutionOrProjectIsNotUpgrading
             => SolutionOrProjectIsUpgrading;
 
-        //---C
-
-        protected bool SolutionExistsAndIsNotBuildingOrDebugging
+        protected static bool SolutionExistsAndIsNotBuildingOrDebugging
             => ContextIsActive(SolutionExistsAndNotBuildingAndNotDebugging);
 
-        //---C
-
-        protected bool BuildingOrDebugging
+        protected static bool BuildingOrDebugging
             => !NotBuildingOrDebugging;
 
-        protected bool NotBuildingOrDebugging
+        protected static bool NotBuildingOrDebugging
             => ContextIsActive(NotBuildingAndNotDebugging);
 
-        //---C
-
-        protected bool Debugging
+        protected static bool Debugging
             => ContextIsActive(ShellInterop.UIContextGuids80.Debugging);
 
-        protected bool NotDebugging
+        protected static bool NotDebugging
             => !Debugging;
 
-        //---C
-
-        protected bool InDesignMode
+        protected static bool InDesignMode
             => ContextIsActive(DesignMode);
 
-        protected bool NotInDesignMode
+        protected static bool NotInDesignMode
             => !InDesignMode;
 
-        //---C
-
-        protected bool InCodeWindow
+        protected static bool InCodeWindow
             => ContextIsActive(CodeWindow);
 
-        protected bool NotInCodeWindow
+        protected static bool NotInCodeWindow
             => !InCodeWindow;
 
-        //---C
-
-        protected bool Dragging
+        protected static bool Dragging
             => ContextIsActive(Microsoft.VisualStudio.Shell.Interop.UIContextGuids80.Dragging);
 
-        protected bool NotDragging
+        protected static bool NotDragging
             => !Dragging;
-
-        //---C
-
-        //***
     }
 }

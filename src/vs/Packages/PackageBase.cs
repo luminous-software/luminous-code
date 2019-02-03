@@ -35,8 +35,6 @@ namespace Luminous.Code.VisualStudio.Packages
 
     public abstract class PackageBase : Package
     {
-        //***
-
         public static PackageBase Instance { get; set; }
 
         protected string PackageTitle { get; }
@@ -44,8 +42,6 @@ namespace Luminous.Code.VisualStudio.Packages
         protected string PackageDescription { get; }
 
         internal Guid CommandSet { get; }
-
-        //---
 
         private DTE2 _dte;
 
@@ -92,35 +88,25 @@ namespace Luminous.Code.VisualStudio.Packages
             }
         }
 
-        //---
-
         private ServiceProvider _serviceProvider;
 
         public IServiceProvider ServiceProvider
             => _serviceProvider ?? (_serviceProvider = new ServiceProvider(Dte as OleInterop.IServiceProvider));
-
-        //---
 
         private IMenuCommandService _commandService;
 
         internal IMenuCommandService CommandService
             => _commandService ?? (_commandService = GetService<IMenuCommandService>());
 
-        //---
-
         private IVsShell4 _vsShell;
 
         protected IVsShell4 VsShell
             => _vsShell ?? (_vsShell = GetService<SVsShell, IVsShell4>());
 
-        //---
-
         private IVsMonitorSelection _selectionService;
 
         public IVsMonitorSelection SelectionService
             => _selectionService ?? (_selectionService = GetGlobalService<SVsShellMonitorSelection, IVsMonitorSelection>());
-
-        //!!!
 
         protected PackageBase(Guid commandSet, string title, string description)
         {
@@ -129,16 +115,6 @@ namespace Luminous.Code.VisualStudio.Packages
             PackageDescription = description;
             Instance = this;
         }
-
-        //!!!
-
-        //protected PackageBase(Guid commandSet, string title, string description) : this(commandSet, title, description, null)
-        //{ }
-
-        //protected PackageBase(string commandSet, string title, string description) : this(new Guid(commandSet), title, description)
-        //{ }
-
-        //===M
 
         protected override void Initialize()
         {
@@ -149,12 +125,8 @@ namespace Luminous.Code.VisualStudio.Packages
             //DteEvents.OnBeginShutdown += OnBeginShutdown;
         }
 
-        //---
-
         public static DTE2 GetDte()
             => GetGlobalService<_DTE, DTE2>();
-
-        //---
 
         public static TTarget GetGlobalService<TSource, TTarget>()
             where TTarget : class
@@ -162,23 +134,17 @@ namespace Luminous.Code.VisualStudio.Packages
 
         public T GetService<T>()
             where T : class
-            //=> (Instance.GetService(typeof(T)) as T);
             => (GetService(typeof(T)) as T);
 
-        //public static TTarget GetService<TSource, TTarget>()
         public TTarget GetService<TSource, TTarget>()
             where TSource : class
             where TTarget : class
             => GetService(typeof(TSource)) as TTarget;
 
-        //---
-
         private string _vsVersion;
 
         public string VsVersion
             => _vsVersion ?? (_vsVersion = Dte.Version);
-
-        //---
 
         protected bool IsVisualStudio2010
             => VsVersion.Equals("10.0", StringComparison.Ordinal);
@@ -192,37 +158,30 @@ namespace Luminous.Code.VisualStudio.Packages
         protected bool IsVisualStudio2015
             => VsVersion.Equals("14.0", StringComparison.Ordinal);
 
-        //---
+        protected bool IsVisualStudio2017
+            => VsVersion.Equals("15.0", StringComparison.Ordinal);
+
+        protected bool IsVisualStudio2019
+            => VsVersion.Equals("16.0", StringComparison.Ordinal);
 
         public static Result DisplayMessage(string title = null, string message = "", Button button = Button.OK, Icon icon = Icon.None)
             => MessageBox.Show(message, title, button, icon);
 
-        //---
-
-        public bool DisplayQuestion(string title = null, string messageText = null, string questionText = "")
+        public static bool DisplayQuestion(string title = null, string messageText = null, string questionText = "")
         {
-            //var separator = (messageText == null || questionText == null)
-            //    ? ""
-            //    : NewLine + NewLine;
-            //var message = messageText + separator + questionText;
-
             var message = JoinStrings(first: messageText, second: questionText, separator: NewLine + NewLine);
 
             return (DisplayMessage(title: title ?? "Question", message: message,
                 button: Button.YesNo, icon: Icon.Question) == Result.Yes);
         }
 
-        public bool DisplayConfirm(string title = "Please Confirm", string messageText = null, string questionText = "")
+        public static bool DisplayConfirm(string title = null, string messageText = null, string questionText = "")
         {
-            var separator = (messageText == null || questionText == null)
-                ? ""
-                : NewLine + NewLine;
-            var message = messageText + separator + questionText;
+            var message = JoinStrings(first: messageText, second: questionText, separator: NewLine + NewLine);
 
-            return (DisplayMessage(title: title, message: message, button: Button.YesNoCancel, icon: Icon.Warning) == Result.Yes);
+            return (DisplayMessage(title: title ?? "Please Confirm", message: message,
+                button: Button.YesNoCancel, icon: Icon.Warning) == Result.Yes);
         }
-
-        //---
 
         public static void DisplaySuccess(string title = null, string message = "")
         {
@@ -249,15 +208,11 @@ namespace Luminous.Code.VisualStudio.Packages
             DisplayInformation(title: title ?? "Not Implemented", message: message);
         }
 
-        //---
-
         protected SelectedItem GetSelectedItem()
             => Dte?.SelectedItems.Item(1);
 
         public int GetSelectedItemCount()
             => (Dte?.SelectedItems.Count).ToInt();
-
-        //---
 
         public CommandResult ExecuteCommand(string command, string args = "", string success = null, string problem = null)
         {
@@ -298,10 +253,9 @@ namespace Luminous.Code.VisualStudio.Packages
                         return new ProblemResult(message: "Unable to save open files");
                 }
 
-                if (elevated)
-                    return RestartElevated();
-
-                return RestartNormal();
+                return elevated
+                    ? RestartElevated()
+                    : RestartNormal();
             }
             catch (Exception ex)
             {
@@ -475,7 +429,7 @@ namespace Luminous.Code.VisualStudio.Packages
                 var action = rebuild ? CommandKeys.RebuildProject : CommandKeys.BuildProject;
                 var verb = rebuild ? "rebuild" : "build";
 
-                return ExecuteCommand(action, problem: problem ?? $"Unable to {verb} the current project");
+                return ExecuteCommand(action, problem: problem ?? $"Unable to {verb} the project");
             }
             catch (Exception ex)
             {
@@ -510,20 +464,20 @@ namespace Luminous.Code.VisualStudio.Packages
             }
         }
 
-        //---
-
         public CommandResult ShowToolWindow<T>(string problem = null)
             where T : ToolWindowPane
         {
             try
             {
-                var window = FindToolWindow(typeof(T), 0, true);
+                var window = FindToolWindow(typeof(T), id: 0, create: true);
 
-                if (window?.Frame == null)
-                {
+                if (window is null)
                     return new ProblemResult("Unable to create window");
-                }
-                var windowFrame = (IVsWindowFrame)window.Frame;
+
+                var windowFrame = (IVsWindowFrame)window?.Frame;
+
+                if (windowFrame is null)
+                    return new ProblemResult("Unable to access window frame");
 
                 ErrorHandler.ThrowOnFailure(windowFrame.Show());
 
@@ -540,21 +494,23 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                for (int id = 0; id < maxWindows; id++)
+                for (var id = 0; id < maxWindows; id++)
                 {
-                    // does the window already exist?
                     var window = FindToolWindow(typeof(T), id, create: false);
+
+                    // does the window already exist?
                     if (window != null)
                         continue;
 
                     // create a new window using the first non-existing id
                     window = FindToolWindow(typeof(T), id, create: true);
-                    if (window?.Frame == null)
-                    {
-                        return new ProblemResult("Unable to create a new window");
-                    }
 
-                    var windowFrame = (IVsWindowFrame)window.Frame;
+                    if (window is null)
+                        return new ProblemResult("Unable to create a new window");
+
+                    var windowFrame = (IVsWindowFrame)window?.Frame;
+                    if (windowFrame is null)
+                        return new ProblemResult("Unable to access window frame");
 
                     ErrorHandler.ThrowOnFailure(windowFrame.Show());
 
@@ -568,13 +524,11 @@ namespace Luminous.Code.VisualStudio.Packages
             }
         }
 
-        //---
-
         public CommandResult ShowOptions(Guid guid, string problem = null)
         {
             try
             {
-                return ExecuteCommand(ToolsOptions, guid.ToString(), problem: problem);
+                return ExecuteCommand(ToolsOptions, guid.ToString(), problem: problem ?? "Unable to show options");
             }
             catch (Exception ex)
             {
@@ -601,8 +555,6 @@ namespace Luminous.Code.VisualStudio.Packages
             where T : DialogPage
             => (T)Instance.GetDialogPage(typeof(T));
 
-        //---
-
         public CommandResult ActivateOutputWindow(string success = null, string problem = null)
         {
             try
@@ -621,7 +573,12 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                Dte?.ToolWindows.OutputWindow.OutputWindowPanes.Item("Build")?.Activate();
+                var outputPane = Dte?.ToolWindows.OutputWindow.OutputWindowPanes.Item("Build");
+
+                if (outputPane is null)
+                    return new ProblemResult("Unable to find build output pane");
+
+                outputPane.Activate();
 
                 return new SuccessResult();
             }
@@ -635,7 +592,12 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                Dte?.ToolWindows.OutputWindow.OutputWindowPanes.Item(PackageTitle)?.Activate();
+                var outputPane = Dte?.ToolWindows.OutputWindow.OutputWindowPanes.Item(PackageTitle);
+
+                if (outputPane is null)
+                    return new ProblemResult("Unable to find package output pane");
+
+                outputPane.Activate();
 
                 return new SuccessResult();
             }
@@ -649,7 +611,12 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                Dte?.Windows.Item(vsWindowKindSolutionExplorer).Activate();
+                var solutionExplorer = Dte?.Windows.Item(vsWindowKindSolutionExplorer);
+
+                if (solutionExplorer is null)
+                    return new ProblemResult("Unable to find solution explorer");
+
+                solutionExplorer.Activate();
 
                 return new SuccessResult();
             }
@@ -659,8 +626,6 @@ namespace Luminous.Code.VisualStudio.Packages
             }
         }
 
-        //---
-
         protected IWpfTextViewHost GetCurrentViewHost()
         {
             const int mustHaveFocus = 1;
@@ -669,22 +634,19 @@ namespace Luminous.Code.VisualStudio.Packages
             if (textManager == null)
                 return null;
 
-            textManager.GetActiveView(mustHaveFocus, null, out IVsTextView textView);
+            textManager.GetActiveView(mustHaveFocus, null, out var textView);
 
-            var userData = textView as IVsUserData;
-            if (userData == null)
+            if (!(textView is IVsUserData userData))
                 return null;
 
             var guidViewHost = guidIWpfTextViewHost;
 
-            userData.GetData(ref guidViewHost, out object holder);
+            userData.GetData(ref guidViewHost, out var holder);
 
             return (IWpfTextViewHost)holder;
         }
 
-        //---
-
-        private bool GetRestartConfirmation(bool elevated)
+        private static bool GetRestartConfirmation(bool elevated)
         {
             var suffix = (elevated)
                     ? " As Administrator"
@@ -714,7 +676,7 @@ namespace Luminous.Code.VisualStudio.Packages
             {
                 if (ErrorHandler.Failed(VsShell.Restart(mode)))
                 {
-                    return new ProblemResult(message: problem);
+                    return new ProblemResult(message: problem ?? "Unable to restart Visual Studio");
                 }
                 return new SuccessResult();
             }
@@ -723,8 +685,6 @@ namespace Luminous.Code.VisualStudio.Packages
                 return new ProblemResult(message: problem ?? ex.ExtendedMessage());
             }
         }
-
-        //---
 
         //private CommandResult EditProject(string name, string success = null, string problem = null)
         //{
@@ -753,7 +713,5 @@ namespace Luminous.Code.VisualStudio.Packages
         //        return new ProblemResult(problem ?? ex.ExtendedMessage());
         //    }
         //}
-
-        //***
     }
 }
