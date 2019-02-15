@@ -35,6 +35,8 @@ namespace Luminous.Code.VisualStudio.Packages
 
     public abstract class PackageBase : Package
     {
+        private DTE2 _dte;
+
         public static PackageBase Instance { get; set; }
 
         protected string PackageTitle { get; }
@@ -42,8 +44,6 @@ namespace Luminous.Code.VisualStudio.Packages
         protected string PackageDescription { get; }
 
         internal Guid CommandSet { get; }
-
-        private DTE2 _dte;
 
         protected DTE2 Dte
             => _dte ?? (_dte = GetDte());
