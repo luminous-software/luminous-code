@@ -16,13 +16,28 @@ namespace Luminous.Code.VisualStudio.Packages
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     public class AsyncPackageBase : AsyncPackage
     {
-        protected DTE2 Dte { get; private set; }
+        private DTE2 _dte;
+
+        protected DTE2 Dte
+            => _dte ?? (_dte = GetDte());
+
+        internal Guid CommandSet { get; }
+        public string Title { get; }
+        public string Description { get; }
+        protected string PackageTitle { get; }
+
+        protected string PackageDescription { get; }
+
+        public AsyncPackageBase(Guid commandSet, string title, string description)
+        {
+            CommandSet = commandSet;
+            Title = title;
+            Description = description;
+        }
 
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
             await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-
-            Dte = GetDte();
         }
 
         public static DTE2 GetDte()
