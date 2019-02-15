@@ -40,6 +40,7 @@
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="15.9.3" ExcludeAssets="runtime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AsyncCommandBase.cs" />
     <Compile Include="Commands\CancelledResult.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\CommandKeys.cs" />
