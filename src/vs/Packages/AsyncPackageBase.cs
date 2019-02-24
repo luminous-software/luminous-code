@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using System.Threading;
 using System.Threading.Tasks;
 using EnvDTE;
@@ -14,30 +15,37 @@ using static Microsoft.VisualStudio.Shell.Interop.__VSPROPID;
 namespace Luminous.Code.VisualStudio.Packages
 {
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
+    [ProvideMenuResource("Menus.ctmenu", 1)]
+
     public class AsyncPackageBase : AsyncPackage
     {
         private DTE2 _dte;
 
-        protected DTE2 Dte
-            => _dte ?? (_dte = GetDte());
-
         internal Guid CommandSet { get; }
-        public string Title { get; }
-        public string Description { get; }
+
         protected string PackageTitle { get; }
 
         protected string PackageDescription { get; }
 
+        protected DTE2 Dte
+            => _dte ?? (_dte = GetDte());
+
+        public OleMenuCommandService CommandService { get; private set; }
+
         public AsyncPackageBase(Guid commandSet, string title, string description)
         {
             CommandSet = commandSet;
-            Title = title;
-            Description = description;
+            PackageTitle = title;
+            PackageDescription = description;
         }
 
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
-            await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
+            await base.InitializeAsync(cancellationToken, progress);
+
+            CommandService = await GetServiceAsync((typeof(IMenuCommandService))) as OleMenuCommandService;
+
+            //await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
         }
 
         public static DTE2 GetDte()
