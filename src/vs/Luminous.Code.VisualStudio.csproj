@@ -42,12 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\AsyncCommandBase.cs" />
-    <Compile Include="Commands\AsyncDynamicCommand.cs" />
     <Compile Include="Commands\CancelledResult.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\CommandKeys.cs" />
     <Compile Include="Commands\CommandResult.cs" />
     <Compile Include="Commands\CommandStatuses.cs" />
+    <Compile Include="Commands\AsyncDynamicCommand.cs" />
     <Compile Include="Commands\DynamicCommand.cs" />
     <Compile Include="Commands\InformationResult.cs" />
     <Compile Include="Commands\ProblemResult.cs" />

@@ -87,26 +87,28 @@ namespace Luminous.Code.VisualStudio.Commands
         }
 
         #region IDisposable Support
-        private bool disposedValue = false;
+        private bool disposed;
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (disposed)
+                return;
+
+            if (disposing)
             {
-                if (disposing)
-                {
-                    OnDisposeManaged(this);
-                }
-
-                OnDisposeUnmanaged(this);
-
-                disposedValue = true;
+                OnDisposeManaged(this);
             }
+
+            OnDisposeUnmanaged(this);
+
+            disposed = true;
         }
 
         public void Dispose()
         {
             Dispose(true);
+
+            GC.SuppressFinalize(this);
         }
         #endregion
     }
