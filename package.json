@@ -4,7 +4,7 @@
   "repository": "github.com/luminous-software/luminous-code",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "4.0.0",
+    "gulp": "^4.0.0",
     "gulp-all-tasks": "^1.1.4",
     "gulp-util": "^3.0.8",
     "opn": "^5.4.0"
