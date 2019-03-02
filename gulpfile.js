@@ -6,7 +6,7 @@ const exec = require('child_process').exec;
 //const exec = require('gulp-exec');
 const opn = require('opn');
 
-var config = {
+const config = {
     repo: 'https://github.com/luminous-software/luminous-code.git',
     remote: 'github',
     branch: 'master',
@@ -22,12 +22,21 @@ var config = {
     port: '8003'
 };
 
+const consts = {
+    address: config.address + ':' + config.port
+};
+
+const options = {
+    pretty_format: ' --pretty=format:"  * %s"'
+};
+
 const script = {
     build: 'mkdocs build',
-    serve: 'mkdocs serve --dev-addr=' + config.address + ':' + config.port,
+    serve: 'mkdocs serve --dev-addr=' + consts.address,
 
-    changes: 'git log -n 1 HEAD --pretty=format:"  * %s"',
-    log: 'git log HEAD --pretty=format:"  * %s"'
+    log: 'git log HEAD' + options.pretty_format,
+    changes: 'git log -n 1 HEAD' + options.pretty_format,
+    features: 'echo. && git log HEAD --grep="^feature" --no-merges' + options.pretty_format
 };
 
 gulp.task('log', function (cb) {
@@ -46,6 +55,14 @@ gulp.task('changes', function (cb) {
     });
 });
 
+gulp.task('features', function (cb) {
+    exec(script.features, function (err, stdout, stderr) {
+        gulp_util.log(stdout);
+        gulp_util.log(stderr);
+        cb(err);
+    });
+});
+
 gulp.task('build', function (cb) {
     exec(script.build, function (err, stdout, stderr) {
         gulp_util.log(stdout);
@@ -55,8 +72,6 @@ gulp.task('build', function (cb) {
 });
 
 gulp.task('serve', function (cb) {
-    const address = config.address + ':' + config.port;
-
     gulp_util.log(address);
 
     exec(script.serve, function (err, stdout, stderr) {
@@ -64,7 +79,7 @@ gulp.task('serve', function (cb) {
         gulp_util.log(stderr);
         cb(err);
     });
-    opn('http://' + address);
+    opn('http://' + consts.address);
 });
 
-gulp.task('default', ['build', 'deploy']);
+//gulp.task('default', ['build', 'deploy']);
