@@ -306,7 +306,7 @@ namespace Luminous.Code.VisualStudio.Packages
             try
             {
                 if (!File.Exists(name))
-                    return new ProblemResult("Unable to open '{name}'");
+                    return new ProblemResult($"Unable to open '{name}'");
 
                 return ExecuteCommand(ViewWebBrowser, name, problem: problem);
             }
