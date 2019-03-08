@@ -27,6 +27,7 @@ namespace Luminous.Code.VisualStudio.Packages
     using Extensions.IWpfTextViewHostExtensions;
     using SelectedItemsExtensions;
     using Solutions;
+
     using static Strings.Concatenation;
     using static Commands.CommandKeys;
 
@@ -36,6 +37,11 @@ namespace Luminous.Code.VisualStudio.Packages
     public abstract class PackageBase : Package
     {
         private DTE2 _dte;
+        private ServiceProvider _serviceProvider;
+        private IMenuCommandService _commandService;
+        private IVsShell4 _vsShell;
+        private IVsMonitorSelection _selectionService;
+        private string _vsVersion;
 
         public static PackageBase Instance { get; set; }
 
@@ -88,22 +94,17 @@ namespace Luminous.Code.VisualStudio.Packages
             }
         }
 
-        private ServiceProvider _serviceProvider;
-
         public IServiceProvider ServiceProvider
             => _serviceProvider ?? (_serviceProvider = new ServiceProvider(Dte as OleInterop.IServiceProvider));
 
-        private IMenuCommandService _commandService;
 
         internal IMenuCommandService CommandService
             => _commandService ?? (_commandService = GetService<IMenuCommandService>());
 
-        private IVsShell4 _vsShell;
 
         protected IVsShell4 VsShell
             => _vsShell ?? (_vsShell = GetService<SVsShell, IVsShell4>());
 
-        private IVsMonitorSelection _selectionService;
 
         public IVsMonitorSelection SelectionService
             => _selectionService ?? (_selectionService = GetGlobalService<SVsShellMonitorSelection, IVsMonitorSelection>());
@@ -141,7 +142,6 @@ namespace Luminous.Code.VisualStudio.Packages
             where TTarget : class
             => GetService(typeof(TSource)) as TTarget;
 
-        private string _vsVersion;
 
         public string VsVersion
             => _vsVersion ?? (_vsVersion = Dte.Version);
