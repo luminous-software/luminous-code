@@ -30,6 +30,9 @@ namespace Luminous.Code.VisualStudio.Packages
         protected DTE2 Dte
             => _dte ?? (_dte = GetDte());
 
+        public static AsyncPackageBase Instance { get; set; }
+
+
         public OleMenuCommandService CommandService { get; private set; }
 
         public AsyncPackageBase(Guid commandSet, string title, string description)
@@ -37,6 +40,7 @@ namespace Luminous.Code.VisualStudio.Packages
             CommandSet = commandSet;
             PackageTitle = title;
             PackageDescription = description;
+            Instance = this;
         }
 
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
@@ -63,5 +67,11 @@ namespace Luminous.Code.VisualStudio.Packages
             where TSource : class
             where TTarget : class
             => GetService(typeof(TSource)) as TTarget;
+
+        public static T GetDialogPage<T>()
+            where T : DialogPage
+            => (T)Instance.GetDialogPage(typeof(T));
+
+
     }
 }
