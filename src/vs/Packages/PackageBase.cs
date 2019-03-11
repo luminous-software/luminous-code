@@ -328,6 +328,18 @@ namespace Luminous.Code.VisualStudio.Packages
             }
         }
 
+        public CommandResult OpenManageExtensions(string problem = null)
+        {
+            try
+            {
+                return ExecuteCommand(ManageExtensions);
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
+            }
+        }
+
         public CommandResult CloseSolution(string problem = null)
         {
             try

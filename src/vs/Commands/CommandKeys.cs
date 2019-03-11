@@ -11,6 +11,7 @@ namespace Luminous.Code.VisualStudio.Commands
         public const string DeleteProject = "Project.DeleteProject";
         public const string ExtensionsAndUpdates = "Tools.ExtensionsAndUpdates";
         public const string FindInSolutionExplorer = "SolutionExplorer.SyncWithActiveDocument";
+        public const string ManageExtensions = "Tools.ManageExtensions";
         public const string RebuildProject = "Build.RebuildSelection";
         public const string RebuildSolution = "Build.RebuildSolution";
         public const string SaveAll = "File.SaveAll";
