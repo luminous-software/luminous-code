@@ -36,7 +36,7 @@ const script = {
 
     log: 'git log HEAD' + options.pretty_format,
     changes: 'git log -n 1 HEAD' + options.pretty_format,
-    features: 'echo. && git log HEAD --grep="^feature" --no-merges' + options.pretty_format
+    features: 'echo. && git log HEAD --grep="^feat" --no-merges' + options.pretty_format
 };
 
 gulp.task('log', function (cb) {
