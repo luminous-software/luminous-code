@@ -1,19 +1,18 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Threading;
-using System.Threading.Tasks;
 using EnvDTE;
 using EnvDTE80;
-using Microsoft;
-using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using Task = System.Threading.Tasks.Task;
-
-using static Microsoft.VisualStudio.Shell.Interop.__VSPROPID;
+using Tasks = System.Threading.Tasks;
 
 namespace Luminous.Code.VisualStudio.Packages
 {
+    using Exceptions.ExceptionExtensions;
+    using Commands;
+
+    using static Commands.CommandKeys;
+
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
 
@@ -43,7 +42,7 @@ namespace Luminous.Code.VisualStudio.Packages
             Instance = this;
         }
 
-        protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
+        protected override async Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
             await base.InitializeAsync(cancellationToken, progress);
 
@@ -72,6 +71,44 @@ namespace Luminous.Code.VisualStudio.Packages
             where T : DialogPage
             => (T)Instance.GetDialogPage(typeof(T));
 
+        public async Tasks.Task<CommandResult> ExecuteCommandAsync(string command, string args = "", string success = null, string problem = null)
+        {
+            try
+            {
+                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
+                Dte?.ExecuteCommand(command, args);
+
+                return new SuccessResult(message: success);
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
+            }
+        }
+
+        public async Tasks.Task<CommandResult> OpenExtensionsAndUpdatesAsync(string problem = null)
+        {
+            try
+            {
+                return await ExecuteCommandAsync(ExtensionsAndUpdates);
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
+            }
+        }
+
+        public async Tasks.Task<CommandResult> OpenManageExtensionsAsync(string problem = null)
+        {
+            try
+            {
+                return await ExecuteCommandAsync(ManageExtensions);
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
+            }
+        }
     }
 }
