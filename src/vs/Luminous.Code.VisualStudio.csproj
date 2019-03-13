@@ -66,6 +66,7 @@
     <Compile Include="Solutions\SolutionExplorerItemType.cs" />
     <Compile Include="Solutions\SolutionItemKind.cs" />
     <Compile Include="VSHierarchies\IVsHierarchyNodeInfo.cs" />
+    <Compile Include="Constants\VsVersions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Luminous.Code.VisualStudio.nuspec" />
