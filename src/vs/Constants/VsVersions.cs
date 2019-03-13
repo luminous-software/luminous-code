@@ -1,6 +1,6 @@
 ﻿namespace Luminous.Code.VisualStudio.Constants
 {
-    internal static class VsVersions
+    public static class VsVersions
     {
         public const string Vs2019 = "16.0";
         public const string Vs2017 = "15.0";
