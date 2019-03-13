@@ -29,6 +29,7 @@ namespace Luminous.Code.VisualStudio.Packages
     using Solutions;
 
     using static Strings.Concatenation;
+    using static Constants.VsVersions;
     using static Commands.CommandKeys;
 
     [PackageRegistration(UseManagedResourcesOnly = true)]
@@ -142,27 +143,26 @@ namespace Luminous.Code.VisualStudio.Packages
             where TTarget : class
             => GetService(typeof(TSource)) as TTarget;
 
-
         public string VsVersion
             => _vsVersion ?? (_vsVersion = Dte.Version);
 
         protected bool IsVisualStudio2010
-            => VsVersion.Equals("10.0", StringComparison.Ordinal);
+            => VsVersion.Equals(Vs2010, StringComparison.Ordinal);
 
         protected bool IsVisualStudio2012
-            => VsVersion.Equals("11.0", StringComparison.Ordinal);
+            => VsVersion.Equals(Vs2012, StringComparison.Ordinal);
 
         protected bool IsVisualStudio2013
-            => VsVersion.Equals("12.0", StringComparison.Ordinal);
+            => VsVersion.Equals(Vs2013, StringComparison.Ordinal);
 
         protected bool IsVisualStudio2015
-            => VsVersion.Equals("14.0", StringComparison.Ordinal);
+            => VsVersion.Equals(Vs2015, StringComparison.Ordinal);
 
         protected bool IsVisualStudio2017
-            => VsVersion.Equals("15.0", StringComparison.Ordinal);
+            => VsVersion.Equals(Vs2017, StringComparison.Ordinal);
 
         protected bool IsVisualStudio2019
-            => VsVersion.Equals("16.0", StringComparison.Ordinal);
+            => VsVersion.Equals(Vs2019, StringComparison.Ordinal);
 
         public static Result DisplayMessage(string title = null, string message = "", Button button = Button.OK, Icon icon = Icon.None)
             => MessageBox.Show(message, title, button, icon);
