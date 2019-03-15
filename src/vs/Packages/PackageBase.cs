@@ -184,29 +184,19 @@ namespace Luminous.Code.VisualStudio.Packages
         }
 
         public static void DisplaySuccess(string title = null, string message = "")
-        {
-            DisplayMessage(title: title ?? "Success", message: message, icon: Icon.Exclamation);
-        }
+            => DisplayMessage(title: title ?? "Success", message: message, icon: Icon.Exclamation);
 
         public static void DisplayProblem(string title = null, string message = "")
-        {
-            DisplayMessage(title: title ?? "Problem", message: message, icon: Icon.Error);
-        }
+            => DisplayMessage(title: title ?? "Problem", message: message, icon: Icon.Error);
 
         public static void DisplayCancelled(string title = null, string message = "")
-        {
-            DisplayMessage(title: title ?? "Cancelled", message: message, icon: Icon.Information);
-        }
+            => DisplayMessage(title: title ?? "Cancelled", message: message, icon: Icon.Information);
 
         public static void DisplayInformation(string title = null, string message = "")
-        {
-            DisplayMessage(title: title ?? "Please Note", message: message, icon: Icon.Information);
-        }
+            => DisplayMessage(title: title ?? "Please Note", message: message, icon: Icon.Information);
 
         public static void DisplayNotImplemented(string title = null, string message = "")
-        {
-            DisplayInformation(title: title ?? "Not Implemented", message: message);
-        }
+            => DisplayInformation(title: title ?? "Not Implemented", message: message);
 
         protected SelectedItem GetSelectedItem()
             => Dte?.SelectedItems.Item(1);
@@ -229,39 +219,7 @@ namespace Luminous.Code.VisualStudio.Packages
         }
 
         public CommandResult SaveAllFiles(string success = null, string problem = null)
-        {
-            return ExecuteCommand(SaveAll, success: success, problem: problem);
-        }
-
-        public CommandResult RestartVisualStudio(bool confirm = true, bool saveFiles = true, bool elevated = false)
-        {
-            try
-            {
-                if (confirm)
-                {
-                    var confirmed = GetRestartConfirmation(elevated);
-
-                    if (!confirmed)
-                        return new CancelledResult();
-                }
-
-                if (saveFiles)
-                {
-                    var filesSaved = SaveAllFiles().Succeeded;
-
-                    if (!filesSaved)
-                        return new ProblemResult(message: "Unable to save open files");
-                }
-
-                return elevated
-                    ? RestartElevated()
-                    : RestartNormal();
-            }
-            catch (Exception ex)
-            {
-                return new ProblemResult(message: ex.ExtendedMessage());
-            }
-        }
+            => ExecuteCommand(SaveAll, success: success, problem: problem);
 
         public CommandResult ReplaceSelectedText(Func<string> newText, string prefix = "", string suffix = "", string success = null, string problem = null)
         {
@@ -318,18 +276,7 @@ namespace Luminous.Code.VisualStudio.Packages
         }
 
         public CommandResult OpenCodeFile(string name, string problem = null)
-        {
-            try
-            {
-                Dte?.ItemOperations.OpenFile(name, vsViewKindCode);
-
-                return new SuccessResult();
-            }
-            catch (Exception ex)
-            {
-                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
-            }
-        }
+            => OpenFile(name, vsViewKindCode, problem);
 
         public CommandResult OpenTextFile(string name, string problem = null)
             => OpenFile(name, vsViewKindTextView, problem);
@@ -339,7 +286,6 @@ namespace Luminous.Code.VisualStudio.Packages
 
         public CommandResult OpenManageExtensions(string problem = null)
             => ExecuteCommand(ManageExtensions);
-
 
         public CommandResult CloseSolution(string problem = null)
         {
@@ -382,16 +328,7 @@ namespace Luminous.Code.VisualStudio.Packages
         }
 
         public CommandResult UnloadSelectedProject(string problem = null)
-        {
-            try
-            {
-                return ExecuteCommand(UnloadProject, problem: problem);
-            }
-            catch (Exception ex)
-            {
-                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
-            }
-        }
+            => ExecuteCommand(UnloadProject, problem: problem);
 
         public CommandResult EditSelectedProject(string problem = null)
         {
@@ -437,7 +374,9 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                var action = rebuild ? CommandKeys.RebuildProject : CommandKeys.BuildProject;
+                var action = rebuild
+                    ? CommandKeys.RebuildProject
+                    : CommandKeys.BuildProject;
                 var verb = rebuild ? "rebuild" : "build";
 
                 return ExecuteCommand(action, problem: problem ?? $"Unable to {verb} the project");
@@ -452,7 +391,9 @@ namespace Luminous.Code.VisualStudio.Packages
         {
             try
             {
-                var action = rebuild ? CommandKeys.RebuildSolution : CommandKeys.BuildSolution;
+                var action = rebuild
+                    ? CommandKeys.RebuildSolution
+                    : CommandKeys.BuildSolution;
                 var verb = rebuild ? "rebuild" : "build";
 
                 return ExecuteCommand(action, problem: problem ?? $"Unable to {verb} the solution");
@@ -464,16 +405,7 @@ namespace Luminous.Code.VisualStudio.Packages
         }
 
         public CommandResult CancelBuild(string problem = null)
-        {
-            try
-            {
-                return ExecuteCommand(CommandKeys.CancelBuild, problem: problem ?? "Unable to cancel the current build");
-            }
-            catch (Exception ex)
-            {
-                return new ProblemResult(problem ?? ex.ExtendedMessage());
-            }
-        }
+            => ExecuteCommand(CommandKeys.CancelBuild, problem: problem ?? "Unable to cancel the current build");
 
         public CommandResult ShowToolWindow<T>(string problem = null)
             where T : ToolWindowPane
@@ -536,16 +468,7 @@ namespace Luminous.Code.VisualStudio.Packages
         }
 
         public CommandResult ShowOptions(Guid guid, string problem = null)
-        {
-            try
-            {
-                return ExecuteCommand(ToolsOptions, guid.ToString(), problem: problem ?? "Unable to show options");
-            }
-            catch (Exception ex)
-            {
-                return new ProblemResult(problem ?? ex.ExtendedMessage());
-            }
-        }
+            => ExecuteCommand(ToolsOptions, guid.ToString(), problem: problem ?? "Unable to show options");
 
         public CommandResult ShowOptionsPage<T>(string problem = null)
            where T : DialogPage
@@ -637,24 +560,34 @@ namespace Luminous.Code.VisualStudio.Packages
             }
         }
 
-        protected IWpfTextViewHost GetCurrentViewHost()
+        public CommandResult RestartVisualStudio(bool confirm = true, bool saveFiles = true, bool elevated = false)
         {
-            const int mustHaveFocus = 1;
+            try
+            {
+                if (confirm)
+                {
+                    var confirmed = GetRestartConfirmation(elevated);
 
-            var textManager = GetService<SVsTextManager, IVsTextManager>();
-            if (textManager == null)
-                return null;
+                    if (!confirmed)
+                        return new CancelledResult();
+                }
 
-            textManager.GetActiveView(mustHaveFocus, null, out var textView);
+                if (saveFiles)
+                {
+                    var filesSaved = SaveAllFiles().Succeeded;
 
-            if (!(textView is IVsUserData userData))
-                return null;
+                    if (!filesSaved)
+                        return new ProblemResult(message: "Unable to save open files");
+                }
 
-            var guidViewHost = guidIWpfTextViewHost;
-
-            userData.GetData(ref guidViewHost, out var holder);
-
-            return (IWpfTextViewHost)holder;
+                return elevated
+                    ? RestartElevated()
+                    : RestartNormal();
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(message: ex.ExtendedMessage());
+            }
         }
 
         private static bool GetRestartConfirmation(bool elevated)
@@ -695,6 +628,26 @@ namespace Luminous.Code.VisualStudio.Packages
             {
                 return new ProblemResult(message: problem ?? ex.ExtendedMessage());
             }
+        }
+
+        protected IWpfTextViewHost GetCurrentViewHost()
+        {
+            const int mustHaveFocus = 1;
+
+            var textManager = GetService<SVsTextManager, IVsTextManager>();
+            if (textManager == null)
+                return null;
+
+            textManager.GetActiveView(mustHaveFocus, null, out var textView);
+
+            if (!(textView is IVsUserData userData))
+                return null;
+
+            var guidViewHost = guidIWpfTextViewHost;
+
+            userData.GetData(ref guidViewHost, out var holder);
+
+            return (IWpfTextViewHost)holder;
         }
 
         //private CommandResult EditProject(string name, string success = null, string problem = null)
