@@ -318,6 +318,9 @@ namespace Luminous.Code.VisualStudio.Packages
             }
         }
 
+        public CommandResult OpenTextFile(string name, string problem = null)
+            => OpenFile(name, vsViewKindTextView, problem);
+
         public CommandResult OpenExtensionsAndUpdates(string problem = null)
            => ExecuteCommand(ExtensionsAndUpdates, problem: problem);
 
