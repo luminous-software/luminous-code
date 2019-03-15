@@ -318,23 +318,8 @@ namespace Luminous.Code.VisualStudio.Packages
             }
         }
 
-        public CommandResult OpenLogFile(string name, string problem = null)
-        {
-            try
-            {
-                if (!File.Exists(name))
-                    return new ProblemResult($"Unable to open '{name}'");
-
-                return ExecuteCommand(ViewWebBrowser, name, problem: problem);
-            }
-            catch (Exception ex)
-            {
-                return new ProblemResult(problem ?? ex.ExtendedMessage());
-            }
-        }
-
         public CommandResult OpenExtensionsAndUpdates(string problem = null)
-            => ExecuteCommand(ExtensionsAndUpdates, problem: problem);
+           => ExecuteCommand(ExtensionsAndUpdates, problem: problem);
 
         public CommandResult OpenManageExtensions(string problem = null)
             => ExecuteCommand(ManageExtensions);
