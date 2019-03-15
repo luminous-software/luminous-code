@@ -303,6 +303,19 @@ namespace Luminous.Code.VisualStudio.Packages
                 return new ProblemResult(message: problem ?? ex.ExtendedMessage());
             }
         }
+        public CommandResult OpenFileInBrowser(string name, string problem = null)
+        {
+            try
+            {
+                return File.Exists(name)
+                    ? ExecuteCommand(ViewWebBrowser, name, problem: problem)
+                    : new ProblemResult($"Unable to open '{name}'");
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(problem ?? ex.ExtendedMessage());
+            }
+        }
 
         public CommandResult OpenCodeFile(string name, string problem = null)
         {
@@ -326,6 +339,7 @@ namespace Luminous.Code.VisualStudio.Packages
 
         public CommandResult OpenManageExtensions(string problem = null)
             => ExecuteCommand(ManageExtensions);
+
 
         public CommandResult CloseSolution(string problem = null)
         {
