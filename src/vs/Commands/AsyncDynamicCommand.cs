@@ -14,12 +14,12 @@ namespace Luminous.Code.VisualStudio.Commands
 
         protected virtual async Task InstantiateAsync(AsyncDynamicCommand instance)
         {
+            var commandID = new CommandID(Package.CommandSet, Id);
+            var command = new OleMenuCommand(instance.ExecuteHandler, instance.ChangeHandler, instance.QueryStatusHandler, commandID);
+
             Instance = instance;
 
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-
-            var commandID = new CommandID(Package.CommandSet, Id);
-            var command = new OleMenuCommand(instance.ExecuteHandler, instance.ChangeHandler, instance.QueryStatusHandler, commandID);
 
             Package?.CommandService?.AddCommand(command);
         }
