@@ -287,6 +287,23 @@ namespace Luminous.Code.VisualStudio.Packages
             return new SuccessResult(message: success);
         }
 
+        public CommandResult OpenFile(string name, string viewKind = vsViewKindAny, string problem = null)
+        {
+            try
+            {
+                if (!File.Exists(name))
+                    return new ProblemResult($"Unable to open '{name}'");
+
+                Dte?.ItemOperations.OpenFile(name, viewKind);
+
+                return new SuccessResult();
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
+            }
+        }
+
         public CommandResult OpenCodeFile(string name, string problem = null)
         {
             try
