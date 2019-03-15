@@ -317,28 +317,10 @@ namespace Luminous.Code.VisualStudio.Packages
         }
 
         public CommandResult OpenExtensionsAndUpdates(string problem = null)
-        {
-            try
-            {
-                return ExecuteCommand(ExtensionsAndUpdates);
-            }
-            catch (Exception ex)
-            {
-                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
-            }
-        }
+            => ExecuteCommand(ExtensionsAndUpdates, problem: problem);
 
         public CommandResult OpenManageExtensions(string problem = null)
-        {
-            try
-            {
-                return ExecuteCommand(ManageExtensions);
-            }
-            catch (Exception ex)
-            {
-                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
-            }
-        }
+            => ExecuteCommand(ManageExtensions);
 
         public CommandResult CloseSolution(string problem = null)
         {
@@ -365,10 +347,9 @@ namespace Luminous.Code.VisualStudio.Packages
                 {
                     result = CloseSolution(problem);
 
-                    if (!result.Succeeded)
-                        return result;
-
-                    return OpenCodeFile(fullName, problem);
+                    return result.Succeeded
+                        ? OpenCodeFile(fullName, problem)
+                        : result;
                 }
                 catch (Exception ex)
                 {
@@ -398,12 +379,11 @@ namespace Luminous.Code.VisualStudio.Packages
             try
             {
                 var name = GetSelectedItem()?.Project.FullName;
-
                 var result = UnloadSelectedProject(problem: problem);
-                if (!result.Succeeded)
-                    return result;
 
-                return OpenCodeFile(name, problem);
+                return result.Succeeded
+                    ? OpenCodeFile(name, problem)
+                    : result;
             }
             catch (Exception ex)
             {
