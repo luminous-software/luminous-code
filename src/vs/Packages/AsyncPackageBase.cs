@@ -6,12 +6,15 @@ using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
 using Tasks = System.Threading.Tasks;
 
+using static EnvDTE.Constants;
+
 namespace Luminous.Code.VisualStudio.Packages
 {
     using Exceptions.ExceptionExtensions;
     using Commands;
 
     using static Commands.CommandKeys;
+    using System.IO;
 
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
@@ -80,6 +83,25 @@ namespace Luminous.Code.VisualStudio.Packages
                 Dte?.ExecuteCommand(command, args);
 
                 return new SuccessResult(message: success);
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
+            }
+        }
+
+        public async Tasks.Task<CommandResult> OpenFileAsync(string name, string viewKind = vsViewKindAny, string problem = null)
+        {
+            try
+            {
+                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+
+                if (!File.Exists(name))
+                    return new ProblemResult($"Unable to open '{name}'");
+
+                Dte?.ItemOperations.OpenFile(name, viewKind);
+
+                return new SuccessResult();
             }
             catch (Exception ex)
             {
