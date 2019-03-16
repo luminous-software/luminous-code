@@ -74,6 +74,20 @@ namespace Luminous.Code.VisualStudio.Packages
             where T : DialogPage
             => (T)Instance.GetDialogPage(typeof(T));
 
+        public CommandResult ExecuteCommand(string command, string args = "", string success = null, string problem = null)
+        {
+            try
+            {
+                Dte?.ExecuteCommand(command, args);
+
+                return new SuccessResult(message: success);
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
+            }
+        }
+
         public async Tasks.Task<CommandResult> ExecuteCommandAsync(string command, string args = "", string success = null, string problem = null)
         {
             try
