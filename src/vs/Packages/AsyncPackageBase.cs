@@ -109,6 +109,22 @@ namespace Luminous.Code.VisualStudio.Packages
             }
         }
 
+        public async Tasks.Task<CommandResult> OpenFileInBrowserAsync(string name, string problem = null)
+        {
+            try
+            {
+                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+
+                return File.Exists(name)
+                    ? await ExecuteCommandAsync(ViewWebBrowser, name, problem: problem)
+                    : new ProblemResult($"Unable to open '{name}'");
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(problem ?? ex.ExtendedMessage());
+            }
+        }
+
         public async Tasks.Task<CommandResult> OpenExtensionsAndUpdatesAsync(string problem = null)
         {
             try
