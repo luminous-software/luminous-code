@@ -34,7 +34,6 @@ namespace Luminous.Code.VisualStudio.Packages
 
         public static AsyncPackageBase Instance { get; set; }
 
-
         public OleMenuCommandService CommandService { get; private set; }
 
         public AsyncPackageBase(Guid commandSet, string title, string description)
@@ -50,8 +49,6 @@ namespace Luminous.Code.VisualStudio.Packages
             await base.InitializeAsync(cancellationToken, progress);
 
             CommandService = await GetServiceAsync((typeof(IMenuCommandService))) as OleMenuCommandService;
-
-            //await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
         }
 
         public static DTE2 GetDte()
@@ -104,12 +101,10 @@ namespace Luminous.Code.VisualStudio.Packages
             }
         }
 
-        public async Tasks.Task<CommandResult> OpenFileAsync(string name, string viewKind = vsViewKindAny, string problem = null)
+        public CommandResult OpenFile(string name, string viewKind = vsViewKindAny, string problem = null)
         {
             try
             {
-                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-
                 if (!File.Exists(name))
                     return new ProblemResult($"Unable to open '{name}'");
 
@@ -123,14 +118,12 @@ namespace Luminous.Code.VisualStudio.Packages
             }
         }
 
-        public async Tasks.Task<CommandResult> OpenFileInBrowserAsync(string name, string problem = null)
+        public CommandResult OpenFileInBrowser(string name, string problem = null)
         {
             try
             {
-                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-
                 return File.Exists(name)
-                    ? await ExecuteCommandAsync(ViewWebBrowser, name, problem: problem)
+                    ? ExecuteCommand(ViewWebBrowser, name, problem: problem)
                     : new ProblemResult($"Unable to open '{name}'");
             }
             catch (Exception ex)
