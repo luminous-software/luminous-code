@@ -11,7 +11,7 @@ namespace Luminous.Code.VisualStudio.Commands
         protected AsyncDynamicCommand(AsyncPackageBase package, int id) : base(package, id)
         { }
 
-        protected virtual void Instantiate(AsyncDynamicCommand instance)
+        protected static void Instantiate(AsyncDynamicCommand instance)
         {
             var commandID = new CommandID(Package.CommandSet, Id);
             var command = new OleMenuCommand(instance.ExecuteHandler, instance.ChangeHandler, instance.QueryStatusHandler, commandID);
