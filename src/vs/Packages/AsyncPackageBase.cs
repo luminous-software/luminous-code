@@ -126,27 +126,9 @@ namespace Luminous.Code.VisualStudio.Packages
         }
 
         public async Tasks.Task<CommandResult> OpenExtensionsAndUpdatesAsync(string problem = null)
-        {
-            try
-            {
-                return await ExecuteCommandAsync(ExtensionsAndUpdates);
-            }
-            catch (Exception ex)
-            {
-                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
-            }
-        }
+            => await ExecuteCommandAsync(ExtensionsAndUpdates, problem: problem);
 
         public async Tasks.Task<CommandResult> OpenManageExtensionsAsync(string problem = null)
-        {
-            try
-            {
-                return await ExecuteCommandAsync(ManageExtensions);
-            }
-            catch (Exception ex)
-            {
-                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
-            }
-        }
+            => await ExecuteCommandAsync(ManageExtensions, problem: problem);
     }
 }
