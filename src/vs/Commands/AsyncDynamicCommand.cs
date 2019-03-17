@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using Microsoft.VisualStudio.Shell;
+using Tasks = System.Threading.Tasks;
 
 namespace Luminous.Code.VisualStudio.Commands
 {
@@ -11,12 +12,14 @@ namespace Luminous.Code.VisualStudio.Commands
         protected AsyncDynamicCommand(AsyncPackageBase package, int id) : base(package, id)
         { }
 
-        protected static void Instantiate(AsyncDynamicCommand instance)
+        protected async Tasks.Task InstantiateAsync(AsyncDynamicCommand instance)
         {
             var commandID = new CommandID(Package.CommandSet, Id);
             var command = new OleMenuCommand(instance.ExecuteHandler, instance.ChangeHandler, instance.QueryStatusHandler, commandID);
 
             Instance = instance;
+
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
             Package?.CommandService?.AddCommand(command);
         }
