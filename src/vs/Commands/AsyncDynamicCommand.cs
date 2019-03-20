@@ -12,7 +12,7 @@ namespace Luminous.Code.VisualStudio.Commands
         protected AsyncDynamicCommand(AsyncPackageBase package, int id) : base(package, id)
         { }
 
-        protected async static Tasks.Task InstantiateAsync(AsyncDynamicCommand instance)
+        public async static Tasks.Task InstantiateAsync(AsyncDynamicCommand instance)
         {
             var commandID = new CommandID(Package.CommandSet, Id);
             var command = new OleMenuCommand(instance.ExecuteHandler, instance.ChangeHandler, instance.QueryStatusHandler, commandID);
@@ -20,6 +20,16 @@ namespace Luminous.Code.VisualStudio.Commands
             Instance = instance;
 
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+
+            Package?.CommandService?.AddCommand(command);
+        }
+
+        protected static void Instantiate(AsyncDynamicCommand instance)
+        {
+            Instance = instance;
+
+            var commandID = new CommandID(Package.CommandSet, Id);
+            var command = new OleMenuCommand(instance.ExecuteHandler, instance.ChangeHandler, instance.QueryStatusHandler, commandID);
 
             Package?.CommandService?.AddCommand(command);
         }
