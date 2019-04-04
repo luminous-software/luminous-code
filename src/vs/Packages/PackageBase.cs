@@ -250,7 +250,7 @@ namespace Luminous.Code.VisualStudio.Packages
             try
             {
                 if (!File.Exists(name))
-                    return new ProblemResult($"Unable to open '{name}'");
+                    return new ProblemResult(problem ?? $"Unable to open '{name}'");
 
                 Dte?.ItemOperations.OpenFile(name, viewKind);
 
@@ -267,7 +267,7 @@ namespace Luminous.Code.VisualStudio.Packages
             {
                 return File.Exists(name)
                     ? ExecuteCommand(ViewWebBrowser, name, problem: problem)
-                    : new ProblemResult($"Unable to open '{name}'");
+                    : new ProblemResult(problem ?? $"Unable to open '{name}'");
             }
             catch (Exception ex)
             {
