@@ -31,7 +31,7 @@ const options = {
 };
 
 const script = {
-    build: 'mkdocs build',
+    generate: 'mkdocs build',
     serve: 'mkdocs serve --dev-addr=' + consts.address,
 
     log: 'git log HEAD' + options.pretty_format,
@@ -63,8 +63,8 @@ gulp.task('features', function (cb) {
     });
 });
 
-gulp.task('build', function (cb) {
-    exec(script.build, function (err, stdout, stderr) {
+gulp.task('generate', function (cb) {
+    exec(script.generate, function (err, stdout, stderr) {
         gulp_util.log(stdout);
         gulp_util.log(stderr);
         cb(err);
@@ -72,7 +72,7 @@ gulp.task('build', function (cb) {
 });
 
 gulp.task('serve', function (cb) {
-    gulp_util.log(address);
+    gulp_util.log(consts.address);
 
     exec(script.serve, function (err, stdout, stderr) {
         gulp_util.log(stdout);

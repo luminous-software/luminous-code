@@ -18,6 +18,7 @@ The `Luminous.Code.StringExtensions` namespace is fairly self-explanatory.
 It contains a set of extension methods that extend the `string` namespace.
 
 ---
+
 ## Luminous.Code.VisualStudio
 
 `Luminous.Code.VisualStudio` is a plain C# class library project that contains the lower level classes, methods and extension methods that pertain to creating
@@ -30,6 +31,13 @@ It has a project reference to the `Luminous.Code.Core` project, as it relies on 
 The `Luminous.Code.VisualStudio.Packages` namespace contains all of the plumbing code that
 a Visual Studio package needs to interact with the Visual Studio IDE.
 
+### PackageBase Class
+
+The `Luminous.Code.VisualStudio.Packages.PackageBase` class is an abstract base class that you inherit your own
+packages from.
+
+It abstracts away the `Microsoft.VisualStudio.Shell.Package` and commands that interact with the Visual Studio IDE.
+
 #### `ShowToolWindow<T>`
 
 The `ShowToolWindow<T>` method is for situations that only allow a single tool window.
@@ -38,12 +46,9 @@ The `ShowToolWindow<T>` method is for situations that only allow a single tool w
 
 The `ShowNewToolWindow<T>` method is for situations that allow multiple tool windows.
 
-### PackageBase Class
+#### `OpenFolder`
 
-The `Luminous.Code.VisualStudio.Packages.PackageBase` class is an abstract base class that you inherit your own
-packages from.
-
-It abstracts away the `Microsoft.VisualStudio.Shell.Package` and commands that interact with the Visual Studio IDE.
+The `OpenFolder` method opens the suppliedfolder path in a File Explorer window.
 
 ### Commands Namespace
 

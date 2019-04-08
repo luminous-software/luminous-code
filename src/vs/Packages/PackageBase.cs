@@ -245,6 +245,23 @@ namespace Luminous.Code.VisualStudio.Packages
             return new SuccessResult(message: success);
         }
 
+        public CommandResult OpenFolder(string name, string problem = null)
+        {
+            try
+            {
+                if (!Directory.Exists(name))
+                    return new ProblemResult(problem ?? $"Unable to open '{name}'");
+
+                System.Diagnostics.Process.Start(name);
+
+                return new SuccessResult();
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(message: problem ?? ex.ExtendedMessage());
+            }
+        }
+
         public CommandResult OpenFile(string name, string viewKind = vsViewKindAny, string problem = null)
         {
             try
@@ -261,6 +278,7 @@ namespace Luminous.Code.VisualStudio.Packages
                 return new ProblemResult(message: problem ?? ex.ExtendedMessage());
             }
         }
+
         public CommandResult OpenFileInBrowser(string name, string problem = null)
         {
             try

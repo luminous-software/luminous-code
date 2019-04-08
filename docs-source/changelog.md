@@ -2,6 +2,8 @@
 
 The versions listed below have been released to Nuget.org.
 
+## v1.3.0 - 2019-04-08
+
 ## v1.2.1 - 2019-04-04
 - fixed OpenFile/OpenFileInBrowser displaying incorrect problem message
 
