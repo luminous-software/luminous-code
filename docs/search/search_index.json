@@ -1,0 +1,199 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "I just don't understand why anyone would want to write the same old low-level code to accomplish a particular task each\nand every time they need it? Unfortunately, the practice is a lot more common than you might think!\n\n\nI don't know about you, but I \nhate\n maintaining code like that.\n\n\n\n\nIn 1991, John F. Woods wrote:\n\n\nAlways code as if the guy who ends up maintaining your code will be a violent psychopath\nwho knows where you live.\n\n\n\n\nIn essence, code not only for yourself, but also for future developers who will have to maintain your code.\n\n\nWhat Is Luminous Code\n\u00b6\n\n\nLuminous Code\n is a collection of projects, namespaces, classes, methods, and extention methods,\nthat I wrote to keep the code that I need to write in my various projects as \nDRY\n as possible! \nIt's driven by my own needs as a developer,\nbut I'm more than happy to share it with anyone who might find it useful,\nand to accept suggestions, pull requests or bug reports.\n\n\nWhenever I find myself writing the same code again, I first extract it into a new class or a new method,\nas a lot of experienced developers will do.\nThen as soon as I can, I'll transfer the code to the appropriate \nLuminous Code\n namespace so that I can reuse it myself,\nand also release it for others to benefit from as well.\n\n\nAlso, if it's taken me some time to figure out how to do something \nnew\n, I'll add it into the framework too.\nThat way I'm not constantly reinventing the wheel, so to speak. I figure it out \nonce\n, not \nevery\n\ntime I need the same task done.\n\n\n\n\nLuminous Code helps you to:\n\n\n\n\nkeep your code as DRY as possible\n\n\nwrite code that is more easily maintained\n\n\nwrite code that has clear and obvious intent\n\n\n\n\n\n\nClear and Obvious Intent\n\u00b6\n\n\nIt isn't really all that easy to understand what multiple lines of low-level code are actually\ndesigned to accomplish when you come back to the code days, weeks, months, or even years later!\nWithout working your way through each line, you have no real idea what the \nintent\n of the code is.\n\n\n\n\nWhich lines of code would you rather be maintaining?\n\n\n(this code - example 1)\n\n\nor\n\n\n(this code - example 2)\n\n\n\n\nThe \nintent\n of any code that you write should be \nclear\n and \nobvious\n to anyone who is using or maintaining\nyour code (even if it's you). \nOne of the main reasons that I wrote the \nLuminous Code\n was so I could use code that has \nclear and obvious intent\n.\n\n\nDonations Appreciated\n\u00b6\n\n\nIf you happen to find \nLuminous Code\n useful and would like to support future development,\nmaybe you could shout me a coke (as I don't actually drink coffee or beer, lol).",
+            "title": "About Luminous Code"
+        },
+        {
+            "location": "/#what-is-luminous-code",
+            "text": "Luminous Code  is a collection of projects, namespaces, classes, methods, and extention methods,\nthat I wrote to keep the code that I need to write in my various projects as  DRY  as possible! \nIt's driven by my own needs as a developer,\nbut I'm more than happy to share it with anyone who might find it useful,\nand to accept suggestions, pull requests or bug reports.  Whenever I find myself writing the same code again, I first extract it into a new class or a new method,\nas a lot of experienced developers will do.\nThen as soon as I can, I'll transfer the code to the appropriate  Luminous Code  namespace so that I can reuse it myself,\nand also release it for others to benefit from as well.  Also, if it's taken me some time to figure out how to do something  new , I'll add it into the framework too.\nThat way I'm not constantly reinventing the wheel, so to speak. I figure it out  once , not  every \ntime I need the same task done.   Luminous Code helps you to:   keep your code as DRY as possible  write code that is more easily maintained  write code that has clear and obvious intent",
+            "title": "What Is Luminous Code"
+        },
+        {
+            "location": "/#clear-and-obvious-intent",
+            "text": "It isn't really all that easy to understand what multiple lines of low-level code are actually\ndesigned to accomplish when you come back to the code days, weeks, months, or even years later!\nWithout working your way through each line, you have no real idea what the  intent  of the code is.   Which lines of code would you rather be maintaining?  (this code - example 1)  or  (this code - example 2)   The  intent  of any code that you write should be  clear  and  obvious  to anyone who is using or maintaining\nyour code (even if it's you). \nOne of the main reasons that I wrote the  Luminous Code  was so I could use code that has  clear and obvious intent .",
+            "title": "Clear and Obvious Intent"
+        },
+        {
+            "location": "/#donations-appreciated",
+            "text": "If you happen to find  Luminous Code  useful and would like to support future development,\nmaybe you could shout me a coke (as I don't actually drink coffee or beer, lol).",
+            "title": "Donations Appreciated"
+        },
+        {
+            "location": "/getting-started/",
+            "text": "Install Via Visual Studio\n\u00b6\n\n\nIn the \nExtensions and Updates\n dialog in Visual Studio, search for 'luminous',\nthen select and install the \nLuminous Code\n package that you need.\n\n\nInstall Via Visual Studio Marketplace\n\u00b6\n\n\nIn the \nVisual Studio Marketplace\n website, search for 'luminous',\nthen select and install the \nLuminous Code\n package that you need.",
+            "title": "How to Get Started"
+        },
+        {
+            "location": "/getting-started/#install-via-visual-studio",
+            "text": "In the  Extensions and Updates  dialog in Visual Studio, search for 'luminous',\nthen select and install the  Luminous Code  package that you need.",
+            "title": "Install Via Visual Studio"
+        },
+        {
+            "location": "/getting-started/#install-via-visual-studio-marketplace",
+            "text": "In the  Visual Studio Marketplace  website, search for 'luminous',\nthen select and install the  Luminous Code  package that you need.",
+            "title": "Install Via Visual Studio Marketplace"
+        },
+        {
+            "location": "/api/",
+            "text": "Luminous Code\n consists of two Nuget packages:\n\n\n\n\nLuminous.Code.Core\n\n\nLuminous.Code.VisualStudio\n\n\n\n\nLuminous.Code.Core\n\u00b6\n\n\nLuminous.Code.Core\n is a plain C# class library project that contains the lower level classes, methods and extension methods that get used by more \nspecialised projects.\n\n\n\n\nNote the lack of 'Core' in the namespace names\n\n\nI decided that there was no benefit to including it in the namespaces because it sometimes made the namespaces sound a bit odd.\n\n\n\n\nStringExtensions Namespace\n\u00b6\n\n\nThe \nLuminous.Code.StringExtensions\n namespace is fairly self-explanatory.\nIt contains a set of extension methods that extend the \nstring\n namespace.\n\n\n\n\nLuminous.Code.VisualStudio\n\u00b6\n\n\nLuminous.Code.VisualStudio\n is a plain C# class library project that contains the lower level classes, methods and extension methods that pertain to creating\nVisual Studio extensions.\n\n\nIt has a project reference to the \nLuminous.Code.Core\n project, as it relies on some of the code in it.\n\n\nPackages Namespace\n\u00b6\n\n\nThe \nLuminous.Code.VisualStudio.Packages\n namespace contains all of the plumbing code that\na Visual Studio package needs to interact with the Visual Studio IDE.\n\n\nPackageBase Class\n\u00b6\n\n\nThe \nLuminous.Code.VisualStudio.Packages.PackageBase\n class is an abstract base class that you inherit your own\npackages from.\n\n\nIt abstracts away the \nMicrosoft.VisualStudio.Shell.Package\n and commands that interact with the Visual Studio IDE.\n\n\nShowToolWindow<T>\n\u00b6\n\n\nThe \nShowToolWindow<T>\n method is for situations that only allow a single tool window.\n\n\nShowNewToolWindow<T>\n\u00b6\n\n\nThe \nShowNewToolWindow<T>\n method is for situations that allow multiple tool windows.\n\n\nOpenFolder\n\u00b6\n\n\nThe \nOpenFolder\n method opens the suppliedfolder path in a File Explorer window.\n\n\nCommands Namespace\n\u00b6\n\n\nThe \nLuminous.Code.VisualStudio.Commands\n namespace contains all of the plumbing code that\na command needs to interact with the Visual Studio IDE (via the command's parent package).\n\n\nCommandBase Class\n\u00b6\n\n\nThe \nLuminous.Code.VisualStudio.Commands.CommandBase\n class is an abstract class, which acts as the\ncommon base class for the \nStaticCommand\n class and the \nDynamicCommand\n class.\n\n\nIt contains all of the plumbing code that a command needs to interact easily with\nits parent package. It also has the ability to communicate with the IDE.\n\n\nStaticCommand Class\n\u00b6\n\n\nThe \nLuminous.Code.VisualStudio.Commands.StaticCommand\n class is useful for commands whose text doesn't need to change,\nand which are always visible and always enabled.\n\n\nDynamicCommand Class\n\u00b6\n\n\nThe \nLuminous.Code.VisualStudio.Commands.DynamicCommand\n class can be used for commands whose \ntext\n may need to change, and/or which may\nneed to dynamically determine if the command needs to be \nvisible\n or \nenabled\n. \nThree sensibly-named overridable properties are provided to make this easy and flexible.\n\n\nBoth the command's \nVisible\n property and \nEnabled\n property are automatically calculated based on the values of\n\nCanExecute\n and \nIsActive\n.\n\n\nCanExecute Property\n\u00b6\n\n\nIf \nCanExecute\n returns \nfalse\n, the command cannot be executed at all.\nThe command's \nVisible\n and \nEnabled\n properties will both be set to \nfalse\n.\n\n\nFor example, command classes that inherit from \nDynamicCommand\n can override this\nproperty to return, say, a package-wide value that can be set in \nTools\n | \nOptions\n,\nor use some other method of determining if the command's functionality should be turned\noff.\n\n\nIsActive Property\n\u00b6\n\n\nIf \nIsActive\n returns \nfalse\n, the command's \nEnabled\n property is set to false.\nA common use for this property is to be able to check some complicated \ncontext\n  that\ncan't be set in the package's \nVSCT\n file.\n\n\nText Property\n\u00b6\n\n\nThe \nText\n property, as its name suggests, sets the command's display text. Its initial value is \nnull\n,\nwhich instructs the famework to use the value set in the \nVSCT\n file.",
+            "title": "Luminous Code's API"
+        },
+        {
+            "location": "/api/#luminouscodecore",
+            "text": "Luminous.Code.Core  is a plain C# class library project that contains the lower level classes, methods and extension methods that get used by more \nspecialised projects.   Note the lack of 'Core' in the namespace names  I decided that there was no benefit to including it in the namespaces because it sometimes made the namespaces sound a bit odd.",
+            "title": "Luminous.Code.Core"
+        },
+        {
+            "location": "/api/#stringextensions-namespace",
+            "text": "The  Luminous.Code.StringExtensions  namespace is fairly self-explanatory.\nIt contains a set of extension methods that extend the  string  namespace.",
+            "title": "StringExtensions Namespace"
+        },
+        {
+            "location": "/api/#luminouscodevisualstudio",
+            "text": "Luminous.Code.VisualStudio  is a plain C# class library project that contains the lower level classes, methods and extension methods that pertain to creating\nVisual Studio extensions.  It has a project reference to the  Luminous.Code.Core  project, as it relies on some of the code in it.",
+            "title": "Luminous.Code.VisualStudio"
+        },
+        {
+            "location": "/api/#packages-namespace",
+            "text": "The  Luminous.Code.VisualStudio.Packages  namespace contains all of the plumbing code that\na Visual Studio package needs to interact with the Visual Studio IDE.",
+            "title": "Packages Namespace"
+        },
+        {
+            "location": "/api/#packagebase-class",
+            "text": "The  Luminous.Code.VisualStudio.Packages.PackageBase  class is an abstract base class that you inherit your own\npackages from.  It abstracts away the  Microsoft.VisualStudio.Shell.Package  and commands that interact with the Visual Studio IDE.",
+            "title": "PackageBase Class"
+        },
+        {
+            "location": "/api/#showtoolwindowt",
+            "text": "The  ShowToolWindow<T>  method is for situations that only allow a single tool window.",
+            "title": "ShowToolWindow&lt;T&gt;"
+        },
+        {
+            "location": "/api/#shownewtoolwindowt",
+            "text": "The  ShowNewToolWindow<T>  method is for situations that allow multiple tool windows.",
+            "title": "ShowNewToolWindow&lt;T&gt;"
+        },
+        {
+            "location": "/api/#openfolder",
+            "text": "The  OpenFolder  method opens the suppliedfolder path in a File Explorer window.",
+            "title": "OpenFolder"
+        },
+        {
+            "location": "/api/#commands-namespace",
+            "text": "The  Luminous.Code.VisualStudio.Commands  namespace contains all of the plumbing code that\na command needs to interact with the Visual Studio IDE (via the command's parent package).",
+            "title": "Commands Namespace"
+        },
+        {
+            "location": "/api/#commandbase-class",
+            "text": "The  Luminous.Code.VisualStudio.Commands.CommandBase  class is an abstract class, which acts as the\ncommon base class for the  StaticCommand  class and the  DynamicCommand  class.  It contains all of the plumbing code that a command needs to interact easily with\nits parent package. It also has the ability to communicate with the IDE.",
+            "title": "CommandBase Class"
+        },
+        {
+            "location": "/api/#staticcommand-class",
+            "text": "The  Luminous.Code.VisualStudio.Commands.StaticCommand  class is useful for commands whose text doesn't need to change,\nand which are always visible and always enabled.",
+            "title": "StaticCommand Class"
+        },
+        {
+            "location": "/api/#dynamiccommand-class",
+            "text": "The  Luminous.Code.VisualStudio.Commands.DynamicCommand  class can be used for commands whose  text  may need to change, and/or which may\nneed to dynamically determine if the command needs to be  visible  or  enabled . \nThree sensibly-named overridable properties are provided to make this easy and flexible.  Both the command's  Visible  property and  Enabled  property are automatically calculated based on the values of CanExecute  and  IsActive .",
+            "title": "DynamicCommand Class"
+        },
+        {
+            "location": "/api/#canexecute-property",
+            "text": "If  CanExecute  returns  false , the command cannot be executed at all.\nThe command's  Visible  and  Enabled  properties will both be set to  false .  For example, command classes that inherit from  DynamicCommand  can override this\nproperty to return, say, a package-wide value that can be set in  Tools  |  Options ,\nor use some other method of determining if the command's functionality should be turned\noff.",
+            "title": "CanExecute Property"
+        },
+        {
+            "location": "/api/#isactive-property",
+            "text": "If  IsActive  returns  false , the command's  Enabled  property is set to false.\nA common use for this property is to be able to check some complicated  context   that\ncan't be set in the package's  VSCT  file.",
+            "title": "IsActive Property"
+        },
+        {
+            "location": "/api/#text-property",
+            "text": "The  Text  property, as its name suggests, sets the command's display text. Its initial value is  null ,\nwhich instructs the famework to use the value set in the  VSCT  file.",
+            "title": "Text Property"
+        },
+        {
+            "location": "/changelog/",
+            "text": "Releases\n\u00b6\n\n\nThe versions listed below have been released to Nuget.org.\n\n\nv1.3.0 - 2019-04-08\n\u00b6\n\n\nv1.2.1 - 2019-04-04\n\u00b6\n\n\n\n\nfixed OpenFile/OpenFileInBrowser displaying incorrect problem message\n\n\n\n\nv1.0.3 - 2018-01-26\n\u00b6\n\n\n\n\nAdd \nShowNewToolWindow<T>\n to \nPackageBase\n\n\n\n\nv1.0.3 - 2017-11-24\n\u00b6\n\n\n\n\nminor changes\n\n\n\n\nv1.0.1 - 2017-04-09\n\u00b6\n\n\n\n\nInitial public release\n\n\nCore\n\n\nException\n Extensions\n\n\nString\n Extensions\n\n\nString\n Concatenation\n\n\n\n\n\n\nVisual Studio\n\n\nCommandKeys\n class\n\n\nCommandStatuses\n enum\n\n\nCommandBase\n class\n\n\nStaticCommand\n class\n\n\nDynamicCommand\n class\n\n\nCommandResult\n class\n\n\nSuccessResult\n class\n\n\nCancelledResult\n class\n\n\nInformationResult\n class\n\n\nProblemResult\n class\n\n\nServiceProvider\n Extensions\n\n\nIWpfTextViewHost\n Extensions\n\n\nPackageBase\n class\n\n\nProjectItems\n Extensions\n\n\nProject\n Extensions\n\n\nSelectedItems\n Extensions\n\n\nSolutionExplorerItemType\n enum\n\n\nSolutionItemKind\n class\n\n\nIVsHierarchyNodeInfo\n Class",
+            "title": "Change Log"
+        },
+        {
+            "location": "/changelog/#releases",
+            "text": "The versions listed below have been released to Nuget.org.",
+            "title": "Releases"
+        },
+        {
+            "location": "/changelog/#v130-2019-04-08",
+            "text": "",
+            "title": "v1.3.0 - 2019-04-08"
+        },
+        {
+            "location": "/changelog/#v121-2019-04-04",
+            "text": "fixed OpenFile/OpenFileInBrowser displaying incorrect problem message",
+            "title": "v1.2.1 - 2019-04-04"
+        },
+        {
+            "location": "/changelog/#v103-2018-01-26",
+            "text": "Add  ShowNewToolWindow<T>  to  PackageBase",
+            "title": "v1.0.3 - 2018-01-26"
+        },
+        {
+            "location": "/changelog/#v103-2017-11-24",
+            "text": "minor changes",
+            "title": "v1.0.3 - 2017-11-24"
+        },
+        {
+            "location": "/changelog/#v101-2017-04-09",
+            "text": "Initial public release  Core  Exception  Extensions  String  Extensions  String  Concatenation    Visual Studio  CommandKeys  class  CommandStatuses  enum  CommandBase  class  StaticCommand  class  DynamicCommand  class  CommandResult  class  SuccessResult  class  CancelledResult  class  InformationResult  class  ProblemResult  class  ServiceProvider  Extensions  IWpfTextViewHost  Extensions  PackageBase  class  ProjectItems  Extensions  Project  Extensions  SelectedItems  Extensions  SolutionExplorerItemType  enum  SolutionItemKind  class  IVsHierarchyNodeInfo  Class",
+            "title": "v1.0.1 - 2017-04-09"
+        },
+        {
+            "location": "/roadmap/",
+            "text": "Product Backlog\n\u00b6\n\n\nThe \nproduct backlog\n is a list of \nproduct backlog items\n (also known as \nPBI's\n for short).\nThe \nPBI's\n listed below are \nfeatures\n or \nenhancements\n that or may not be added into \nTime Savers\n.\n\n\nHowever, no code has been written for them yet, and they could be removed from the \nproduct backlog\n at any time. \n\n\n\n\nThere are no product backlog items at the moment.\n\n\n\n\n\n\nContributing\n\u00b6\n\n\nIf you'd like to implement one of the the \nPBI's\n from the \nproduct backlog\n,\nfeel free to open an \nIssue on GitHub\n (with the same name that the PBI has here), \nand we can start a discussion there. We can then work toward developing a pull request,\nso the implemented feature can be incorporated into \nTime Savers\n.\n\n\nDon't forget to check out the \nContribution Guidelines\n.\n\n\n\n\nBeta Features\n\u00b6\n\n\nBeta features are \nPBI's\n that have actually had some code written for them,\nand are waiting for that code to be thoroughly tested. \nYou can participate in the testing phase by downloading the \nCI build\n mentioned below.\nYou can add it on your own project, and confirm that it does what it's supposed to do.\nIf you do find a problem, you can create a \nBug Report on GitHub\n.\n\n\nOnce they've passed testing they'll be included in the \nnext public release\n of \nTime Savers\n.\n\n\n\n\nThere are no beta features that need testing at the moment.\n\n\n\n\n\n\nBug Fixes\n\u00b6\n\n\nOnce bug fixes have been fully tested, they'll be included in the \nnext public release\n.\n\n\n\n\nThere are no bug fixes that need testing at the moment\n\n\n\n\n\n\nContinuous Integration\n\u00b6\n\n\nThe CI build is the build from the continous integration process. \nThe resultant Nuget file is then made available for you to download.\n\n\n\n\n\n\nIf both build badges above are green, the latest CI build is ready to be downloaded and installed  to test.",
+            "title": "What's Coming"
+        },
+        {
+            "location": "/roadmap/#product-backlog",
+            "text": "The  product backlog  is a list of  product backlog items  (also known as  PBI's  for short).\nThe  PBI's  listed below are  features  or  enhancements  that or may not be added into  Time Savers .  However, no code has been written for them yet, and they could be removed from the  product backlog  at any time.    There are no product backlog items at the moment.",
+            "title": "Product Backlog"
+        },
+        {
+            "location": "/roadmap/#contributing",
+            "text": "If you'd like to implement one of the the  PBI's  from the  product backlog ,\nfeel free to open an  Issue on GitHub  (with the same name that the PBI has here), \nand we can start a discussion there. We can then work toward developing a pull request,\nso the implemented feature can be incorporated into  Time Savers .  Don't forget to check out the  Contribution Guidelines .",
+            "title": "Contributing"
+        },
+        {
+            "location": "/roadmap/#beta-features",
+            "text": "Beta features are  PBI's  that have actually had some code written for them,\nand are waiting for that code to be thoroughly tested. \nYou can participate in the testing phase by downloading the  CI build  mentioned below.\nYou can add it on your own project, and confirm that it does what it's supposed to do.\nIf you do find a problem, you can create a  Bug Report on GitHub .  Once they've passed testing they'll be included in the  next public release  of  Time Savers .   There are no beta features that need testing at the moment.",
+            "title": "Beta Features"
+        },
+        {
+            "location": "/roadmap/#bug-fixes",
+            "text": "Once bug fixes have been fully tested, they'll be included in the  next public release .   There are no bug fixes that need testing at the moment",
+            "title": "Bug Fixes"
+        },
+        {
+            "location": "/roadmap/#continuous-integration",
+            "text": "The CI build is the build from the continous integration process. \nThe resultant Nuget file is then made available for you to download.    If both build badges above are green, the latest CI build is ready to be downloaded and installed  to test.",
+            "title": "Continuous Integration"
+        },
+        {
+            "location": "/contributing/",
+            "text": "Check out the \ncontribution guidelines\n if you want to contribute to this project.\nI'd \nlove\n to see others in the community adding code as long as it meets the project's goals.\n\n\nFor cloning and building this project yourself, make sure to install the\n\nExtensibility Tools 2015\n\nextension for Visual Studio which enables some featues used by this project.",
+            "title": "How to Contribute"
+        },
+        {
+            "location": "/license/",
+            "text": "License\n\u00b6\n\n\n\n\nCopyright (c) 2017 Luminous Software Solutions\n\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.",
+            "title": "License"
+        },
+        {
+            "location": "/license/#license",
+            "text": "Copyright (c) 2017 Luminous Software Solutions  Permission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.",
+            "title": "License"
+        }
+    ]
+}
