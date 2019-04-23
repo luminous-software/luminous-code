@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.Shell.Interop;
+﻿using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.Shell.Interop;
 using System;
 
 namespace Luminous.Code.VisualStudio.Commands
@@ -25,14 +26,13 @@ namespace Luminous.Code.VisualStudio.Commands
 
         public static bool ContextIsActive(params string[] contexts)
         {
-            var result = false;
-
             foreach (var context in contexts)
             {
-                result = (result || ContextIsActive(context));
+                if (ContextIsActive(context))
+                    return true;
             }
 
-            return result;
+            return false;
         }
 
         protected static bool ContextIsActive(string context)
@@ -44,8 +44,11 @@ namespace Luminous.Code.VisualStudio.Commands
 
         protected static bool ContextIsActive(Guid context)
         {
-            SelectionService.GetCmdUIContextCookie(ref context, out var contextCookie);
-            SelectionService.IsCmdUIContextActive(contextCookie, out var active);
+            if (ErrorHandler.Failed(SelectionService.GetCmdUIContextCookie(ref context, out var contextCookie)))
+                return false;
+
+            if (ErrorHandler.Failed(SelectionService.IsCmdUIContextActive(contextCookie, out var active)))
+                return false;
 
             return (active == 1);
         }
