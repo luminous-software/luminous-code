@@ -29,7 +29,7 @@ namespace Luminous.Code.VisualStudio.Commands
 
             foreach (var context in contexts)
             {
-                result = (result || CommandBase.ContextIsActive(context));
+                result = (result || ContextIsActive(context));
             }
 
             return result;
