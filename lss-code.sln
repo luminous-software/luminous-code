@@ -29,6 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs-source", "docs-source"
 		docs-source\changelog.md = docs-source\changelog.md
 		docs-source\getting-started.md = docs-source\getting-started.md
 		docs-source\index.md = docs-source\index.md
+		docs-source\license.md = docs-source\license.md
 		mkdocs.yml = mkdocs.yml
 		docs-source\roadmap.md = docs-source\roadmap.md
 	EndProjectSection
