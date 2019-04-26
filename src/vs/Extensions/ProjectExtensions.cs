@@ -1,6 +1,6 @@
 ﻿using EnvDTE;
 
-namespace Luminous.Code.VisualStudio.Projects.ProjectExtensions
+namespace Luminous.Code.VisualStudio.Extensions.ProjectExtensions
 {
     using Solutions;
 

@@ -1,12 +1,12 @@
-﻿using System;
-using EnvDTE;
+﻿using EnvDTE;
+using System;
 using VSLangProj;
 
 namespace Luminous.Code.VisualStudio.SelectedItemsExtensions
 {
+    using Extensions.ProjectExtensions;
+    using Extensions.ProjectItemExtensions;
     using Solutions;
-    using Projects.ProjectExtensions;
-    using ProjectItems.ProjectItemExtensions;
 
     public static class SelectedItemsExtensions
     {
