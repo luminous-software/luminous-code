@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Luminous.Code.Exceptions.ExceptionExtensions
+namespace Luminous.Code.Extensions.ExceptionExtensions
 {
     public static class ExceptionExtensions
     {
