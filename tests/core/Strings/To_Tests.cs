@@ -1,11 +1,11 @@
-﻿using Xunit;
-using FluentAssertions;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace Core.Tests
 {
-    using Luminous.Code.Strings.Extensions;
+    using Luminous.Code.Extensions.StringExtensions;
 
-    public class StringExtensions_Tests
+    public class To_Tests
     {
         [Fact(DisplayName = nameof(NumericString_ReturnsInt))]
         public void NumericString_ReturnsInt()
