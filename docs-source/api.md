@@ -16,7 +16,6 @@ specialised projects such as `Luminous.Code.VisualStudio`.
 
     I decided that there was no benefit to including `Core` in the namespaces because it sometimes made the namespaces sound a bit odd.
 
-
 ### Extensions Namespace
 
 #### ExceptionExtensions
@@ -38,8 +37,6 @@ It contains a set of extension methods that extend the `string` type.
 
 
 - To<T\> Method
-
----
 
 ## Luminous.Code.VisualStudio
 
@@ -72,28 +69,32 @@ Both the command's `Visible` property and `Enabled` property are automatically c
 
 - CanExecute Property
 
-  If `CanExecute` returns `false`, the command cannot be executed at all.
-  The command's `Visible` and `Enabled` properties will both automatically be set to `false`.
+    If `CanExecute` returns `false`, the command cannot be executed at all.
+    The command's `Visible` and `Enabled` properties will both automatically be set to `false`.
   
-  For example, command classes that inherit from `AsyncDynamicCommand` can override this
-  property to return, say, a package-wide value that can be set in *Tools* | *Options*,
-  or use some other method of determining if the command's functionality should be turned
-  off.
+    For example, command classes that inherit from `AsyncDynamicCommand` can override this
+    property to return, say, a package-wide value that can be set in *Tools* | *Options*,
+    or use some other method of determining if the command's functionality should be turned
+    off.
 
 - IsActive Property
 
-  If `IsActive` returns `false`, the command's `Enabled` property is automatically set to false.
-  A common use for this property is to be able to check a *UI Context*.
+    If `IsActive` returns `false`, the command's `Enabled` property is automatically set to false.
+    A common use for this property is to be able to check a *UI Context*.
 
-- Text
+- Text Property
 
-  The `Text` property, as its name suggests, sets the command's display text. Its initial value is `null`,
-  which instructs the famework to use the value set in the *VSCT* file.
+    The `Text` property, as its name suggests, sets the command's display text. Its initial value is `null`,
+    which instructs the famework to use the value set in the *VSCT* file.
 
+#### AsyncStaticCommand
+
+The `Luminous.Code.VisualStudio.Commands.AsyncStaticCommand` class is useful for commands whose text doesn't need to change,
+and which are always visible and always enabled.
 
 #### CommandBase (deprecated)
 
-The `Luminous.Code.VisualStudio.Commands.CommandBase` class has been deprecated in favor of the `AsyncCommandBase` class.
+The `Luminous.Code.VisualStudio.Commands.CommandBase` class has been deprecated in favor of `AsyncCommandBase`.
 
 #### Command Keys
 
@@ -111,14 +112,11 @@ The `Luminous.Code.VisualStudio.Commands.CommandBase` class has been deprecated 
 
 #### DynamicCommand (deprecated)
 
-The `Luminous.Code.VisualStudio.Commands.DynamicCommand` class can be used for commands whose *text* may need to change,
-and/or which may need to dynamically determine if the command needs to be *visible* or *enabled*. 
-Three sensibly-named overridable properties are provided to make this easy and flexible.
+The `Luminous.Code.VisualStudio.Commands.DynamicCommand` class has been deprecated in favor of `AsyncDynamicCommand`.
 
 #### StaticCommand (deprecated)
 
-The `Luminous.Code.VisualStudio.Commands.StaticCommand` class is useful for commands whose text doesn't need to change,
-and which are always visible and always enabled.
+The `Luminous.Code.VisualStudio.Commands.DynamicCommand` class has been deprecated in favor of `AsyncDynamicCommand`.
 
 ### Constants Namespace
 
