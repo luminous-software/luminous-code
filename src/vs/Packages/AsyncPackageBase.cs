@@ -1,5 +1,6 @@
 ﻿using EnvDTE;
 using EnvDTE80;
+using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.Text.Editor;
@@ -19,13 +20,12 @@ using Tasks = System.Threading.Tasks;
 
 namespace Luminous.Code.VisualStudio.Packages
 {
+    using Code.Extensions.ExceptionExtensions;
     using Commands;
-    using Exceptions.ExceptionExtensions;
     using Extensions.IntegerExtensions;
     using Extensions.IWpfTextViewHostExtensions;
-    using Microsoft.VisualStudio;
+    using Luminous.Code.Extensions.StringExtensions;
     using static Commands.CommandKeys;
-    using static Strings.Concatenation;
 
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
@@ -365,7 +365,7 @@ namespace Luminous.Code.VisualStudio.Packages
 
         public static bool DisplayQuestion(string title = null, string messageText = null, string questionText = "")
         {
-            var message = JoinStrings(first: messageText, second: questionText, separator: NewLine + NewLine);
+            var message = messageText.JoinWith(questionText, separator: NewLine + NewLine);
 
             return (DisplayMessage(title: title ?? "Question", message: message,
                 button: Button.YesNo, icon: Icon.Question) == Result.Yes);
@@ -373,7 +373,7 @@ namespace Luminous.Code.VisualStudio.Packages
 
         public static bool DisplayConfirm(string title = null, string messageText = null, string questionText = "")
         {
-            var message = JoinStrings(first: messageText, second: questionText, separator: NewLine + NewLine);
+            var message = messageText.JoinWith(questionText, separator: NewLine + NewLine);
 
             return (DisplayMessage(title: title ?? "Please Confirm", message: message,
                 button: Button.YesNoCancel, icon: Icon.Warning) == Result.Yes);

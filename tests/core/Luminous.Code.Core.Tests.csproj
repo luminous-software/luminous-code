@@ -76,9 +76,9 @@
     <Compile Include="..\..\src\info\VersionInfo.cs">
       <Link>Properties\VersionInfo.cs</Link>
     </Compile>
-    <Compile Include="Strings\JoinStrings_Tests.cs" />
+    <Compile Include="Strings\Join_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Strings\StringExtensions_Tests.cs" />
+    <Compile Include="Strings\To_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

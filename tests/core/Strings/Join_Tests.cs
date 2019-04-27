@@ -1,12 +1,11 @@
 ﻿using Xunit;
-
 using static System.Environment;
 
-namespace Core.Tests.Strings
+namespace Core.Tests.Strings.Extensions
 {
-    using static Luminous.Code.Strings.Concatenation;
+    using Luminous.Code.Extensions.StringExtensions;
 
-    public class JoinStrings_Tests
+    public class Join_Tests
     {
         [Fact(DisplayName = nameof(ValidFirstValidSecondValidSeparatorReturnsFirstSeparatorSecond))]
         public void ValidFirstValidSecondValidSeparatorReturnsFirstSeparatorSecond()
@@ -16,7 +15,7 @@ namespace Core.Tests.Strings
             const string separator = "-";
             var expected = $"{first}{separator}{second}";
 
-            var actual = JoinStrings(first, second, separator);
+            var actual = first.JoinWith(second, separator);
 
             Assert.Equal(expected, actual);
         }
@@ -29,7 +28,7 @@ namespace Core.Tests.Strings
             const string separator = null;
             var expected = $"{first}{NewLine}{NewLine}{second}";
 
-            var actual = JoinStrings(first, second, separator);
+            var actual = first.JoinWith(second, separator);
 
             Assert.Equal(expected, actual);
         }
@@ -42,7 +41,7 @@ namespace Core.Tests.Strings
             const string separator = "";
             var expected = $"{first}{second}";
 
-            var actual = JoinStrings(first, second, separator);
+            var actual = first.JoinWith(second, separator);
 
             Assert.Equal(expected, actual);
         }
@@ -55,7 +54,7 @@ namespace Core.Tests.Strings
             const string separator = "-";
             const string expected = second;
 
-            var actual = JoinStrings(first, second, separator);
+            var actual = first.JoinWith(second, separator);
 
             Assert.Equal(expected, actual);
         }
@@ -68,7 +67,7 @@ namespace Core.Tests.Strings
             const string separator = null;
             const string expected = second;
 
-            var actual = JoinStrings(first, second, separator);
+            var actual = first.JoinWith(second, separator);
 
             Assert.Equal(expected, actual);
         }
@@ -81,7 +80,7 @@ namespace Core.Tests.Strings
             const string separator = "";
             const string expected = second;
 
-            var actual = JoinStrings(first, second, separator);
+            var actual = first.JoinWith(second, separator);
 
             Assert.Equal(expected, actual);
         }
@@ -94,7 +93,7 @@ namespace Core.Tests.Strings
             const string separator = "-";
             const string expected = first;
 
-            var actual = JoinStrings(first, second, separator);
+            var actual = first.JoinWith(second, separator);
 
             Assert.Equal(expected, actual);
         }
@@ -107,7 +106,7 @@ namespace Core.Tests.Strings
             const string separator = null;
             const string expected = first;
 
-            var actual = JoinStrings(first, second, separator);
+            var actual = first.JoinWith(second, separator);
 
             Assert.Equal(expected, actual);
         }
@@ -120,7 +119,7 @@ namespace Core.Tests.Strings
             const string separator = null;
             const string expected = first;
 
-            var actual = JoinStrings(first, second, separator);
+            var actual = first.JoinWith(second, separator);
 
             Assert.Equal(expected, actual);
         }
@@ -133,7 +132,7 @@ namespace Core.Tests.Strings
             const string separator = "-";
             const string expected = "";
 
-            var actual = JoinStrings(first, second, separator);
+            var actual = first.JoinWith(second, separator);
 
             Assert.Equal(expected, actual);
         }
@@ -146,7 +145,7 @@ namespace Core.Tests.Strings
             const string separator = null;
             const string expected = "";
 
-            var actual = JoinStrings(first, second, separator);
+            var actual = first.JoinWith(second, separator);
 
             Assert.Equal(expected, actual);
         }
@@ -159,7 +158,7 @@ namespace Core.Tests.Strings
             const string separator = "";
             const string expected = "";
 
-            var actual = JoinStrings(first, second, separator);
+            var actual = first.JoinWith(second, separator);
 
             Assert.Equal(expected, actual);
         }

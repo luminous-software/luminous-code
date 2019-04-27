@@ -29,6 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs-source", "docs-source"
 		docs-source\changelog.md = docs-source\changelog.md
 		docs-source\getting-started.md = docs-source\getting-started.md
 		docs-source\index.md = docs-source\index.md
+		docs-source\license.md = docs-source\license.md
 		mkdocs.yml = mkdocs.yml
 		docs-source\roadmap.md = docs-source\roadmap.md
 	EndProjectSection
@@ -36,7 +37,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{B00D5545-3546-4001-8EB7-CF57B9A909AD}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		docs-source\contributing.md = docs-source\contributing.md
+		.github\CONTRIBUTING.md = .github\CONTRIBUTING.md
 		docs-source\license.md = docs-source\license.md
 	EndProjectSection
 EndProject

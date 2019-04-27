@@ -2,7 +2,7 @@
 
 using static EnvDTE.Constants;
 
-namespace Luminous.Code.VisualStudio.ProjectItems.ProjectItemExtensions
+namespace Luminous.Code.VisualStudio.Extensions.ProjectItemExtensions
 {
     using Solutions;
 
