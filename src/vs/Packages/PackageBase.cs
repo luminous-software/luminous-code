@@ -1,36 +1,33 @@
-﻿using System;
-using System.ComponentModel.Design;
-using System.Windows;
-using System.IO;
+﻿using EnvDTE;
+using EnvDTE80;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.TextManager.Interop;
-using Microsoft.VisualStudio.Text.Editor;
 using Microsoft.VisualStudio.Shell.Interop;
-using EnvDTE;
-using EnvDTE80;
-
-using OleInterop = Microsoft.VisualStudio.OLE.Interop;
+using Microsoft.VisualStudio.Text.Editor;
+using Microsoft.VisualStudio.TextManager.Interop;
+using System;
+using System.ComponentModel.Design;
+using System.IO;
+using System.Windows;
+using static EnvDTE.Constants;
+using static Microsoft.VisualStudio.Editor.DefGuidList;
+using static System.Environment;
 using Button = System.Windows.MessageBoxButton;
 using Icon = System.Windows.MessageBoxImage;
+using OleInterop = Microsoft.VisualStudio.OLE.Interop;
 using Result = System.Windows.MessageBoxResult;
-
-using static System.Environment;
-using static Microsoft.VisualStudio.Editor.DefGuidList;
-using static EnvDTE.Constants;
 
 namespace Luminous.Code.VisualStudio.Packages
 {
+    using Code.Extensions.ExceptionExtensions;
+    using Code.Extensions.StringExtensions;
     using Commands;
     using Extensions.IntegerExtensions;
-    using Exceptions.ExceptionExtensions;
     using Extensions.IWpfTextViewHostExtensions;
     using SelectedItemsExtensions;
     using Solutions;
-
-    using static Strings.Concatenation;
-    using static Constants.VsVersions;
     using static Commands.CommandKeys;
+    using static Constants.VsVersions;
 
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
@@ -98,14 +95,11 @@ namespace Luminous.Code.VisualStudio.Packages
         public IServiceProvider ServiceProvider
             => _serviceProvider ?? (_serviceProvider = new ServiceProvider(Dte as OleInterop.IServiceProvider));
 
-
         internal IMenuCommandService CommandService
-            => _commandService ?? (_commandService = GetService<IMenuCommandService>());
-
+           => _commandService ?? (_commandService = GetService<IMenuCommandService>());
 
         protected IVsShell4 VsShell
             => _vsShell ?? (_vsShell = GetService<SVsShell, IVsShell4>());
-
 
         public IVsMonitorSelection SelectionService
             => _selectionService ?? (_selectionService = GetGlobalService<SVsShellMonitorSelection, IVsMonitorSelection>());
@@ -169,7 +163,7 @@ namespace Luminous.Code.VisualStudio.Packages
 
         public static bool DisplayQuestion(string title = null, string messageText = null, string questionText = "")
         {
-            var message = JoinStrings(first: messageText, second: questionText, separator: NewLine + NewLine);
+            var message = messageText.JoinWith(questionText, separator: NewLine + NewLine);
 
             return (DisplayMessage(title: title ?? "Question", message: message,
                 button: Button.YesNo, icon: Icon.Question) == Result.Yes);
@@ -177,7 +171,7 @@ namespace Luminous.Code.VisualStudio.Packages
 
         public static bool DisplayConfirm(string title = null, string messageText = null, string questionText = "")
         {
-            var message = JoinStrings(first: messageText, second: questionText, separator: NewLine + NewLine);
+            var message = messageText.JoinWith(questionText, separator: NewLine + NewLine);
 
             return (DisplayMessage(title: title ?? "Please Confirm", message: message,
                 button: Button.YesNoCancel, icon: Icon.Warning) == Result.Yes);

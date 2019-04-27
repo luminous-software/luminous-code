@@ -3,9 +3,6 @@ site_description: ''
 site_author: 'Yann Duran'
 site_url: 'https://luminous-software.solutions/luminous-code'
 
-repo_name: 'luminous-code'
-repo_url: 'https://github.com/luminous-software/luminous-code'
-
 copyright: 'Copyright (c) 2017 Luminous Software Solutions'
 
 docs_dir: 'docs-source'
@@ -22,12 +19,11 @@ theme:
     tabs: false
 
 pages:
-  - About Luminous Code: 'index.md'
-  - How to Get Started: 'getting-started.md'
-  - Luminous Code's API: 'api.md'
+  - Overview: 'index.md'
+  - Getting Started: 'getting-started.md'
+  - API Description: 'api.md'
   - Change Log: 'changelog.md'
-  - What's Coming: 'roadmap.md'
-  - How to Contribute: 'contributing.md'
+  - Roadmap: 'roadmap.md'
   - License: 'license.md'
 
 extra:

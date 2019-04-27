@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.Shell;
+using System;
 using System.ComponentModel.Design;
-using Microsoft.VisualStudio.Shell;
+using Contexts = Microsoft.VisualStudio.Shell.Interop.UIContextGuids80;
 using Tasks = System.Threading.Tasks;
 
 namespace Luminous.Code.VisualStudio.Commands
@@ -12,7 +13,7 @@ namespace Luminous.Code.VisualStudio.Commands
         protected AsyncDynamicCommand(AsyncPackageBase package, int id) : base(package, id)
         { }
 
-        public async static Tasks.Task InstantiateAsync(AsyncDynamicCommand instance)
+        protected async static Tasks.Task InstantiateAsync(AsyncDynamicCommand instance)
         {
             var commandID = new CommandID(Package.CommandSet, Id);
             var command = new OleMenuCommand(instance.ExecuteHandler, instance.ChangeHandler, instance.QueryStatusHandler, commandID);
@@ -20,16 +21,6 @@ namespace Luminous.Code.VisualStudio.Commands
             Instance = instance;
 
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-
-            Package?.CommandService?.AddCommand(command);
-        }
-
-        protected static void Instantiate(AsyncDynamicCommand instance)
-        {
-            Instance = instance;
-
-            var commandID = new CommandID(Package.CommandSet, Id);
-            var command = new OleMenuCommand(instance.ExecuteHandler, instance.ChangeHandler, instance.QueryStatusHandler, commandID);
 
             Package?.CommandService?.AddCommand(command);
         }
@@ -71,6 +62,72 @@ namespace Luminous.Code.VisualStudio.Commands
 
         protected virtual void OnDisposeUnmanaged(AsyncDynamicCommand command)
         { }
+
+        protected static bool HasSolution
+            => ContextIsActive(Contexts.SolutionExists);
+
+        protected static bool HasNoSolution
+            => ContextIsActive(Contexts.NoSolution);
+
+        protected static bool SolutionIsBuilding
+            => ContextIsActive(Contexts.SolutionBuilding);
+
+        protected static bool SolutionIsNotBuilding
+            => !SolutionIsBuilding;
+
+        protected static bool SolutionIsEmpty
+            => ContextIsActive(Contexts.EmptySolution);
+
+        protected static bool SolutionIsNotEmpty
+            => !SolutionIsEmpty;
+
+        protected static bool SolutionHasSingleProject
+            => ContextIsActive(Contexts.SolutionHasSingleProject);
+
+        protected static bool SolutionHasMultipleProject
+            => ContextIsActive(Contexts.SolutionHasMultipleProjects);
+
+        protected static bool SolutionHasProjects
+            => ContextIsActive(Contexts.SolutionHasSingleProject, Contexts.SolutionHasMultipleProjects);
+
+        protected static bool SolutionExistsAndIsNotBuildingAndNotDebugging
+            => ContextIsActive(Contexts.SolutionExistsAndNotBuildingAndNotDebugging);
+
+        protected static bool BuildingOrDebugging
+            => !NotBuildingOrDebugging;
+
+        protected static bool NotBuildingOrDebugging
+            => ContextIsActive(Contexts.NotBuildingAndNotDebugging);
+
+        protected static bool Debugging
+            => ContextIsActive(Contexts.Debugging);
+
+        protected static bool NotDebugging
+            => !Debugging;
+
+        protected static bool InDesignMode
+            => ContextIsActive(Contexts.DesignMode);
+
+        protected static bool NotInDesignMode
+            => !InDesignMode;
+
+        protected static bool InCodeWindow
+            => ContextIsActive(Contexts.CodeWindow);
+
+        protected static bool NotInCodeWindow
+            => !InCodeWindow;
+
+        protected static bool Dragging
+            => ContextIsActive(Contexts.Dragging);
+
+        protected static bool NotDragging
+            => !Dragging;
+
+        protected static bool SolutionOrProjectIsUpgrading
+            => ContextIsActive(Contexts.SolutionOrProjectUpgrading);
+
+        protected static bool SolutionOrProjectIsNotUpgrading
+            => SolutionOrProjectIsUpgrading;
 
         private void ExecuteHandler(object sender, EventArgs e)
         {

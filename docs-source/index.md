@@ -20,7 +20,8 @@ and to accept suggestions, pull requests or bug reports.
 
 Whenever I find myself writing the same code again, I first extract it into a new class or a new method,
 as a lot of experienced developers will do.
-Then as soon as I can, I'll transfer the code to the appropriate *Luminous Code* namespace so that I can reuse it myself,
+Then as soon as I can, 
+I'll transfer the code to the appropriate *Luminous Code* namespace so that I can reuse it myself in various projects,
 and also release it for others to benefit from as well.
 
 Also, if it's taken me some time to figure out how to do something **new**, I'll add it into the framework too.
