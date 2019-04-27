@@ -284,6 +284,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#asyncstaticcommand" title="AsyncStaticCommand" class="md-nav__link">
+    AsyncStaticCommand
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#commandbase-deprecated" title="CommandBase (deprecated)" class="md-nav__link">
     CommandBase (deprecated)
   </a>
@@ -604,6 +611,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#asyncstaticcommand" title="AsyncStaticCommand" class="md-nav__link">
+    AsyncStaticCommand
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#commandbase-deprecated" title="CommandBase (deprecated)" class="md-nav__link">
     CommandBase (deprecated)
   </a>
@@ -845,7 +859,6 @@ It contains a set of extension methods that extend the <code>string</code> type.
 <p>To&lt;T> Method</p>
 </li>
 </ul>
-<hr />
 <h2 id="luminouscodevisualstudio">Luminous.Code.VisualStudio<a class="headerlink" href="#luminouscodevisualstudio" title="Permanent link">&para;</a></h2>
 <p><code>Luminous.Code.VisualStudio</code> is a plain C# class library project that contains the lower level classes,
 methods and extension methods that pertain to creating Visual Studio extensions.</p>
@@ -865,26 +878,31 @@ Three sensibly-named overridable properties are provided to make this easy and f
 <p>Both the command's <code>Visible</code> property and <code>Enabled</code> property are automatically calculated based on the values of
 <code>CanExecute</code> and <code>IsActive</code>.</p>
 <ul>
-<li>CanExecute Property</li>
-</ul>
+<li>
+<p>CanExecute Property</p>
 <p>If <code>CanExecute</code> returns <code>false</code>, the command cannot be executed at all.
-  The command's <code>Visible</code> and <code>Enabled</code> properties will both automatically be set to <code>false</code>.</p>
+The command's <code>Visible</code> and <code>Enabled</code> properties will both automatically be set to <code>false</code>.</p>
 <p>For example, command classes that inherit from <code>AsyncDynamicCommand</code> can override this
-  property to return, say, a package-wide value that can be set in <em>Tools</em> | <em>Options</em>,
-  or use some other method of determining if the command's functionality should be turned
-  off.</p>
-<ul>
-<li>IsActive Property</li>
-</ul>
+property to return, say, a package-wide value that can be set in <em>Tools</em> | <em>Options</em>,
+or use some other method of determining if the command's functionality should be turned
+off.</p>
+</li>
+<li>
+<p>IsActive Property</p>
 <p>If <code>IsActive</code> returns <code>false</code>, the command's <code>Enabled</code> property is automatically set to false.
-  A common use for this property is to be able to check a <em>UI Context</em>.</p>
-<ul>
-<li>Text</li>
-</ul>
+A common use for this property is to be able to check a <em>UI Context</em>.</p>
+</li>
+<li>
+<p>Text Property</p>
 <p>The <code>Text</code> property, as its name suggests, sets the command's display text. Its initial value is <code>null</code>,
-  which instructs the famework to use the value set in the <em>VSCT</em> file.</p>
+which instructs the famework to use the value set in the <em>VSCT</em> file.</p>
+</li>
+</ul>
+<h4 id="asyncstaticcommand">AsyncStaticCommand<a class="headerlink" href="#asyncstaticcommand" title="Permanent link">&para;</a></h4>
+<p>The <code>Luminous.Code.VisualStudio.Commands.AsyncStaticCommand</code> class is useful for commands whose text doesn't need to change,
+and which are always visible and always enabled.</p>
 <h4 id="commandbase-deprecated">CommandBase (deprecated)<a class="headerlink" href="#commandbase-deprecated" title="Permanent link">&para;</a></h4>
-<p>The <code>Luminous.Code.VisualStudio.Commands.CommandBase</code> class has been deprecated in favor of the <code>AsyncCommandBase</code> class.</p>
+<p>The <code>Luminous.Code.VisualStudio.Commands.CommandBase</code> class has been deprecated in favor of <code>AsyncCommandBase</code>.</p>
 <h4 id="command-keys">Command Keys<a class="headerlink" href="#command-keys" title="Permanent link">&para;</a></h4>
 <h4 id="commandresult">CommandResult<a class="headerlink" href="#commandresult" title="Permanent link">&para;</a></h4>
 <ul>
@@ -903,12 +921,9 @@ Three sensibly-named overridable properties are provided to make this easy and f
 </ul>
 <h4 id="commandstatuses">CommandStatuses<a class="headerlink" href="#commandstatuses" title="Permanent link">&para;</a></h4>
 <h4 id="dynamiccommand-deprecated">DynamicCommand (deprecated)<a class="headerlink" href="#dynamiccommand-deprecated" title="Permanent link">&para;</a></h4>
-<p>The <code>Luminous.Code.VisualStudio.Commands.DynamicCommand</code> class can be used for commands whose <em>text</em> may need to change,
-and/or which may need to dynamically determine if the command needs to be <em>visible</em> or <em>enabled</em>. 
-Three sensibly-named overridable properties are provided to make this easy and flexible.</p>
+<p>The <code>Luminous.Code.VisualStudio.Commands.DynamicCommand</code> class has been deprecated in favor of <code>AsyncDynamicCommand</code>.</p>
 <h4 id="staticcommand-deprecated">StaticCommand (deprecated)<a class="headerlink" href="#staticcommand-deprecated" title="Permanent link">&para;</a></h4>
-<p>The <code>Luminous.Code.VisualStudio.Commands.StaticCommand</code> class is useful for commands whose text doesn't need to change,
-and which are always visible and always enabled.</p>
+<p>The <code>Luminous.Code.VisualStudio.Commands.DynamicCommand</code> class has been deprecated in favor of <code>AsyncDynamicCommand</code>.</p>
 <h3 id="constants-namespace">Constants Namespace<a class="headerlink" href="#constants-namespace" title="Permanent link">&para;</a></h3>
 <h4 id="vsversions">VsVersions<a class="headerlink" href="#vsversions" title="Permanent link">&para;</a></h4>
 <h3 id="extensions-namespace_1">Extensions Namespace<a class="headerlink" href="#extensions-namespace_1" title="Permanent link">&para;</a></h3>
