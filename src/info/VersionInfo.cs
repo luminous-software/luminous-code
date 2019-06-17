@@ -1,5 +1,5 @@
-using Luminous.Code;
 using System.Reflection;
+using Luminous.Code;
 
 [assembly: AssemblyVersion(VersionNumber.AssemblyVersion)]
 [assembly: AssemblyFileVersion(VersionNumber.AssemblyFileVersion)]
@@ -12,7 +12,7 @@ namespace Luminous.Code
         private const string Major = "1";
         private const string Minor = "4";
         private const string Revision = "0";
-        private const string Build = "0";
+        private const string Build = "1";
 
         private const string RevisionVersion = Major + "." + Minor + "." + Revision;
         private const string BuildVersion = RevisionVersion + "." + Build;
