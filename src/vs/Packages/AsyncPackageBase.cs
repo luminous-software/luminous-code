@@ -398,25 +398,23 @@ namespace Luminous.Code.VisualStudio.Packages
             where T : DialogPage
             => (T)Instance.GetDialogPage(typeof(T));
 
-        public CommandResult ShowToolWindow<T>(CancellationToken cancellationToken, string problem = null)
+        public CommandResult ShowToolWindow<T>(string problem = null)
             where T : ToolWindowPane
         {
             try
             {
-                JoinableTaskFactory.RunAsync(async delegate
-                {
-                    var window = await ShowToolWindowAsync(typeof(T), 0, true, cancellationToken);
-                    if ((null == window) || (null == window.Frame))
-                    {
-                        throw new NotSupportedException("Cannot create tool window");
-                    }
+                var toolWindow = FindToolWindow(typeof(T), 0, true);
 
-                    await JoinableTaskFactory.SwitchToMainThreadAsync();
+                if (toolWindow is null)
+                    throw new Exception("Unable to create window");
 
-                    var windowFrame = (IVsWindowFrame)window.Frame;
-                    ErrorHandler.ThrowOnFailure(windowFrame.Show());
-                });
+                var windowFrame = (IVsWindowFrame)toolWindow.Frame;
 
+                if (windowFrame is null)
+                    throw new Exception("Unable to access window frame");
+
+
+                ErrorHandler.ThrowOnFailure(windowFrame.Show());
                 return new SuccessResult();
             }
             catch (Exception ex)
