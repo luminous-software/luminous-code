@@ -5,6 +5,7 @@ using System.Threading;
 using System.Windows;
 using EnvDTE;
 using EnvDTE80;
+using Luminous.Code.Extensions.StringExtensions;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
@@ -24,7 +25,6 @@ namespace Luminous.Code.VisualStudio.Packages
     using Commands;
     using Extensions.IntegerExtensions;
     using Extensions.IWpfTextViewHostExtensions;
-    using Luminous.Code.Extensions.StringExtensions;
     using static Commands.CommandKeys;
 
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
@@ -398,24 +398,37 @@ namespace Luminous.Code.VisualStudio.Packages
             where T : DialogPage
             => (T)Instance.GetDialogPage(typeof(T));
 
-        public CommandResult ShowToolWindow<T>(string problem = null)
+        public async Tasks.Task<CommandResult> ShowToolWindowAsync<T>(CancellationToken cancellationToken, string problem = null)
             where T : ToolWindowPane
         {
             try
             {
-                var window = FindToolWindow(typeof(T), id: 0, create: true);
-
-                if (window is null)
-                    return new ProblemResult("Unable to create window");
-
-                var windowFrame = (IVsWindowFrame)window?.Frame;
-
-                if (windowFrame is null)
-                    return new ProblemResult("Unable to access window frame");
-
-                ErrorHandler.ThrowOnFailure(windowFrame.Show());
+                var window = await ShowToolWindowAsync(typeof(T), 0, true, cancellationToken);
+                if ((null == window) || (null == window.Frame))
+                {
+                    throw new NotSupportedException("Cannot create tool window");
+                }
 
                 return new SuccessResult();
+
+                //await JoinableTaskFactory.SwitchToMainThreadAsync();
+
+                //var windowFrame = (IVsWindowFrame)window.Frame;
+                //ErrorHandler.ThrowOnFailure(windowFrame.Show());
+
+
+                //var window = FindToolWindow(typeof(T), id: 0, create: true);
+
+                //if (window is null)
+                //    return new ProblemResult("Unable to create window");
+
+                //var windowFrame = (IVsWindowFrame)window?.Frame;
+
+                //if (windowFrame is null)
+                //    return new ProblemResult("Unable to access window frame");
+
+                //ErrorHandler.ThrowOnFailure(windowFrame.Show());
+
             }
             catch (Exception ex)
             {
