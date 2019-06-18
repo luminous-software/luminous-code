@@ -23,6 +23,7 @@ namespace Luminous.Code.VisualStudio.Packages
 {
     using Code.Extensions.ExceptionExtensions;
     using Commands;
+    using Extensions.IntegerExtensions;
     using Extensions.IWpfTextViewHostExtensions;
     using static Commands.CommandKeys;
 
