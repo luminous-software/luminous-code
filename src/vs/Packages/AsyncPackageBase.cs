@@ -82,10 +82,12 @@ namespace Luminous.Code.VisualStudio.Packages
             where TTarget : class
             => GetService(typeof(TSource)) as TTarget;
 
+        [Obsolete("Same Harwell: The code won't fail, but the cast to aCOMinterface runs the risk of it triggering a switch to the UI thread")]
         public async Tasks.Task<T> GetServiceAsync<T>()
             where T : class
             => (await GetServiceAsync(typeof(T)) as T);
 
+        [Obsolete("Same Harwell: The code won't fail, but the cast to aCOMinterface runs the risk of it triggering a switch to the UI thread")]
         public async Tasks.Task<TTarget> GetServiceAsync<TSource, TTarget>()
             where TSource : class
             where TTarget : class
