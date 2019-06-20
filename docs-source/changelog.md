@@ -2,6 +2,10 @@
 
 The versions listed below have been released to Nuget.org.
 
+## v1.4.1 - 2019-06-20
+
+- updated AsyncPackage
+
 ## v1.4.0 - 2019-04-24
 
 - ported the methods/properties from PackageBase to AsyncPackageBase
