@@ -9,7 +9,7 @@
 
 ## Luminous.Code.Core
 
-`Luminous.Code.Core` is a plain C# class library project that contains the lower level classes, methods and extension methods that get used by more 
+`Luminous.Code.Core` is a plain C# class library project that contains the lower level classes, methods and extension methods that get used by more
 specialised projects such as `Luminous.Code.VisualStudio`.
 
 !!! note "Lack of 'Core' in the Namespace Names"
@@ -24,7 +24,7 @@ The `Luminous.Code.Extensions.ExceptionExtensions` namespace is fairly self-expl
 It contains a set of extension methods that extend the `Exception` type.
 
 - ExtendedMessage Method
-    
+
     The `ExtendedMessage` method returns the message of the innermost exception,
     or the original exception message if no inner exceptions exist.
 
@@ -61,7 +61,7 @@ its parent package. It also has the ability to communicate with the IDE.
 #### AsyncDynamicCommand
 
 The `Luminous.Code.VisualStudio.Commands.AsyncDynamicCommand` class can be used for commands whose *text* may need to change,
-and/or which may need to dynamically determine if the command needs to be *visible* or *enabled*. 
+and/or which may need to dynamically determine if the command needs to be *visible* or *enabled*.
 Three sensibly-named overridable properties are provided to make this easy and flexible.
 
 Both the command's `Visible` property and `Enabled` property are automatically calculated based on the values of
@@ -71,7 +71,7 @@ Both the command's `Visible` property and `Enabled` property are automatically c
 
     If `CanExecute` returns `false`, the command cannot be executed at all.
     The command's `Visible` and `Enabled` properties will both automatically be set to `false`.
-  
+
     For example, command classes that inherit from `AsyncDynamicCommand` can override this
     property to return, say, a package-wide value that can be set in *Tools* | *Options*,
     or use some other method of determining if the command's functionality should be turned
@@ -141,6 +141,42 @@ a Visual Studio package needs to interact with the Visual Studio IDE.
 
 The `Luminous.Code.VisualStudio.Packages.AsyncPackageBase` class is an abstract base class from which you inherit your own
 packages.
+
+- GetService<T\>
+
+    The `GetService<T>` method is a small piece of syntactic sugar around `Package.GetService`,
+    which avoids the need for`typeof` and takes care of the cast to `T` as well.
+
+    I just find it nicer to be able to write `GetService<ISomeInterface>` than
+    `GetService(typeof(T)) as T`.
+
+- GetService<TSource, TTarget>()
+
+    The `GetService<TSource, TTarget>` method takes it a step further,
+    for when you need to query a service and cast it to an interface
+    (which happens a lot when dealing with Visual Studio services).
+
+    Again, I find it nicer to write `GetService<SomeService, ISomeInterface>`
+    than `GetService(typeof(TSource)) as TTarget`.
+
+- GetServiceAsync<T>()
+
+    `GetServiceAsync<T>` was going to be the async version of `GetService<T>`,
+    so I could get my services in `InitializeAsync` before switching to the main thread.
+    But it turns out there was a problem I wasn't aware of, which meant that there was no benefit
+    to have the async version.
+
+    ![Sharwell Cast](assets/images/sharwell-cast.png)
+
+    Same went on to explain:
+
+    ![Sharwell Com](assets/images/sharwell-com.png)
+
+- GetServiceAsync<TSource, TTarget>()
+
+    `GetServiceAsync<TSource, TTarget>` would suffer the same restriction,
+    so again there was no need for the method.
+
 
 - ShowToolWindow<T\>
 
