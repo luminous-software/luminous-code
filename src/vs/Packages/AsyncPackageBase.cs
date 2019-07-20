@@ -61,11 +61,12 @@ namespace Luminous.Code.VisualStudio.Packages
         protected override async Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
             await base.InitializeAsync(cancellationToken, progress);
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
 
-            Dte = await GetServiceAsync<_DTE, DTE2>();
-            CommandService = await GetServiceAsync<IMenuCommandService, OleMenuCommandService>();
-            SelectionService = await GetServiceAsync<SVsShellMonitorSelection, IVsMonitorSelection>();
-            VsShell = await GetServiceAsync<SVsShell, IVsShell4>();
+            Dte = GetService<_DTE, DTE2>();
+            CommandService = GetService<IMenuCommandService, OleMenuCommandService>();
+            SelectionService = GetService<SVsShellMonitorSelection, IVsMonitorSelection>();
+            VsShell = GetService<SVsShell, IVsShell4>();
             VisualStudioVersion = Dte.Version;
         }
 
@@ -82,12 +83,12 @@ namespace Luminous.Code.VisualStudio.Packages
             where TTarget : class
             => GetService(typeof(TSource)) as TTarget;
 
-        [Obsolete("Same Harwell: The code won't fail, but the cast to aCOMinterface runs the risk of it triggering a switch to the UI thread")]
+        [Obsolete("Same Harwell: The code won't fail, but the cast to a COM interface runs the risk of it triggering a switch to the UI thread")]
         public async Tasks.Task<T> GetServiceAsync<T>()
             where T : class
             => (await GetServiceAsync(typeof(T)) as T);
 
-        [Obsolete("Same Harwell: The code won't fail, but the cast to aCOMinterface runs the risk of it triggering a switch to the UI thread")]
+        [Obsolete("Same Harwell: The code won't fail, but the cast to a COM interface runs the risk of it triggering a switch to the UI thread")]
         public async Tasks.Task<TTarget> GetServiceAsync<TSource, TTarget>()
             where TSource : class
             where TTarget : class
