@@ -1,6 +1,12 @@
-## Releases
+## Public Releases
 
-The versions listed below have been released to Nuget.org.
+## v1.4.2 - 2019-07-20
+
+- minor fixes
+
+## v1.4.1 - 2019-06-20
+
+- updated AsyncPackageBase
 
 ## v1.4.0 - 2019-04-24
 
@@ -29,7 +35,7 @@ The versions listed below have been released to Nuget.org.
 
 - Add `ShowNewToolWindow<T>` to `PackageBase`
 
-## v1.0.3 - 2017-11-24
+## v1.0.2 - 2017-11-24
 
 - minor changes
 

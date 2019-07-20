@@ -1,18 +1,19 @@
-﻿using EnvDTE;
+﻿using System;
+using System.ComponentModel.Design;
+using System.IO;
+using System.Threading;
+using System.Windows;
+using EnvDTE;
 using EnvDTE80;
+using Luminous.Code.Extensions.StringExtensions;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.Text.Editor;
 using Microsoft.VisualStudio.TextManager.Interop;
-using System;
-using System.ComponentModel.Design;
-using System.IO;
-using System.Threading;
-using System.Windows;
+using static System.Environment;
 using static EnvDTE.Constants;
 using static Microsoft.VisualStudio.Editor.DefGuidList;
-using static System.Environment;
 using Button = System.Windows.MessageBoxButton;
 using Icon = System.Windows.MessageBoxImage;
 using Result = System.Windows.MessageBoxResult;
@@ -24,7 +25,6 @@ namespace Luminous.Code.VisualStudio.Packages
     using Commands;
     using Extensions.IntegerExtensions;
     using Extensions.IWpfTextViewHostExtensions;
-    using Luminous.Code.Extensions.StringExtensions;
     using static Commands.CommandKeys;
 
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
@@ -61,11 +61,12 @@ namespace Luminous.Code.VisualStudio.Packages
         protected override async Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
             await base.InitializeAsync(cancellationToken, progress);
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
 
-            Dte = await GetServiceAsync<_DTE, DTE2>();
-            CommandService = await GetServiceAsync<IMenuCommandService, OleMenuCommandService>();
-            SelectionService = await GetServiceAsync<SVsShellMonitorSelection, IVsMonitorSelection>();
-            VsShell = await GetServiceAsync<SVsShell, IVsShell4>();
+            Dte = GetService<_DTE, DTE2>();
+            CommandService = GetService<IMenuCommandService, OleMenuCommandService>();
+            SelectionService = GetService<SVsShellMonitorSelection, IVsMonitorSelection>();
+            VsShell = GetService<SVsShell, IVsShell4>();
             VisualStudioVersion = Dte.Version;
         }
 
@@ -73,23 +74,25 @@ namespace Luminous.Code.VisualStudio.Packages
             where TTarget : class
             => (GetGlobalService(typeof(TSource)) as TTarget);
 
-        public async Tasks.Task<T> GetServiceAsync<T>()
-            where T : class
-            => (await GetServiceAsync(typeof(T)) as T);
-
         public T GetService<T>()
             where T : class
             => (GetService(typeof(T)) as T);
-
-        public async Tasks.Task<TTarget> GetServiceAsync<TSource, TTarget>()
-            where TSource : class
-            where TTarget : class
-            => await GetServiceAsync(typeof(TSource)) as TTarget;
 
         public TTarget GetService<TSource, TTarget>()
             where TSource : class
             where TTarget : class
             => GetService(typeof(TSource)) as TTarget;
+
+        [Obsolete("Same Harwell: The code won't fail, but the cast to a COM interface runs the risk of it triggering a switch to the UI thread")]
+        public async Tasks.Task<T> GetServiceAsync<T>()
+            where T : class
+            => (await GetServiceAsync(typeof(T)) as T);
+
+        [Obsolete("Same Harwell: The code won't fail, but the cast to a COM interface runs the risk of it triggering a switch to the UI thread")]
+        public async Tasks.Task<TTarget> GetServiceAsync<TSource, TTarget>()
+            where TSource : class
+            where TTarget : class
+            => await GetServiceAsync(typeof(TSource)) as TTarget;
 
         public CommandResult ExecuteCommand(string command, string args = "", string success = null, string problem = null)
         {
@@ -397,6 +400,69 @@ namespace Luminous.Code.VisualStudio.Packages
         public static T GetDialogPage<T>()
             where T : DialogPage
             => (T)Instance.GetDialogPage(typeof(T));
+
+        public CommandResult ShowToolWindow<T>(string problem = null)
+            where T : ToolWindowPane
+        {
+            try
+            {
+                var toolWindow = FindToolWindow(typeof(T), 0, true);
+
+                if (toolWindow is null)
+                    return new ProblemResult("Unable to create window");
+                //throw new Exception("Unable to create window");
+
+                var windowFrame = (IVsWindowFrame)toolWindow.Frame;
+
+                if (windowFrame is null)
+                    return new ProblemResult("Unable to access window frame");
+                //throw new Exception("Unable to access window frame");
+
+
+                ErrorHandler.ThrowOnFailure(windowFrame.Show());
+                return new SuccessResult();
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(problem ?? ex.ExtendedMessage());
+            }
+
+        }
+
+        public CommandResult ShowNewToolWindow<T>(int maxWindows = 1, string problem = null)
+            where T : ToolWindowPane
+        {
+            try
+            {
+                for (var id = 0; id < maxWindows; id++)
+                {
+                    var window = FindToolWindow(typeof(T), id, create: false);
+
+                    // does the window already exist?
+                    if (window != null)
+                        continue;
+
+                    // create a new window using the first non-existing id
+                    window = FindToolWindow(typeof(T), id, create: true);
+
+                    if (window is null)
+                        return new ProblemResult("Unable to create a new window");
+
+                    var windowFrame = (IVsWindowFrame)window?.Frame;
+                    if (windowFrame is null)
+                        return new ProblemResult("Unable to access window frame");
+
+                    ErrorHandler.ThrowOnFailure(windowFrame.Show());
+
+                    return new SuccessResult();
+                }
+                return new ProblemResult($"Maximum of {maxWindows} new windows already created");
+            }
+            catch (Exception ex)
+            {
+                return new ProblemResult(problem ?? ex.ExtendedMessage());
+            }
+        }
 
         public CommandResult ShowOptions(Guid guid, string problem = null)
             => ExecuteCommand(ToolsOptions, guid.ToString(), problem: problem ?? "Unable to show options");
