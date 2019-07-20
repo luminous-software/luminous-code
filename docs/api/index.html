@@ -831,7 +831,7 @@
 <li>Luminous.Code.VisualStudio</li>
 </ul>
 <h2 id="luminouscodecore">Luminous.Code.Core<a class="headerlink" href="#luminouscodecore" title="Permanent link">&para;</a></h2>
-<p><code>Luminous.Code.Core</code> is a plain C# class library project that contains the lower level classes, methods and extension methods that get used by more 
+<p><code>Luminous.Code.Core</code> is a plain C# class library project that contains the lower level classes, methods and extension methods that get used by more
 specialised projects such as <code>Luminous.Code.VisualStudio</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Lack of 'Core' in the Namespace Names</p>
@@ -873,7 +873,7 @@ common base class for the <code>AsyncStaticCommand</code> class and the <code>As
 its parent package. It also has the ability to communicate with the IDE.</p>
 <h4 id="asyncdynamiccommand">AsyncDynamicCommand<a class="headerlink" href="#asyncdynamiccommand" title="Permanent link">&para;</a></h4>
 <p>The <code>Luminous.Code.VisualStudio.Commands.AsyncDynamicCommand</code> class can be used for commands whose <em>text</em> may need to change,
-and/or which may need to dynamically determine if the command needs to be <em>visible</em> or <em>enabled</em>. 
+and/or which may need to dynamically determine if the command needs to be <em>visible</em> or <em>enabled</em>.
 Three sensibly-named overridable properties are provided to make this easy and flexible.</p>
 <p>Both the command's <code>Visible</code> property and <code>Enabled</code> property are automatically calculated based on the values of
 <code>CanExecute</code> and <code>IsActive</code>.</p>
@@ -938,6 +938,36 @@ a Visual Studio package needs to interact with the Visual Studio IDE.</p>
 <p>The <code>Luminous.Code.VisualStudio.Packages.AsyncPackageBase</code> class is an abstract base class from which you inherit your own
 packages.</p>
 <ul>
+<li>
+<p>GetService&lt;T></p>
+<p>The <code>GetService&lt;T&gt;</code> method is a small piece of syntactic sugar around <code>Package.GetService</code>,
+which avoids the need for<code>typeof</code> and takes care of the cast to <code>T</code> as well.</p>
+<p>I just find it nicer to be able to write <code>GetService&lt;ISomeInterface&gt;</code> than
+<code>GetService(typeof(T)) as T</code>.</p>
+</li>
+<li>
+<p>GetService<TSource, TTarget>()</p>
+<p>The <code>GetService&lt;TSource, TTarget&gt;</code> method takes it a step further,
+for when you need to query a service and cast it to an interface
+(which happens a lot when dealing with Visual Studio services).</p>
+<p>Again, I find it nicer to write <code>GetService&lt;SomeService, ISomeInterface&gt;</code>
+than <code>GetService(typeof(TSource)) as TTarget</code>.</p>
+</li>
+<li>
+<p>GetServiceAsync<T>()</p>
+<p><code>GetServiceAsync&lt;T&gt;</code> was going to be the async version of <code>GetService&lt;T&gt;</code>,
+so I could get my services in <code>InitializeAsync</code> before switching to the main thread.
+But it turns out there was a problem I wasn't aware of, which meant that there was no benefit
+to have the async version.</p>
+<p><img alt="Sharwell Cast" src="../assets/images/sharwell-cast.png" /></p>
+<p>Same went on to explain:</p>
+<p><img alt="Sharwell Com" src="../assets/images/sharwell-com.png" /></p>
+</li>
+<li>
+<p>GetServiceAsync<TSource, TTarget>()</p>
+<p><code>GetServiceAsync&lt;TSource, TTarget&gt;</code> would suffer the same restriction,
+so again there was no need for the method.</p>
+</li>
 <li>
 <p>ShowToolWindow&lt;T></p>
 <p>The <code>ShowToolWindow&lt;T&gt;</code> method is for situations that only allow a single tool window.</p>
